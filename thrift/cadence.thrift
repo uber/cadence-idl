@@ -19,7 +19,6 @@
 // THE SOFTWARE.
 
 include "shared.thrift"
-include "replicator.thrift"
 
 namespace java com.uber.cadence
 
