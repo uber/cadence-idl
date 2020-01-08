@@ -28,7 +28,7 @@ exception InternalServiceError {
   1: required string message
 }
 
-exception InternalDataCorruptionError {
+exception InternalDataInconsistencyError {
   1: required string message
 }
 
