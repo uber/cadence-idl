@@ -529,6 +529,17 @@ service WorkflowService {
 	)
 
   /**
+  * Returns raw history in binary for specified workflow execution.
+  **/
+  shared.GetWorkflowExecutionRawHistoryResponse GetWorkflowExecutionRawHistory(1: shared.GetWorkflowExecutionRawHistoryRequest getRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.EntityNotExistsError entityNotExistError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
+  /**
   * DescribeWorkflowExecution returns information about the specified workflow execution.
   **/
   shared.DescribeWorkflowExecutionResponse DescribeWorkflowExecution(1: shared.DescribeWorkflowExecutionRequest describeRequest)
