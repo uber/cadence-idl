@@ -1637,3 +1637,15 @@ struct GetWorkflowExecutionRawHistoryResponse {
   20: optional binary nextPageToken
 }
 
+struct LongPollWorkflowExecutionRawHistoryRequest {
+  10: optional string domain
+  20: optional WorkflowExecution execution
+  30: optional i32 maximumPageSize
+  40: optional binary nextPageToken
+  50: optional HistoryEventFilterType HistoryEventFilterType
+}
+
+struct LongPollWorkflowExecutionRawHistoryResponse {
+  10: optional list<DataBlob> rawHistory
+  20: optional binary nextPageToken
+}
