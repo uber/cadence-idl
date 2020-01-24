@@ -540,17 +540,6 @@ service WorkflowService {
     )
 
   /**
-  * Returns raw history in binary for specified workflow execution.
-  **/
-  shared.LongPollWorkflowExecutionRawHistoryResponse LongPollWorkflowExecutionRawHistory(1: shared.LongPollWorkflowExecutionRawHistoryRequest getRequest)
-    throws (
-      1: shared.BadRequestError badRequestError,
-      2: shared.EntityNotExistsError entityNotExistError,
-      3: shared.ServiceBusyError serviceBusyError,
-      4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
-    )
-
-  /**
   * DescribeWorkflowExecution returns information about the specified workflow execution.
   **/
   shared.DescribeWorkflowExecutionResponse DescribeWorkflowExecution(1: shared.DescribeWorkflowExecutionRequest describeRequest)
@@ -594,4 +583,16 @@ service WorkflowService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.ServiceBusyError serviceBusyError,
     )
+
+  /**
+  * Returns raw history in binary for specified workflow execution.
+  **/
+  shared.PollForWorkflowExecutionRawHistoryResponse PollForWorkflowExecutionRawHistory(1: shared.PollForWorkflowExecutionRawHistoryRequest getRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.EntityNotExistsError entityNotExistError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
 }
