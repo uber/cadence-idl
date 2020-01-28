@@ -24,7 +24,7 @@ include "shared.thrift"
 include "replicator.thrift"
 
 /**
-* AdminService provides advanced APIs for debugging and analysis with admin privillege
+* AdminService provides advanced APIs for debugging and analysis with admin privilege
 **/
 service AdminService {
   /**
@@ -141,6 +141,36 @@ service AdminService {
       1: shared.InternalServiceError internalServiceError,
       2: shared.ServiceBusyError serviceBusyError,
     )
+
+  /**
+  * ReadDLQMessages returns messages from DLQ
+  **/
+  ReadDLQMessagesResponse ReadDLQMessages(1: ReadDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
+  * PurgeDLQMessages purges messages from DLQ
+  **/
+  void PurgeDLQMessages(1: PurgeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
+  * MergeDLQMessages merges messages from DLQ
+  **/
+  MergeDLQMessagesResponse MergeDLQMessages(1: MergeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -217,3 +247,40 @@ struct DescribeClusterResponse {
   10: optional shared.SupportedClientVersions supportedClientVersions
   20: optional MembershipInfo membershipInfo
 }
+
+enum QueueType {
+  Replication,
+  Domain,
+}
+
+struct ReadDLQMessagesRequest{
+  10: optional QueueType queueType
+  20: optional i32 shardID
+  30: optional i64 (js.type = "Long") inclusiveEndMessageID
+  40: optional i32 maximumPageSize
+  50: optional binary nextPageToken
+}
+
+struct ReadDLQMessagesResponse{
+  10: optional list<replicator.ReplicationTask> replicationTasks
+  20: optional binary nextPageToken
+}
+
+struct PurgeDLQMessagesRequest{
+  10: optional QueueType queueType
+  20: optional i32 shardID
+  30: optional i64 (js.type = "Long") inclusiveEndMessageID
+}
+
+struct MergeDLQMessagesRequest{
+  10: optional QueueType queueType
+  20: optional i32 shardID
+  30: optional i64 (js.type = "Long") inclusiveEndMessageID
+  40: optional i32 maximumPageSize
+  50: optional binary nextPageToken
+}
+
+struct MergeDLQMessagesResponse{
+  10: optional binary nextPageToken
+}
+
