@@ -287,4 +287,3 @@ struct MergeDLQMessagesRequest{
 struct MergeDLQMessagesResponse{
   10: optional binary nextPageToken
 }
-
