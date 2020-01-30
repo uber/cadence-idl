@@ -150,6 +150,7 @@ service AdminService {
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
     )
 
   /**
@@ -160,6 +161,7 @@ service AdminService {
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
     )
 
   /**
@@ -170,6 +172,7 @@ service AdminService {
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
     )
 }
 
@@ -248,13 +251,13 @@ struct DescribeClusterResponse {
   20: optional MembershipInfo membershipInfo
 }
 
-enum QueueType {
+enum DLQType {
   Replication,
   Domain,
 }
 
 struct ReadDLQMessagesRequest{
-  10: optional QueueType queueType
+  10: optional DLQType queueType
   20: optional i32 shardID
   30: optional i64 (js.type = "Long") inclusiveEndMessageID
   40: optional i32 maximumPageSize
@@ -262,18 +265,19 @@ struct ReadDLQMessagesRequest{
 }
 
 struct ReadDLQMessagesResponse{
-  10: optional list<replicator.ReplicationTask> replicationTasks
-  20: optional binary nextPageToken
+  10: optional DLQType queueType
+  20: optional list<replicator.ReplicationTask> replicationTasks
+  30: optional binary nextPageToken
 }
 
 struct PurgeDLQMessagesRequest{
-  10: optional QueueType queueType
+  10: optional DLQType queueType
   20: optional i32 shardID
   30: optional i64 (js.type = "Long") inclusiveEndMessageID
 }
 
 struct MergeDLQMessagesRequest{
-  10: optional QueueType queueType
+  10: optional DLQType queueType
   20: optional i32 shardID
   30: optional i64 (js.type = "Long") inclusiveEndMessageID
   40: optional i32 maximumPageSize
