@@ -145,7 +145,7 @@ service AdminService {
   /**
   * ReadDLQMessages returns messages from DLQ
   **/
-  ReadDLQMessagesResponse ReadDLQMessages(1: ReadDLQMessagesRequest request)
+  shared.ReadDLQMessagesResponse ReadDLQMessages(1: shared.ReadDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -156,7 +156,7 @@ service AdminService {
   /**
   * PurgeDLQMessages purges messages from DLQ
   **/
-  void PurgeDLQMessages(1: PurgeDLQMessagesRequest request)
+  void PurgeDLQMessages(1: shared.PurgeDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -167,7 +167,7 @@ service AdminService {
   /**
   * MergeDLQMessages merges messages from DLQ
   **/
-  MergeDLQMessagesResponse MergeDLQMessages(1: MergeDLQMessagesRequest request)
+  shared.MergeDLQMessagesResponse MergeDLQMessages(1: shared.MergeDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -249,44 +249,4 @@ struct MembershipInfo {
 struct DescribeClusterResponse {
   10: optional shared.SupportedClientVersions supportedClientVersions
   20: optional MembershipInfo membershipInfo
-}
-
-enum DLQType {
-  Replication,
-  Domain,
-}
-
-struct ReadDLQMessagesRequest{
-  10: optional DLQType queueType
-  20: optional i32 shardID
-  30: optional string sourceCluster
-  40: optional i64 (js.type = "Long") inclusiveEndMessageID
-  50: optional i32 maximumPageSize
-  60: optional binary nextPageToken
-}
-
-struct ReadDLQMessagesResponse{
-  10: optional DLQType queueType
-  20: optional list<replicator.ReplicationTask> replicationTasks
-  30: optional binary nextPageToken
-}
-
-struct PurgeDLQMessagesRequest{
-  10: optional DLQType queueType
-  20: optional i32 shardID
-  30: optional string sourceCluster
-  40: optional i64 (js.type = "Long") inclusiveEndMessageID
-}
-
-struct MergeDLQMessagesRequest{
-  10: optional DLQType queueType
-  20: optional i32 shardID
-  30: optional string sourceCluster
-  40: optional i64 (js.type = "Long") inclusiveEndMessageID
-  50: optional i32 maximumPageSize
-  60: optional binary nextPageToken
-}
-
-struct MergeDLQMessagesResponse{
-  10: optional binary nextPageToken
 }
