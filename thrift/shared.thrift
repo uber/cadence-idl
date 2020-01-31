@@ -1636,4 +1636,3 @@ struct GetWorkflowExecutionRawHistoryResponse {
   10: optional list<DataBlob> rawHistory
   20: optional binary nextPageToken
 }
-

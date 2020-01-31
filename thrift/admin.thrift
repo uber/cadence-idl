@@ -24,7 +24,7 @@ include "shared.thrift"
 include "replicator.thrift"
 
 /**
-* AdminService provides advanced APIs for debugging and analysis with admin privillege
+* AdminService provides advanced APIs for debugging and analysis with admin privilege
 **/
 service AdminService {
   /**
@@ -140,6 +140,39 @@ service AdminService {
     throws (
       1: shared.InternalServiceError internalServiceError,
       2: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
+  * ReadDLQMessages returns messages from DLQ
+  **/
+  shared.ReadDLQMessagesResponse ReadDLQMessages(1: shared.ReadDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+    )
+
+  /**
+  * PurgeDLQMessages purges messages from DLQ
+  **/
+  void PurgeDLQMessages(1: shared.PurgeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+    )
+
+  /**
+  * MergeDLQMessages merges messages from DLQ
+  **/
+  shared.MergeDLQMessagesResponse MergeDLQMessages(1: shared.MergeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
     )
 }
 
