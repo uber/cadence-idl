@@ -145,7 +145,7 @@ service AdminService {
   /**
   * ReadDLQMessages returns messages from DLQ
   **/
-  shared.ReadDLQMessagesResponse ReadDLQMessages(1: shared.ReadDLQMessagesRequest request)
+  replicator.ReadDLQMessagesResponse ReadDLQMessages(1: replicator.ReadDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -156,7 +156,7 @@ service AdminService {
   /**
   * PurgeDLQMessages purges messages from DLQ
   **/
-  void PurgeDLQMessages(1: shared.PurgeDLQMessagesRequest request)
+  void PurgeDLQMessages(1: replicator.PurgeDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -167,7 +167,7 @@ service AdminService {
   /**
   * MergeDLQMessages merges messages from DLQ
   **/
-  shared.MergeDLQMessagesResponse MergeDLQMessages(1: shared.MergeDLQMessagesRequest request)
+  replicator.MergeDLQMessagesResponse MergeDLQMessages(1: replicator.MergeDLQMessagesRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
