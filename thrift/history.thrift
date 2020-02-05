@@ -891,5 +891,6 @@ service HistoryService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.EntityNotExistsError entityNotExistError,
+      5: ShardOwnershipLostError shardOwnershipLostError,
     )
 }
