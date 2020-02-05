@@ -857,4 +857,40 @@ service HistoryService {
       6: ShardOwnershipLostError shardOwnershipLostError,
       7: shared.EntityNotExistsError entityNotExistError,
     )
+
+  /**
+  * ReadDLQMessages returns messages from DLQ
+  **/
+  replicator.ReadDLQMessagesResponse ReadDLQMessages(1: replicator.ReadDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+      5: ShardOwnershipLostError shardOwnershipLostError,
+    )
+
+  /**
+  * PurgeDLQMessages purges messages from DLQ
+  **/
+  void PurgeDLQMessages(1: replicator.PurgeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+      5: ShardOwnershipLostError shardOwnershipLostError,
+    )
+
+  /**
+  * MergeDLQMessages merges messages from DLQ
+  **/
+  replicator.MergeDLQMessagesResponse MergeDLQMessages(1: replicator.MergeDLQMessagesRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+      5: ShardOwnershipLostError shardOwnershipLostError,
+    )
 }
