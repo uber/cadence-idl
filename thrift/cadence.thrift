@@ -594,5 +594,4 @@ service WorkflowService {
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
     )
-
 }

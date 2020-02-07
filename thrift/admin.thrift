@@ -143,7 +143,6 @@ service AdminService {
     )
 
   /**
-<<<<<<< HEAD
   * ReadDLQMessages returns messages from DLQ
   **/
   replicator.ReadDLQMessagesResponse ReadDLQMessages(1: replicator.ReadDLQMessagesRequest request)
