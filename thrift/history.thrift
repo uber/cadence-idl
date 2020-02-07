@@ -906,8 +906,9 @@ service HistoryService {
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
-      3: ShardOwnershipLostError shardOwnershipLostError,
-      4: shared.ServiceBusyError serviceBusyError,
-      5: shared.EntityNotExistsError entityNotExistError,
+      3: shared.DomainNotActiveError domainNotActiveError,
+      4: ShardOwnershipLostError shardOwnershipLostError,
+      5: shared.ServiceBusyError serviceBusyError,
+      6: shared.EntityNotExistsError entityNotExistError,
     )
 }
