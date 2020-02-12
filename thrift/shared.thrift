@@ -1649,3 +1649,8 @@ struct PollForWorkflowExecutionRawHistoryResponse {
   10: optional list<DataBlob> rawHistory
   20: optional binary nextPageToken
 }
+
+struct RefreshWorkflowTasksRequest {
+  10: optional string domain
+  20: optional WorkflowExecution execution
+}

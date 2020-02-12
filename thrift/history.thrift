@@ -168,6 +168,11 @@ struct RespondActivityTaskCanceledRequest {
   20: optional shared.RespondActivityTaskCanceledRequest cancelRequest
 }
 
+struct RefreshWorkflowTasksRequest {
+  10: optional string domainUIID
+  20: optional shared.RefreshWorkflowTasksRequest request
+}
+
 struct RecordActivityTaskStartedRequest {
   10: optional string domainUUID
   20: optional shared.WorkflowExecution workflowExecution
@@ -892,5 +897,18 @@ service HistoryService {
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.EntityNotExistsError entityNotExistError,
       5: ShardOwnershipLostError shardOwnershipLostError,
+    )
+
+  /**
+  * RefreshWorkflowTasks refreshes all tasks of a workflow
+  **/
+  void RefreshWorkflowTasks(1: RefreshWorkflowTasksRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.DomainNotActiveError domainNotActiveError,
+      4: ShardOwnershipLostError shardOwnershipLostError,
+      5: shared.ServiceBusyError serviceBusyError,
+      6: shared.EntityNotExistsError entityNotExistError,
     )
 }
