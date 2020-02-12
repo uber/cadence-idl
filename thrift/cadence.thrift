@@ -584,14 +584,4 @@ service WorkflowService {
       5: shared.ServiceBusyError serviceBusyError,
     )
 
-  /**
-  * Returns raw history in binary for specified workflow execution.
-  **/
-  shared.PollForWorkflowExecutionRawHistoryResponse PollForWorkflowExecutionRawHistory(1: shared.PollForWorkflowExecutionRawHistoryRequest getRequest)
-    throws (
-      1: shared.BadRequestError badRequestError,
-      2: shared.EntityNotExistsError entityNotExistError,
-      3: shared.ServiceBusyError serviceBusyError,
-      4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
-    )
 }
