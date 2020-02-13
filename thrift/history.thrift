@@ -911,17 +911,4 @@ service HistoryService {
       4: shared.EntityNotExistsError entityNotExistError,
       5: ShardOwnershipLostError shardOwnershipLostError,
     )
-
-  /**
-  * RefreshWorkflowTasks refreshes all tasks of a workflow
-  **/
-  void RefreshWorkflowTasks(1: RefreshWorkflowTasksRequest request)
-    throws (
-      1: shared.BadRequestError badRequestError,
-      2: shared.InternalServiceError internalServiceError,
-      3: shared.DomainNotActiveError domainNotActiveError,
-      4: ShardOwnershipLostError shardOwnershipLostError,
-      5: shared.ServiceBusyError serviceBusyError,
-      6: shared.EntityNotExistsError entityNotExistError,
-    )
 }
