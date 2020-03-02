@@ -24,7 +24,7 @@ namespace java com.uber.cadence.matching
 
 // TaskSource is the source from which a task was produced
 enum TaskSource {
-    HISTORY    // Task produced by history service
+    HISTORY,    // Task produced by history service
     DB_BACKLOG // Task produced from matching db backlog
 }
 
