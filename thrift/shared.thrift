@@ -653,6 +653,8 @@ struct ActivityTaskStartedEventAttributes {
   20: optional string identity
   30: optional string requestId
   40: optional i32 attempt
+  50: optional string lastFailureReason
+  60: optional binary lastFailureDetails
 }
 
 struct ActivityTaskCompletedEventAttributes {
