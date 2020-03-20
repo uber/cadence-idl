@@ -44,8 +44,6 @@ exception WorkflowExecutionAlreadyStartedError {
 
 exception EntityNotExistsError {
   1: required string message
-  2: required string currentCluster
-  3: required string activeCluster
 }
 
 exception ServiceBusyError {
@@ -65,6 +63,12 @@ exception DomainNotActiveError {
   2: required string domainName
   3: required string currentCluster
   4: required string activeCluster
+}
+
+exception EntityNotFoundOnNonActiveError {
+  1: required string message
+  2: required string currentCluster
+  3: required string activeCluster
 }
 
 exception LimitExceededError {
