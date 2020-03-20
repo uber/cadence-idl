@@ -1254,6 +1254,7 @@ struct GetWorkflowExecutionHistoryRequest {
   40: optional binary nextPageToken
   50: optional bool waitForNewEvent
   60: optional HistoryEventFilterType HistoryEventFilterType
+  70: optional bool skipArchival
 }
 
 struct GetWorkflowExecutionHistoryResponse {
