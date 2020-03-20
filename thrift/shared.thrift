@@ -44,6 +44,8 @@ exception WorkflowExecutionAlreadyStartedError {
 
 exception EntityNotExistsError {
   1: required string message
+  2: required string currentCluster
+  3: required string activeCluster
 }
 
 exception ServiceBusyError {
