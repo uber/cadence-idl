@@ -1261,9 +1261,9 @@ struct GetWorkflowExecutionHistoryRequest {
 
 struct GetWorkflowExecutionHistoryResponse {
   10: optional History history
-  20: optional list<DataBlob> rawHistory
-  30: optional binary nextPageToken
-  40: optional bool archived
+  11: optional list<DataBlob> rawHistory
+  20: optional binary nextPageToken
+  30: optional bool archived
 }
 
 struct SignalWorkflowExecutionRequest {
