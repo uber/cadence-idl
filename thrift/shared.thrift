@@ -44,6 +44,8 @@ exception WorkflowExecutionAlreadyStartedError {
 
 exception EntityNotExistsError {
   1: required string message
+  2: optional string currentCluster
+  3: optional string activeCluster
 }
 
 exception ServiceBusyError {
@@ -653,6 +655,8 @@ struct ActivityTaskStartedEventAttributes {
   20: optional string identity
   30: optional string requestId
   40: optional i32 attempt
+  50: optional string lastFailureReason
+  60: optional binary lastFailureDetails
 }
 
 struct ActivityTaskCompletedEventAttributes {
@@ -1252,6 +1256,7 @@ struct GetWorkflowExecutionHistoryRequest {
   40: optional binary nextPageToken
   50: optional bool waitForNewEvent
   60: optional HistoryEventFilterType HistoryEventFilterType
+  70: optional bool skipArchival
 }
 
 struct GetWorkflowExecutionHistoryResponse {
