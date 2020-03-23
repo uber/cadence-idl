@@ -1630,32 +1630,7 @@ struct ClusterInfo{
   10: optional SupportedClientVersions supportedClientVersions
 }
 
-struct GetWorkflowExecutionRawHistoryRequest {
-  10: optional string domain
-  20: optional WorkflowExecution execution
-  30: optional i32 maximumPageSize
-  40: optional binary nextPageToken
-}
-
-struct GetWorkflowExecutionRawHistoryResponse {
-  10: optional list<DataBlob> rawHistory
-  20: optional binary nextPageToken
-}
-
 struct RefreshWorkflowTasksRequest {
   10: optional string domain
   20: optional WorkflowExecution execution
-}
-
-struct PollForWorkflowExecutionRawHistoryRequest {
-  10: optional string domain
-  20: optional WorkflowExecution execution
-  30: optional i32 maximumPageSize
-  40: optional binary nextPageToken
-  50: optional HistoryEventFilterType HistoryEventFilterType
-}
-
-struct PollForWorkflowExecutionRawHistoryResponse {
-  10: optional list<DataBlob> rawHistory
-  20: optional binary nextPageToken
 }
