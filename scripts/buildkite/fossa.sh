@@ -2,7 +2,7 @@
 
 set -exo pipefail
 
-curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/v1.0.22/install.sh | bash -s -- -b ~/ v1.0.22
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b ~/
 
 ~/fossa init
 ~/fossa analyze
