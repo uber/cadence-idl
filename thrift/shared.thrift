@@ -379,6 +379,7 @@ struct WorkflowExecutionInfo {
   100: optional Memo memo
   101: optional SearchAttributes searchAttributes
   110: optional ResetPoints autoResetPoints
+  120: optional string TaskList
 }
 
 struct WorkflowExecutionConfiguration {
