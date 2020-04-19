@@ -1060,6 +1060,7 @@ struct UpdateDomainRequest {
  40: optional DomainReplicationConfiguration replicationConfiguration
  50: optional string securityToken
  60: optional string deleteBadBinary
+ 70: optional i32 failoverTimeoutInSeconds
 }
 
 struct UpdateDomainResponse {
