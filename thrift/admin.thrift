@@ -179,12 +179,22 @@ service AdminService {
   * RefreshWorkflowTasks refreshes all tasks of a workflow
   **/
   void RefreshWorkflowTasks(1: shared.RefreshWorkflowTasksRequest request)
-   throws (
+    throws (
       1: shared.BadRequestError badRequestError,
       2: shared.DomainNotActiveError domainNotActiveError,
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.EntityNotExistsError entityNotExistError,
-   )
+    )
+
+  /**
+  * ResendReplicationTasks sends replication tasks from remote cluster
+  **/
+  void ResendReplicationTasks(1: ResendReplicationTasksRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.ServiceBusyError serviceBusyError,
+      3: shared.EntityNotExistsError entityNotExistError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -260,4 +270,15 @@ struct MembershipInfo {
 struct DescribeClusterResponse {
   10: optional shared.SupportedClientVersions supportedClientVersions
   20: optional MembershipInfo membershipInfo
+}
+
+struct ResendReplicationTasksRequest {
+  10: optional string domainID
+  20: optional string workflowID
+  30: optional string runID
+  40: optional string remoteCluster
+  50: optional i64 (js.type = "Long") startEventID
+  60: optional i64 (js.type = "Long") startVersion
+  70: optional i64 (js.type = "Long") endEventID
+  80: optional i64 (js.type = "Long") endVersion
 }
