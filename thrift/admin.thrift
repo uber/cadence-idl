@@ -187,7 +187,7 @@ service AdminService {
     )
 
   /**
-  * ResendReplicationTasks sends replication tasks from remote cluster
+  * ResendReplicationTasks requests replication tasks from remote cluster and apply tasks to current cluster
   **/
   void ResendReplicationTasks(1: ResendReplicationTasksRequest request)
     throws (
