@@ -29,6 +29,7 @@ enum ReplicationTaskType {
   SyncActivity
   HistoryMetadata
   HistoryV2
+  FailoverMarker
 }
 
 enum DomainOperation {
@@ -117,6 +118,7 @@ struct ReplicationTask {
   50: optional SyncActivityTaskAttributes syncActivityTaskAttributes
   60: optional HistoryMetadataTaskAttributes historyMetadataTaskAttributes // TODO deprecate once kafka deprecation is done
   70: optional HistoryTaskV2Attributes historyTaskV2Attributes
+  80: optional FailoverMarkerAttributes failoverMarkerAttributes
 }
 
 struct ReplicationToken {
@@ -221,4 +223,11 @@ struct MergeDLQMessagesRequest{
 
 struct MergeDLQMessagesResponse{
   10: optional binary nextPageToken
+}
+
+struct FailoverMarkerAttributes{
+	10: optional string domainID
+	20: optional i64 (js.type = "Long") failoverVersion
+	30: optional string sourceCluster
+	40: optional i64 (js.type = "Long") creationTime
 }
