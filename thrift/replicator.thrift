@@ -29,6 +29,7 @@ enum ReplicationTaskType {
   SyncActivity
   HistoryMetadata
   HistoryV2
+  FailoverMarker
 }
 
 enum DomainOperation {
@@ -108,6 +109,13 @@ struct HistoryTaskV2Attributes {
   70: optional shared.DataBlob newRunEvents
 }
 
+struct FailoverMarkerAttributes{
+	10: optional string domainID
+	20: optional i64 (js.type = "Long") failoverVersion
+	30: optional string sourceCluster
+	40: optional i64 (js.type = "Long") creationTime
+}
+
 struct ReplicationTask {
   10: optional ReplicationTaskType taskType
   11: optional i64 (js.type = "Long") sourceTaskId
@@ -117,6 +125,7 @@ struct ReplicationTask {
   50: optional SyncActivityTaskAttributes syncActivityTaskAttributes
   60: optional HistoryMetadataTaskAttributes historyMetadataTaskAttributes // TODO deprecate once kafka deprecation is done
   70: optional HistoryTaskV2Attributes historyTaskV2Attributes
+  80: optional FailoverMarkerAttributes failoverMarkerAttributes
 }
 
 struct ReplicationToken {
