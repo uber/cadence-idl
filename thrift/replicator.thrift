@@ -109,6 +109,13 @@ struct HistoryTaskV2Attributes {
   70: optional shared.DataBlob newRunEvents
 }
 
+struct FailoverMarkerAttributes{
+	10: optional string domainID
+	20: optional i64 (js.type = "Long") failoverVersion
+	30: optional string sourceCluster
+	40: optional i64 (js.type = "Long") creationTime
+}
+
 struct ReplicationTask {
   10: optional ReplicationTaskType taskType
   11: optional i64 (js.type = "Long") sourceTaskId
@@ -223,11 +230,4 @@ struct MergeDLQMessagesRequest{
 
 struct MergeDLQMessagesResponse{
   10: optional binary nextPageToken
-}
-
-struct FailoverMarkerAttributes{
-	10: optional string domainID
-	20: optional i64 (js.type = "Long") failoverVersion
-	30: optional string sourceCluster
-	40: optional i64 (js.type = "Long") creationTime
 }
