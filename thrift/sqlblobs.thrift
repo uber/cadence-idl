@@ -265,4 +265,5 @@ struct ReplicationTaskInfo {
   32: optional map<string, ReplicationInfo> lastReplicationInfo
   34: optional binary newRunBranchToken
   36: optional bool resetWorkflow
+  38: optional i64 (js.type = "Long") creationTime
 }
