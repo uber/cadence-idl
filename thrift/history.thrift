@@ -354,6 +354,15 @@ struct ReapplyEventsRequest {
   20: optional shared.ReapplyEventsRequest request
 }
 
+struct FailoverMarkerToken {
+  10: optional list<i32> shardIDs
+  20: optional replicator.FailoverMarkerAttributes failoverMarker
+}
+
+struct HeartbeatFailoverMarkersRequest {
+  10: optional list<FailoverMarkerToken> failoverMarkerTokens
+}
+
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
 * of workflow instances already created.
@@ -910,5 +919,15 @@ service HistoryService {
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.EntityNotExistsError entityNotExistError,
       5: ShardOwnershipLostError shardOwnershipLostError,
+    )
+
+  /**
+  * HeartbeatFailoverMarkers sends failover marker to the failover coordinator
+  **/
+  void HeartbeatFailoverMarkers(1: HeartbeatFailoverMarkersRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
     )
 }
