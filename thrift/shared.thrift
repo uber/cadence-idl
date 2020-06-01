@@ -105,6 +105,10 @@ exception CurrentBranchChangedError {
   20: required binary currentBranchToken
 }
 
+exception RemoteSyncMatchedError {
+  10: required string message
+}
+
 enum WorkflowIdReusePolicy {
   /*
    * allow start a workflow execution using the same workflow ID,
