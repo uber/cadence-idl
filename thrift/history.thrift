@@ -359,7 +359,7 @@ struct FailoverMarkerToken {
   20: optional replicator.FailoverMarkerAttributes failoverMarker
 }
 
-struct HeartbeatFailoverMarkersRequest {
+struct NotifyFailoverMarkersRequest {
   10: optional list<FailoverMarkerToken> failoverMarkerTokens
 }
 
@@ -922,9 +922,9 @@ service HistoryService {
     )
 
   /**
-  * HeartbeatFailoverMarkers sends failover marker to the failover coordinator
+  * NotifyFailoverMarkers sends failover marker to the failover coordinator
   **/
-  void HeartbeatFailoverMarkers(1: HeartbeatFailoverMarkersRequest request)
+  void NotifyFailoverMarkers(1: NotifyFailoverMarkersRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
