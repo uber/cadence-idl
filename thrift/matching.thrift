@@ -157,6 +157,7 @@ service MatchingService {
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.LimitExceededError limitExceededError,
       5: shared.DomainNotActiveError domainNotActiveError,
+      6: shared.RemoteSyncMatchedError remoteSyncMatchedError,
     )
 
   /**
@@ -170,6 +171,7 @@ service MatchingService {
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.LimitExceededError limitExceededError,
       5: shared.DomainNotActiveError domainNotActiveError,
+      6: shared.RemoteSyncMatchedError remoteSyncMatchedError,
     )
 
   /**
