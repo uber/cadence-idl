@@ -112,8 +112,7 @@ struct HistoryTaskV2Attributes {
 struct FailoverMarkerAttributes{
 	10: optional string domainID
 	20: optional i64 (js.type = "Long") failoverVersion
-	30: optional string sourceCluster
-	40: optional i64 (js.type = "Long") creationTime
+	30: optional i64 (js.type = "Long") creationTime
 }
 
 struct ReplicationTask {
