@@ -58,6 +58,7 @@ struct DomainInfo {
   46: optional i16 visibilityArchivalStatus
   48: optional string visibilityArchivalURI
   50: optional i64 (js.type = "Long") failoverEndTime
+  52: optional i64 (js.type = "Long") previousFailoverVersion
 }
 
 struct HistoryTreeInfo {
