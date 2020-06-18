@@ -116,6 +116,10 @@ struct FailoverMarkerAttributes{
 	30: optional i64 (js.type = "Long") creationTime
 }
 
+struct FailoverMarkers{
+	10: optional list<FailoverMarkerAttributes> failoverMarkers
+}
+
 struct ReplicationTask {
   10: optional ReplicationTaskType taskType
   11: optional i64 (js.type = "Long") sourceTaskId
