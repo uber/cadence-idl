@@ -35,6 +35,7 @@ struct ShardInfo {
   40: optional map<string, i64> clusterReplicationLevel
   42: optional binary pendingFailoverMarkers
   44: optional string pendingFailoverMarkersEncoding
+  46: optional map<string, i64> replicationDlqAckLevel
 }
 
 struct DomainInfo {
