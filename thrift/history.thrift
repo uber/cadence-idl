@@ -806,20 +806,30 @@ service HistoryService {
   **/
   void CloseShard(1: shared.CloseShardRequest request)
     throws (
-    1: shared.BadRequestError badRequestError,
-    2: shared.InternalServiceError internalServiceError,
-    3: shared.AccessDeniedError accessDeniedError,
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
   * RemoveTask remove task based on type, taskid, shardid
   **/
   void RemoveTask(1: shared.RemoveTaskRequest request)
-     throws (
-     1: shared.BadRequestError badRequestError,
-     2: shared.InternalServiceError internalServiceError,
-     3: shared.AccessDeniedError accessDeniedError,
-     )
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.AccessDeniedError accessDeniedError,
+    )
+
+  /**
+  * ResetQueue reset processing queue state based on cluster name and type 
+  **/
+  void ResetQueue(1: shared.ResetQueueRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.AccessDeniedError accessDeniedError,
+    )
 
   /**
   * GetReplicationMessages return replication messages based on the read level

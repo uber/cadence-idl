@@ -62,6 +62,12 @@ service AdminService {
       3: shared.AccessDeniedError     accessDeniedError,
     )
 
+  void ResetQueue(1: shared.ResetQueueRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.InternalServiceError  internalServiceError,
+      3: shared.AccessDeniedError     accessDeniedError,
+    )
 
   /**
   * Returns the raw history of specified workflow execution.  It fails with 'EntityNotExistError' if speficied workflow
