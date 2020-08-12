@@ -832,6 +832,16 @@ service HistoryService {
     )
 
   /**
+  * DescribeQueue return queue states based on cluster name and type 
+  **/
+  shared.DescribeQueueResponse DescribeQueue(1: shared.DescribeQueueRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.AccessDeniedError accessDeniedError,
+    )
+
+  /**
   * GetReplicationMessages return replication messages based on the read level
   **/
   replicator.GetReplicationMessagesResponse GetReplicationMessages(1: replicator.GetReplicationMessagesRequest request)
