@@ -69,6 +69,13 @@ service AdminService {
       3: shared.AccessDeniedError     accessDeniedError,
     )
 
+  shared.DescribeQueueResponse DescribeQueue(1: shared.DescribeQueueRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.InternalServiceError  internalServiceError,
+      3: shared.AccessDeniedError     accessDeniedError,
+    )
+
   /**
   * Returns the raw history of specified workflow execution.  It fails with 'EntityNotExistError' if speficied workflow
   * execution in unknown to the service.
@@ -101,7 +108,7 @@ service AdminService {
       3: shared.LimitExceededError limitExceededError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
-      )
+    )
 
   replicator.GetDomainReplicationMessagesResponse GetDomainReplicationMessages(1: replicator.GetDomainReplicationMessagesRequest request)
     throws (
