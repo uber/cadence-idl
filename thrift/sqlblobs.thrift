@@ -36,6 +36,10 @@ struct ShardInfo {
   42: optional binary pendingFailoverMarkers
   44: optional string pendingFailoverMarkersEncoding
   46: optional map<string, i64> replicationDlqAckLevel
+  50: optional binary transferProcessingQueueStates
+  51: optional string transferProcessingQueueStatesEncoding
+  55: optional binary timerProcessingQueueStates
+  56: optional string timerProcessingQueueStatesEncoding
 }
 
 struct DomainInfo {
