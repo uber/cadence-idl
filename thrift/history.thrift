@@ -363,6 +363,22 @@ struct NotifyFailoverMarkersRequest {
   10: optional list<FailoverMarkerToken> failoverMarkerTokens
 }
 
+struct ProcessingQueueStates {
+  10: optional map<string, list<ProcessingQueueState>> statesByCluster
+}
+
+struct ProcessingQueueState {
+  10: optional i32 level
+  20: optional i64 ackLevel
+  30: optional i64 maxLevel
+  40: optional DomainFilter domainFilter
+}
+
+struct DomainFilter {
+  10: optional list<string> domainIDs
+  20: optional bool reverseMatch
+}
+
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
 * of workflow instances already created.

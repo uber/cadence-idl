@@ -36,6 +36,10 @@ struct ShardInfo {
   42: optional binary pendingFailoverMarkers
   44: optional string pendingFailoverMarkersEncoding
   46: optional map<string, i64> replicationDlqAckLevel
+  50: optional binary transferProcessingQueueStates
+  51: optional string transferProcessingQueueStatesEncoding
+  55: optional binary timerProcessingQueueStates
+  56: optional string timerProcessingQueueStatesEncoding
 }
 
 struct DomainInfo {
@@ -270,4 +274,16 @@ struct ReplicationTaskInfo {
   34: optional binary newRunBranchToken
   36: optional bool resetWorkflow
   38: optional i64 (js.type = "Long") creationTime
+}
+
+struct ProcessingQueueState {
+  10: optional i32 level
+  20: optional i64 ackLevel
+  30: optional i64 maxLevel
+  40: optional DomainFilter domainFilter
+}
+
+struct DomainFilter {
+  10: optional list<string> domainIDs
+  20: optional bool reverseMatch
 }
