@@ -25,9 +25,7 @@ include "shared.thrift"
 enum ReplicationTaskType {
   Domain
   History
-  SyncShardStatus
   SyncActivity
-  HistoryMetadata
   HistoryV2
   FailoverMarker
 }
