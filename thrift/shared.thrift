@@ -75,14 +75,6 @@ exception AccessDeniedError {
   1: required string message
 }
 
-exception RetryTaskError {
-  1: required string message
-  2: optional string domainId
-  3: optional string workflowId
-  4: optional string runId
-  5: optional i64 (js.type = "Long") nextEventId
-}
-
 exception RetryTaskV2Error {
   1: required string message
   2: optional string domainId
@@ -345,11 +337,6 @@ enum QueryConsistencyLevel {
 struct DataBlob {
   10: optional EncodingType EncodingType
   20: optional binary Data
-}
-
-struct ReplicationInfo {
-  10: optional i64 (js.type = "Long") version
-  20: optional i64 (js.type = "Long") lastEventId
 }
 
 struct TaskListMetadata {

@@ -85,7 +85,6 @@ struct GetMutableStateResponse {
   110: optional i32 stickyTaskListScheduleToStartTimeout
   120: optional i32 eventStoreVersion
   130: optional binary currentBranchToken
-  140: optional map<string, shared.ReplicationInfo> replicationInfo
   // TODO: when migrating to gRPC, make this a enum
   // TODO: when migrating to gRPC, unify internal & external representation
   // NOTE: workflowState & workflowCloseState are the same as persistence representation
@@ -115,7 +114,6 @@ struct PollMutableStateResponse {
   90: optional string clientImpl
   100: optional i32 stickyTaskListScheduleToStartTimeout
   110: optional binary currentBranchToken
-  120: optional map<string, shared.ReplicationInfo> replicationInfo
   130: optional shared.VersionHistories versionHistories
   // TODO: when migrating to gRPC, make this a enum
   // TODO: when migrating to gRPC, unify internal & external representation
@@ -278,33 +276,6 @@ struct RecordChildExecutionCompletedRequest {
   30: optional i64 (js.type = "Long") initiatedId
   40: optional shared.WorkflowExecution completedExecution
   50: optional shared.HistoryEvent completionEvent
-}
-
-struct ReplicateEventsRequest {
-  10: optional string sourceCluster
-  20: optional string domainUUID
-  30: optional shared.WorkflowExecution workflowExecution
-  40: optional i64 (js.type = "Long") firstEventId
-  50: optional i64 (js.type = "Long") nextEventId
-  60: optional i64 (js.type = "Long") version
-  70: optional map<string, shared.ReplicationInfo> replicationInfo
-  80: optional shared.History history
-  90: optional shared.History newRunHistory
-  100: optional bool forceBufferEvents // this attribute is deprecated
-  110: optional i32 eventStoreVersion
-  120: optional i32 newRunEventStoreVersion
-  130: optional bool resetWorkflow
-  140: optional bool newRunNDC
-}
-
-struct ReplicateRawEventsRequest {
-  10: optional string domainUUID
-  20: optional shared.WorkflowExecution workflowExecution
-  30: optional map<string, shared.ReplicationInfo> replicationInfo
-  40: optional shared.DataBlob history
-  50: optional shared.DataBlob newRunHistory
-  60: optional i32 eventStoreVersion
-  70: optional i32 newRunEventStoreVersion
 }
 
 struct ReplicateEventsV2Request {
@@ -717,28 +688,6 @@ service HistoryService {
       4: ShardOwnershipLostError shardOwnershipLostError,
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
-    )
-
-  void ReplicateEvents(1: ReplicateEventsRequest replicateRequest)
-    throws (
-      1: shared.BadRequestError badRequestError,
-      2: shared.InternalServiceError internalServiceError,
-      3: shared.EntityNotExistsError entityNotExistError,
-      4: ShardOwnershipLostError shardOwnershipLostError,
-      5: shared.LimitExceededError limitExceededError,
-      6: shared.RetryTaskError retryTaskError,
-      7: shared.ServiceBusyError serviceBusyError,
-    )
-
-  void ReplicateRawEvents(1: ReplicateRawEventsRequest replicateRequest)
-    throws (
-      1: shared.BadRequestError badRequestError,
-      2: shared.InternalServiceError internalServiceError,
-      3: shared.EntityNotExistsError entityNotExistError,
-      4: ShardOwnershipLostError shardOwnershipLostError,
-      5: shared.LimitExceededError limitExceededError,
-      6: shared.RetryTaskError retryTaskError,
-      7: shared.ServiceBusyError serviceBusyError,
     )
 
   void ReplicateEventsV2(1: ReplicateEventsV2Request replicateV2Request)
