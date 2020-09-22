@@ -1521,6 +1521,22 @@ struct CloseShardRequest {
   10: optional i32               shardID
 }
 
+struct ResetQueueRequest {
+  10: optional i32    shardID
+  20: optional string clusterName
+  30: optional i32    type
+}
+
+struct DescribeQueueRequest {
+  10: optional i32    shardID
+  20: optional string clusterName
+  30: optional i32    type
+}
+
+struct DescribeQueueResponse {
+  10: optional list<string> processingQueueStates
+}
+
 struct DescribeHistoryHostResponse{
   10: optional i32                  numberOfShards
   20: optional list<i32>            shardIDs
