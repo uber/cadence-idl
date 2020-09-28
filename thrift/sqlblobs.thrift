@@ -74,11 +74,6 @@ struct HistoryTreeInfo {
   14: optional string info // For lookup back to workflow during debugging, also background cleanup when fork operation cannot finish self cleanup due to crash.
 }
 
-struct ReplicationInfo {
-  10: optional i64 (js.type = "Long") version
-  12: optional i64 (js.type = "Long") lastEventID
-}
-
 struct WorkflowExecutionInfo {
   10: optional binary parentDomainID
   12: optional string parentWorkflowID
@@ -95,9 +90,7 @@ struct WorkflowExecutionInfo {
   34: optional i32 state
   36: optional i32 closeStatus
   38: optional i64 (js.type = "Long") startVersion
-  40: optional i64 (js.type = "Long") currentVersion
   44: optional i64 (js.type = "Long") lastWriteEventID
-  46: optional map<string, ReplicationInfo> lastReplicationInfo
   48: optional i64 (js.type = "Long") lastEventTaskID
   50: optional i64 (js.type = "Long") lastFirstEventID
   52: optional i64 (js.type = "Long") lastProcessedEvent
@@ -270,8 +263,6 @@ struct ReplicationTaskInfo {
   26: optional i32 eventStoreVersion
   28: optional i32 newRunEventStoreVersion
   30: optional binary branch_token
-  32: optional map<string, ReplicationInfo> lastReplicationInfo
   34: optional binary newRunBranchToken
-  36: optional bool resetWorkflow
   38: optional i64 (js.type = "Long") creationTime
 }

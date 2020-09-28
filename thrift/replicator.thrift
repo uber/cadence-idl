@@ -48,33 +48,6 @@ struct DomainTaskAttributes {
   70: optional i64 (js.type = "Long") previousFailoverVersion
 }
 
-struct HistoryTaskAttributes {
-  05: optional list<string> targetClusters
-  10: optional string domainId
-  20: optional string workflowId
-  30: optional string runId
-  40: optional i64 (js.type = "Long") firstEventId
-  50: optional i64 (js.type = "Long") nextEventId
-  60: optional i64 (js.type = "Long") version
-  70: optional map<string, shared.ReplicationInfo> replicationInfo
-  80: optional shared.History history
-  90: optional shared.History newRunHistory
-  100: optional i32 eventStoreVersion
-  110: optional i32 newRunEventStoreVersion
-  120: optional bool resetWorkflow
-  130: optional bool newRunNDC
-}
-
-struct HistoryMetadataTaskAttributes {
-  05: optional list<string> targetClusters
-  10: optional string domainId
-  20: optional string workflowId
-  30: optional string runId
-  40: optional i64 (js.type = "Long") firstEventId
-  50: optional i64 (js.type = "Long") nextEventId
-  60: optional i64 (js.type = "Long") version
-}
-
 struct SyncShardStatusTaskAttributes {
   10: optional string sourceCluster
   20: optional i64 (js.type = "Long") shardId
@@ -124,10 +97,8 @@ struct ReplicationTask {
   10: optional ReplicationTaskType taskType
   11: optional i64 (js.type = "Long") sourceTaskId
   20: optional DomainTaskAttributes domainTaskAttributes
-  30: optional HistoryTaskAttributes historyTaskAttributes  // TODO deprecate once NDC migration is done
   40: optional SyncShardStatusTaskAttributes syncShardStatusTaskAttributes
   50: optional SyncActivityTaskAttributes syncActivityTaskAttributes
-  60: optional HistoryMetadataTaskAttributes historyMetadataTaskAttributes // TODO deprecate once kafka deprecation is done
   70: optional HistoryTaskV2Attributes historyTaskV2Attributes
   80: optional FailoverMarkerAttributes failoverMarkerAttributes
 }
