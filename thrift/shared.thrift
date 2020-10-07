@@ -401,6 +401,7 @@ struct ScheduleActivityTaskDecisionAttributes {
   60: optional i32 heartbeatTimeoutSeconds
   70: optional RetryPolicy retryPolicy
   80: optional Header header
+  90: optional bool requestStart
 }
 
 struct RequestCancelActivityTaskDecisionAttributes {
@@ -1137,6 +1138,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional PollForDecisionTaskResponse decisionTask
+  20: optional requestActivityStartEnabled
 }
 
 struct RespondDecisionTaskFailedRequest {
