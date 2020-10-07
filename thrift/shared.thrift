@@ -1138,7 +1138,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional PollForDecisionTaskResponse decisionTask
-  20: optional requestActivityStartEnabled
+  20: optional bool requestActivityStartEnabled
 }
 
 struct RespondDecisionTaskFailedRequest {
