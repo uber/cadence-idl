@@ -139,6 +139,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional RecordDecisionTaskStartedResponse startedResponse
+  20: optional requestActivityStartEnabled
 }
 
 struct RespondDecisionTaskFailedRequest {
