@@ -1143,7 +1143,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional PollForDecisionTaskResponse decisionTask
-  20: optional bool requestActivityStartEnabled
+  20: optional map<string,ActivityToDispatchLocallyInfo> activitiesToDispatchLocally
 }
 
 struct RespondDecisionTaskFailedRequest {
