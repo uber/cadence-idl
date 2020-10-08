@@ -401,7 +401,12 @@ struct ScheduleActivityTaskDecisionAttributes {
   60: optional i32 heartbeatTimeoutSeconds
   70: optional RetryPolicy retryPolicy
   80: optional Header header
-  90: optional bool requestStart
+  90: optional bool requestLocalDispatch
+}
+
+struct ActivityToDispatchLocallyInfo{
+  10: optional string activityId
+  20: optional bool canBeDispatchedLocally
 }
 
 struct RequestCancelActivityTaskDecisionAttributes {
