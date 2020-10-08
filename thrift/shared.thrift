@@ -401,6 +401,12 @@ struct ScheduleActivityTaskDecisionAttributes {
   60: optional i32 heartbeatTimeoutSeconds
   70: optional RetryPolicy retryPolicy
   80: optional Header header
+  90: optional bool requestLocalDispatch
+}
+
+struct ActivityLocalDispatchInfo{
+  10: optional string activityId
+  // more fields will be added here later
 }
 
 struct RequestCancelActivityTaskDecisionAttributes {
@@ -1137,6 +1143,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional PollForDecisionTaskResponse decisionTask
+  20: optional map<string,ActivityLocalDispatchInfo> activitiesToDispatchLocally
 }
 
 struct RespondDecisionTaskFailedRequest {
