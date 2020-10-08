@@ -404,9 +404,9 @@ struct ScheduleActivityTaskDecisionAttributes {
   90: optional bool requestLocalDispatch
 }
 
-struct ActivityToDispatchLocallyInfo{
+struct ActivityLocalDispatchInfo{
   10: optional string activityId
-  20: optional bool canBeDispatchedLocally
+  // more fields will be added here later
 }
 
 struct RequestCancelActivityTaskDecisionAttributes {
@@ -1143,7 +1143,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional PollForDecisionTaskResponse decisionTask
-  20: optional map<string,ActivityToDispatchLocallyInfo> activitiesToDispatchLocally
+  20: optional map<string,ActivityLocalDispatchInfo> activitiesToDispatchLocally
 }
 
 struct RespondDecisionTaskFailedRequest {

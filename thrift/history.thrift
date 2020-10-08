@@ -139,7 +139,7 @@ struct RespondDecisionTaskCompletedRequest {
 
 struct RespondDecisionTaskCompletedResponse {
   10: optional RecordDecisionTaskStartedResponse startedResponse
-  20: optional map<string,shared.ActivityToDispatchLocallyInfo> activitiesToDispatchLocally
+  20: optional map<string,shared.ActivityLocalDispatchInfo> activitiesToDispatchLocally
 }
 
 struct RespondDecisionTaskFailedRequest {
