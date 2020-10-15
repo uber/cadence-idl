@@ -101,6 +101,7 @@ struct ReplicationTask {
   50: optional SyncActivityTaskAttributes syncActivityTaskAttributes
   70: optional HistoryTaskV2Attributes historyTaskV2Attributes
   80: optional FailoverMarkerAttributes failoverMarkerAttributes
+  90: optional i64 (js.type = "Long") creationTime
 }
 
 struct ReplicationToken {
