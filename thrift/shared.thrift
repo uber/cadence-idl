@@ -406,7 +406,10 @@ struct ScheduleActivityTaskDecisionAttributes {
 
 struct ActivityLocalDispatchInfo{
   10: optional string activityId
-  // more fields will be added here later
+  20: optional i64 (js.type = "Long") scheduledTimestamp
+  30: optional i64 (js.type = "Long") startedTimestamp
+  40: optional i64 (js.type = "Long") scheduledTimestampOfThisAttempt
+  50: optional binary taskToken
 }
 
 struct RequestCancelActivityTaskDecisionAttributes {
