@@ -274,6 +274,11 @@ enum PendingActivityState {
   CANCEL_REQUESTED,
 }
 
+enum PendingDecisionState {
+  SCHEDULED,
+  STARTED,
+}
+
 enum HistoryEventFilterType {
   ALL_EVENT,
   CLOSE_EVENT,
@@ -1458,6 +1463,14 @@ struct PendingActivityInfo {
   130: optional binary lastFailureDetails
 }
 
+struct PendingDecisionInfo {
+  10: optional PendingDecisionState state
+  20: optional i64 (js.type = "Long") scheduledTimestamp
+  30: optional i64 (js.type = "Long") startedTimestamp
+  40: optional i64 attempt
+  50: optional i64 (js.type = "Long") originalScheduledTimestamp
+}
+
 struct PendingChildExecutionInfo {
   10: optional string workflowID
   20: optional string runID
@@ -1471,6 +1484,7 @@ struct DescribeWorkflowExecutionResponse {
   20: optional WorkflowExecutionInfo workflowExecutionInfo
   30: optional list<PendingActivityInfo> pendingActivities
   40: optional list<PendingChildExecutionInfo> pendingChildren
+  50: optional PendingDecisionInfo pendingDecision
 }
 
 struct DescribeTaskListRequest {
