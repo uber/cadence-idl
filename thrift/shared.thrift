@@ -1316,7 +1316,6 @@ struct ResetWorkflowExecutionRequest {
   40: optional i64 (js.type = "Long") decisionFinishEventId
   50: optional string requestId
   60: optional bool skipSignalReapply
-  70: optional bool convertCompletedActivityToSignal
 }
 
 struct ResetWorkflowExecutionResponse {
