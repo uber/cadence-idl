@@ -234,6 +234,11 @@ enum DecisionTaskFailedCause {
   BAD_SEARCH_ATTRIBUTES,
 }
 
+enum DecisionTaskTimedOutCause {
+  TIMEOUT,
+  RESET,
+}
+
 enum CancelExternalWorkflowExecutionFailedCause {
   UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION,
 }
@@ -629,6 +634,12 @@ struct DecisionTaskTimedOutEventAttributes {
   10: optional i64 (js.type = "Long") scheduledEventId
   20: optional i64 (js.type = "Long") startedEventId
   30: optional TimeoutType timeoutType
+  // for reset workflow
+  40: optional string baseRunId
+  50: optional string newRunId
+  60: optional i64 (js.type = "Long") forkEventVersion
+  70: optional string reason
+  80: optional DecisionTaskTimedOutCause cause
 }
 
 struct DecisionTaskFailedEventAttributes {
