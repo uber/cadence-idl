@@ -186,6 +186,7 @@ struct ReadDLQMessagesResponse{
   10: optional DLQType type
   20: optional list<ReplicationTask> replicationTasks
   30: optional binary nextPageToken
+  40: optional list<ReplicationTaskInfo> replicationTasksInfo
 }
 
 struct PurgeDLQMessagesRequest{
