@@ -30,6 +30,8 @@ const string ShadowWorkflowName = "cadence-shadow-workflow"
 const string ScanWorkflowActivityName = "scanWorkflowActivity"
 const string ReplayWorkflowActivityName = "replayWorkflowActivity"
 
+const string ScanWorkflowIDSuffix = "-shadow-workflow"
+
 const string ErrReasonDomainNotExists = "domain not exists"
 const string ErrReasonInvalidQuery = "invalid visibility query"
 const string ErrReasonWorkflowTypeNotRegistered = "workflow type not registered"
