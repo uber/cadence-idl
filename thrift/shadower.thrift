@@ -22,10 +22,10 @@ namespace java com.uber.cadence.shadower
 
 include "shared.thrift"
 
-const string ShadowerLocalDomainName = "cadence-shadower"
-const string ShadowerTaskList = "cadence-shadower-tl"
+const string LocalDomainName = "cadence-shadower"
+const string TaskList = "cadence-shadower-tl"
 
-const string ShadowWorkflowName = "cadence-shadow-workflow"
+const string WorkflowName = "cadence-shadow-workflow"
 
 const string ScanWorkflowActivityName = "scanWorkflowActivity"
 const string ReplayWorkflowActivityName = "replayWorkflowActivity"
@@ -36,7 +36,7 @@ const string ErrReasonDomainNotExists = "domain not exists"
 const string ErrReasonInvalidQuery = "invalid visibility query"
 const string ErrReasonWorkflowTypeNotRegistered = "workflow type not registered"
 
-enum ShadowMode {
+enum Mode {
   Normal,
   Continuous,
 }
@@ -46,19 +46,19 @@ struct ExitCondition {
   20: optional i32 shadowCount
 }
 
-struct ShadowWorkflowParams {
+struct WorkflowParams {
   10: optional string domain 
   20: optional string taskList
   30: optional string workflowQuery
   40: optional binary nextPageToken
   50: optional double samplingRate
-  60: optional ShadowMode shadowMode
+  60: optional Mode shadowMode
   70: optional ExitCondition exitCondition
   80: optional i32 concurrency
   90: optional ShadowWorkflowResult lastRunResult
 }
 
-struct ShadowWorkflowResult {
+struct WorkflowResult {
   10: optional i32 succeeded
   20: optional i32 skipped
   30: optional i32 failed
