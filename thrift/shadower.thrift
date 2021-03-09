@@ -55,7 +55,7 @@ struct WorkflowParams {
   60: optional Mode shadowMode
   70: optional ExitCondition exitCondition
   80: optional i32 concurrency
-  90: optional ShadowWorkflowResult lastRunResult
+  90: optional WorkflowResult lastRunResult
 }
 
 struct WorkflowResult {
