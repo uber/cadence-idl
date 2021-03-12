@@ -35,6 +35,7 @@ const string WorkflowIDSuffix = "-shadow-workflow"
 const string ErrReasonDomainNotExists = "domain not exists"
 const string ErrReasonInvalidQuery = "invalid visibility query"
 const string ErrReasonWorkflowTypeNotRegistered = "workflow type not registered"
+const string ErrJavaNonRetryableType = "com.uber.cadence.workflow.ActivityFailureException"
 
 enum Mode {
   Normal,
