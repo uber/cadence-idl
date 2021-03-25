@@ -1113,6 +1113,7 @@ struct StartWorkflowExecutionRequest {
   140: optional Memo memo
   141: optional SearchAttributes searchAttributes
   150: optional Header header
+  160: optional i32 delayStartSeconds
 }
 
 struct StartWorkflowExecutionResponse {
