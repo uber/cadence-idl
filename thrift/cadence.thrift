@@ -343,6 +343,7 @@ service WorkflowService {
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.LimitExceededError limitExceededError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      9: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -357,6 +358,7 @@ service WorkflowService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -403,6 +405,7 @@ service WorkflowService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
