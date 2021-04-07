@@ -42,6 +42,10 @@ exception WorkflowExecutionAlreadyStartedError {
   30: optional string runId
 }
 
+exception WorkflowExecutionAlreadyCompletedError {
+  1: required string message
+}
+
 exception EntityNotExistsError {
   1: required string message
   2: optional string currentCluster
