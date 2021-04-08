@@ -577,6 +577,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.LimitExceededError limitExceededError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -626,6 +627,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -647,8 +649,9 @@ service HistoryService {
   /**
   * RequestCancelWorkflowExecution is called by application worker when it wants to request cancellation of a workflow instance.
   * It will result in a new 'WorkflowExecutionCancelRequested' event being written to the workflow history and a new DecisionTask
-  * created for the workflow instance so new decisions could be made. It fails with 'EntityNotExistsError' if the workflow is not valid
-  * anymore due to completion or doesn't exist.
+  * created for the workflow instance so new decisions could be made. It fails with
+  * 'WorkflowExecutionAlreadyCompletedError' if the workflow is not valid
+  * anymore due to completion or with 'EntityNotExistsError' if worfklow doesn't exist.
   **/
   void RequestCancelWorkflowExecution(1: RequestCancelWorkflowExecutionRequest cancelRequest)
     throws (
@@ -660,6 +663,7 @@ service HistoryService {
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.LimitExceededError limitExceededError,
       8: shared.ServiceBusyError serviceBusyError,
+      10: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -787,7 +791,7 @@ service HistoryService {
     )
 
   /**
-  * ResetQueue reset processing queue state based on cluster name and type 
+  * ResetQueue reset processing queue state based on cluster name and type
   **/
   void ResetQueue(1: shared.ResetQueueRequest request)
     throws (
@@ -797,7 +801,7 @@ service HistoryService {
     )
 
   /**
-  * DescribeQueue return queue states based on cluster name and type 
+  * DescribeQueue return queue states based on cluster name and type
   **/
   shared.DescribeQueueResponse DescribeQueue(1: shared.DescribeQueueRequest request)
     throws (
