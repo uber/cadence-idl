@@ -252,9 +252,15 @@ struct MembershipInfo {
   30: optional list<RingInfo> rings
 }
 
+struct PersistenceInfo {
+  10: optional string name
+  20: optional bool advancedVisibilityEnabled
+}
+
 struct DescribeClusterResponse {
   10: optional shared.SupportedClientVersions supportedClientVersions
   20: optional MembershipInfo membershipInfo
+  30: optional PersistenceInfo persistenceInfo
 }
 
 struct ResendReplicationTasksRequest {
