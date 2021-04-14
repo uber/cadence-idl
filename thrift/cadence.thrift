@@ -155,6 +155,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -171,6 +172,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -207,6 +209,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -224,6 +227,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -241,6 +245,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -258,6 +263,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -275,6 +281,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -292,6 +299,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -309,6 +317,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -326,6 +335,7 @@ service WorkflowService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -516,6 +526,7 @@ service WorkflowService {
       5: shared.ServiceBusyError serviceBusyError,
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -527,8 +538,8 @@ service WorkflowService {
 	  3: shared.EntityNotExistsError entityNotExistError,
 	  4: shared.QueryFailedError queryFailedError,
 	  5: shared.LimitExceededError limitExceededError,
-      6: shared.ServiceBusyError serviceBusyError,
-      7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+	  6: shared.ServiceBusyError serviceBusyError,
+	  7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
 	)
 
   /**

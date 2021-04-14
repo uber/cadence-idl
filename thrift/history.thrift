@@ -422,6 +422,7 @@ service HistoryService {
       4: ShardOwnershipLostError shardOwnershipLostError,
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
+      7: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -439,6 +440,7 @@ service HistoryService {
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.LimitExceededError limitExceededError,
       8: shared.ServiceBusyError serviceBusyError,
+      9: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -456,6 +458,7 @@ service HistoryService {
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.LimitExceededError limitExceededError,
       8: shared.ServiceBusyError serviceBusyError,
+      9: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -474,6 +477,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -490,6 +494,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -508,6 +513,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -526,6 +532,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -544,6 +551,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -562,6 +570,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -612,6 +621,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -681,6 +691,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
@@ -696,6 +707,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
     )
 
   /**
