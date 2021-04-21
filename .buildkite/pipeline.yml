@@ -4,3 +4,8 @@ steps:
       queue: "init"
       docker: "*"
     command: "./scripts/buildkite/fossa.sh"
+  - label: "proto lint"
+    agents:
+      queue: "workers"
+      docker: "*"
+    command: "make proto-lint"
