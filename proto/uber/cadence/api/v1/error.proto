@@ -37,6 +37,9 @@ message EntityNotExistsError {
   string active_cluster = 2;
 }
 
+message WorkflowExecutionAlreadyCompletedError {
+}
+
 message DomainNotActiveError {
   string domain = 1;
   string current_cluster = 2;
