@@ -234,6 +234,7 @@ struct GetWorkflowExecutionRawHistoryV2Response {
 struct AddSearchAttributeRequest {
   10: optional map<string, shared.IndexedValueType> searchAttribute
   20: optional string securityToken
+  30: optional bool updateElasticSearchOnly
 }
 
 struct HostInfo {
