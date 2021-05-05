@@ -45,6 +45,7 @@ message WorkflowExecutionInfo {
   SearchAttributes search_attributes = 10;
   ResetPoints auto_reset_points = 11;
   string task_list = 12;
+  bool is_cron = 13;
 }
 
 message WorkflowExecutionConfiguration {

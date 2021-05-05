@@ -389,6 +389,7 @@ struct WorkflowExecutionInfo {
   101: optional SearchAttributes searchAttributes
   110: optional ResetPoints autoResetPoints
   120: optional string taskList
+  130: optional bool isCron
 }
 
 struct WorkflowExecutionConfiguration {
