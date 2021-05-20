@@ -568,6 +568,18 @@ service WorkflowService {
     )
 
   /**
+  * GetTaskListsByDomain returns the list of all the task lists for a domainName.
+  **/
+  shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: shared.GetTaskListsByDomainRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      3: shared.EntityNotExistsError entityNotExistError,
+      4: shared.LimitExceededError limitExceededError,
+      5: shared.ServiceBusyError serviceBusyError,
+      6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
+  /**
   * GetClusterInfo returns information about cadence cluster
   **/
   shared.ClusterInfo GetClusterInfo()

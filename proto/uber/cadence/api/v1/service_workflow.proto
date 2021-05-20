@@ -72,6 +72,9 @@ service WorkflowAPI {
   // ListTaskListPartitions returns information about task list partitions.
   rpc ListTaskListPartitions(ListTaskListPartitionsRequest) returns(ListTaskListPartitionsResponse);
 
+  // GetTaskListsByDomain returns all tasklist for a given domain
+  rpc GetTaskListsByDomain(GetTaskListsByDomainRequest) returns (GetTaskListsByDomainResponse);
+
   // Reset the sticky tasklist related information in mutable state of a given workflow.
   // Things cleared are:
   // 1. StickyTaskList
@@ -207,6 +210,14 @@ message ListTaskListPartitionsRequest {
 message ListTaskListPartitionsResponse {
   repeated TaskListPartitionMetadata activity_task_list_partitions = 1;
   repeated TaskListPartitionMetadata decision_task_list_partitions = 2;
+}
+
+message GetTaskListsByDomainRequest {
+  string domain = 1;
+}
+
+message GetTaskListsByDomainResponse {
+  repeated string task_list_names = 1;
 }
 
 message ResetStickyTaskListRequest {
