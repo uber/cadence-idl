@@ -1582,6 +1582,19 @@ struct DescribeQueueResponse {
   10: optional list<string> processingQueueStates
 }
 
+struct DescribeShardDistributionRequest {
+  10: optional string role
+  20: optional i32 pageSize
+  30: optional i32 pageID
+}
+
+struct DescribeShardDistributionResponse {
+  10: optional i32              numberOfShards
+
+  // ShardID to Address (ip:port) map
+  20: optional map<i32, string> shards
+}
+
 struct DescribeHistoryHostResponse{
   10: optional i32                  numberOfShards
   20: optional list<i32>            shardIDs

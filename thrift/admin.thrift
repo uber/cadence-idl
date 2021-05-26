@@ -39,6 +39,14 @@ service AdminService {
     )
 
   /**
+  * DescribeShardDistribution returns information about history shards within the cluster
+  **/
+  shared.DescribeShardDistributionResponse DescribeShardDistribution(1: shared.DescribeShardDistributionRequest request)
+    throws (
+      1: shared.InternalServiceError internalServiceError,
+    )
+
+  /**
   * DescribeHistoryHost returns information about the internal states of a history host
   **/
   shared.DescribeHistoryHostResponse DescribeHistoryHost(1: shared.DescribeHistoryHostRequest request)
