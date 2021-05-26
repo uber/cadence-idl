@@ -1583,9 +1583,8 @@ struct DescribeQueueResponse {
 }
 
 struct DescribeShardDistributionRequest {
-  10: optional string role
-  20: optional i32 pageSize
-  30: optional i32 pageID
+  10: optional i32 pageSize
+  20: optional i32 pageID
 }
 
 struct DescribeShardDistributionResponse {
