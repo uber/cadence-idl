@@ -136,11 +136,14 @@ service WorkerAPI {
   // API and return the query result to client as a response to 'QueryWorkflow' API call.
   rpc RespondQueryTaskCompleted(RespondQueryTaskCompletedRequest) returns (RespondQueryTaskCompletedResponse);
 
-  // RequestCancelWorkflowExecution is called by application worker when it wants to request cancellation of a workflow
-  // instance. It will result in a new 'WorkflowExecutionCancelRequested' event being written to the workflow history
-  // and a new DecisionTask created for the workflow instance so new decisions could be made. It fails with
-  // 'EntityNotExistsError' if the workflow is not valid anymore due to completion or doesn't exist.
-  rpc RequestCancelWorkflowExecution(RequestCancelWorkflowExecutionRequest) returns (RequestCancelWorkflowExecutionResponse);
+  // Reset the sticky tasklist related information in mutable state of a given workflow.
+  // Things cleared are:
+  // 1. StickyTaskList
+  // 2. StickyScheduleToStartTimeout
+  // 3. ClientLibraryVersion
+  // 4. ClientFeatureVersion
+  // 5. ClientImpl
+  rpc ResetStickyTaskList(ResetStickyTaskListRequest) returns(ResetStickyTaskListResponse);
 }
 
 message PollForDecisionTaskRequest {
@@ -313,12 +316,10 @@ message RespondQueryTaskCompletedRequest {
 message RespondQueryTaskCompletedResponse {
 }
 
-message RequestCancelWorkflowExecutionRequest {
+message ResetStickyTaskListRequest {
   string domain = 1;
   WorkflowExecution workflow_execution = 2;
-  string identity = 3;
-  string request_id = 4;
 }
 
-message RequestCancelWorkflowExecutionResponse {
+message ResetStickyTaskListResponse {
 }
