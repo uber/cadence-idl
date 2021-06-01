@@ -59,6 +59,7 @@ message ListWorkflowExecutionsRequest {
   int32 page_size = 2;
   bytes next_page_token = 3;
   string query = 4;
+  bool is_cron = 5;
 }
 
 message ListWorkflowExecutionsResponse {
@@ -75,6 +76,7 @@ message ListOpenWorkflowExecutionsRequest {
     WorkflowExecutionFilter execution_filter = 5;
     WorkflowTypeFilter type_filter = 6;
   }
+  bool is_cron = 7;
 }
 
 message ListOpenWorkflowExecutionsResponse {
@@ -92,6 +94,7 @@ message ListClosedWorkflowExecutionsRequest {
     WorkflowTypeFilter type_filter = 6;
     StatusFilter status_filter = 7;
   }
+  bool is_cron = 8;
 }
 
 message ListClosedWorkflowExecutionsResponse {
@@ -104,6 +107,7 @@ message ListArchivedWorkflowExecutionsRequest {
   int32 page_size = 2;
   bytes next_page_token = 3;
   string query = 4;
+  bool is_cron = 5;
 }
 
 message ListArchivedWorkflowExecutionsResponse {

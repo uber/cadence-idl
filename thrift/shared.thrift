@@ -1357,6 +1357,7 @@ struct ListOpenWorkflowExecutionsRequest {
   40: optional StartTimeFilter StartTimeFilter
   50: optional WorkflowExecutionFilter executionFilter
   60: optional WorkflowTypeFilter typeFilter
+  70: optional bool isCron
 }
 
 struct ListOpenWorkflowExecutionsResponse {
@@ -1372,6 +1373,7 @@ struct ListClosedWorkflowExecutionsRequest {
   50: optional WorkflowExecutionFilter executionFilter
   60: optional WorkflowTypeFilter typeFilter
   70: optional WorkflowExecutionCloseStatus statusFilter
+  80: optional bool isCron
 }
 
 struct ListClosedWorkflowExecutionsResponse {
@@ -1384,6 +1386,7 @@ struct ListWorkflowExecutionsRequest {
   20: optional i32 pageSize
   30: optional binary nextPageToken
   40: optional string query
+  50: optional bool isCron
 }
 
 struct ListWorkflowExecutionsResponse {
@@ -1396,6 +1399,7 @@ struct ListArchivedWorkflowExecutionsRequest {
   20: optional i32 pageSize
   30: optional binary nextPageToken
   40: optional string query
+  50: optional bool isCron
 }
 
 struct ListArchivedWorkflowExecutionsResponse {
