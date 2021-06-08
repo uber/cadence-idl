@@ -96,6 +96,10 @@ exception ClientVersionNotSupportedError {
   3: required string supportedVersions
 }
 
+exception FeatureNotEnabledError {
+  1: required string featureFlag
+}
+
 exception CurrentBranchChangedError {
   10: required string message
   20: required binary currentBranchToken
@@ -1705,4 +1709,8 @@ struct ClusterInfo{
 struct RefreshWorkflowTasksRequest {
   10: optional string domain
   20: optional WorkflowExecution execution
+}
+
+struct FeatureFlags {
+	10: optional bool WorkflowExecutionAlreadyCompletedErrorEnabled
 }
