@@ -237,3 +237,7 @@ message GetWorkflowExecutionHistoryResponse {
   bytes next_page_token = 3;
   bool archived = 4;
 }
+
+message FeatureFlags {
+	bool workflow_execution_already_completed_error_enabled = 1;
+}
