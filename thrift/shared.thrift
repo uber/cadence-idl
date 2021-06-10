@@ -1714,3 +1714,99 @@ struct RefreshWorkflowTasksRequest {
 struct FeatureFlags {
 	10: optional bool WorkflowExecutionAlreadyCompletedErrorEnabled
 }
+
+enum CrossClusterTaskType {
+  StartChildExecution
+  CancelExecution
+  SignalExecution
+}
+
+enum CrossClusterTaskFailedCause {
+  DOMAIN_NOT_ACTIVE
+  WORKFLOW_ALREADY_RUNNING
+  WORKFLOW_NOT_EXISTS
+}
+
+struct CrossClusterTaskInfo {
+  10: optional string domainID
+  20: optional string workflowID
+  30: optional string runID
+  40: optional CrossClusterTaskType taskType
+  50: optional i16 taskState
+  60: optional i64 (js.type = "Long") taskID
+  70: optional i64 (js.type = "Long") version
+  80: optional i64 (js.type = "Long") visibilityTimestamp
+}
+
+struct CrossClusterStartChildExecutionRequestAttributes {
+  10: optional string targetDomainID
+  20: optional string requestID
+  30: optional i64 (js.type = "Long") initiatedEventID
+  40: optional StartChildWorkflowExecutionInitiatedEventAttributes initiatedEventAttributes
+}
+
+struct CrossClusterStartChildExecutionResponseAttributes {
+  10: optional string runID
+}
+
+struct CrossClusterCancelExecutionRequestAttributes {
+  10: optional string targetDomainID
+  20: optional string targetWorkflowID
+  30: optional string targetRunID
+  40: optional string requestID
+  50: optional i64 (js.type = "Long") initiatedEventID
+  60: optional bool childWorkflowOnly
+}
+
+struct CrossClusterCancelExecutionResponseAttributes { 
+}
+
+struct CrossClusterSignalExecutionRequestAttributes {
+  10: optional string targetDomainID
+  20: optional string targetWorkflowID
+  30: optional string targetRunID
+  40: optional string requestID
+  50: optional i64 (js.type = "Long") initiatedEventID
+  60: optional bool childWorkflowOnly
+  70: optional string signalName
+  80: optional binary signalInput
+  90: optional binary control
+}
+
+struct CrossClusterSignalExecutionResponseAttributes {
+}
+
+struct CrossClusterTaskRequest {
+  10: optional CrossClusterTaskInfo taskInfo
+  20: optional CrossClusterStartChildExecutionRequestAttributes startChildExecutionAttributes
+  30: optional CrossClusterCancelExecutionRequestAttributes cancelExecutionAttributes
+  40: optional CrossClusterSignalExecutionRequestAttributes signalExecutionAttributes
+}
+
+struct CrossClusterTaskResponse {
+  10: optional i64 (js.type = "Long") taskID
+  20: optional CrossClusterTaskType taskType
+  30: optional CrossClusterTaskFailedCause failureCause
+  40: optional CrossClusterStartChildExecutionResponseAttributes startChildExecutionAttributes
+  50: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
+  60: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
+}
+
+struct GetCrossClusterTasksRequest {
+  10: optional list<i32> shardIDs
+  20: optional string targetCluster
+}
+
+struct GetCrossClusterTasksResponse {
+  10: optional map<i32, list<CrossClusterTaskRequest>> tasksByShard
+}
+
+struct RespondCrossClusterTasksCompletedRequest {
+  10: optional i32 shardID
+  20: optional string targetCluster
+  30: optional list<CrossClusterTaskResponse> taskResponses
+}
+
+struct RespondCrossClusterTasksCompletedResponse {
+  10: optional list<CrossClusterTaskRequest> tasks
+}

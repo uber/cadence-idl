@@ -931,4 +931,25 @@ service HistoryService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
     )
+
+  /**
+  * GetCrossClusterTasks fetches cross cluster tasks
+  **/
+  shared.GetCrossClusterTasksResponse GetCrossClusterTasks(1: shared.GetCrossClusterTasksRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
+  * RespondCrossClusterTasksCompleted responds the result of processing cross cluster tasks
+  **/
+  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request) 
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: ShardOwnershipLostError shardOwnershipLostError,
+    )
 }
