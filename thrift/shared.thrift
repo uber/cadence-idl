@@ -1723,6 +1723,7 @@ enum CrossClusterTaskType {
 
 enum CrossClusterTaskFailedCause {
   DOMAIN_NOT_ACTIVE
+  DOMAIN_NOT_EXISTS
   WORKFLOW_ALREADY_RUNNING
   WORKFLOW_NOT_EXISTS
 }
@@ -1734,8 +1735,7 @@ struct CrossClusterTaskInfo {
   40: optional CrossClusterTaskType taskType
   50: optional i16 taskState
   60: optional i64 (js.type = "Long") taskID
-  70: optional i64 (js.type = "Long") version
-  80: optional i64 (js.type = "Long") visibilityTimestamp
+  70: optional i64 (js.type = "Long") visibilityTimestamp
 }
 
 struct CrossClusterStartChildExecutionRequestAttributes {
