@@ -1743,6 +1743,9 @@ struct CrossClusterStartChildExecutionRequestAttributes {
   20: optional string requestID
   30: optional i64 (js.type = "Long") initiatedEventID
   40: optional StartChildWorkflowExecutionInitiatedEventAttributes initiatedEventAttributes
+  // targetRunID is for scheduling first decision task 
+  // targetWorkflowID is available in initiatedEventAttributes
+  50: optional string targetRunID 
 }
 
 struct CrossClusterStartChildExecutionResponseAttributes {
