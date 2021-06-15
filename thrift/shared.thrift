@@ -1789,7 +1789,7 @@ struct CrossClusterTaskRequest {
 struct CrossClusterTaskResponse {
   10: optional i64 (js.type = "Long") taskID
   20: optional CrossClusterTaskType taskType
-  30: optional CrossClusterTaskFailedCause failureCause
+  30: optional CrossClusterTaskFailedCause failedCause
   40: optional CrossClusterStartChildExecutionResponseAttributes startChildExecutionAttributes
   50: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
   60: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
