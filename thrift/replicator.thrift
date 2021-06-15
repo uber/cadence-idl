@@ -114,7 +114,7 @@ struct ReplicationToken {
 }
 
 struct SyncShardStatus {
-    10: optional i64 (js.type = "Long") timestamp
+  10: optional i64 (js.type = "Long") timestamp
 }
 
 struct ReplicationMessages {
