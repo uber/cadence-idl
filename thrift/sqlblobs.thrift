@@ -40,6 +40,8 @@ struct ShardInfo {
   51: optional string transferProcessingQueueStatesEncoding
   55: optional binary timerProcessingQueueStates
   56: optional string timerProcessingQueueStatesEncoding
+  60: optional binary crossClusterProcessingQueueStates
+  61: optional string crossClusterProcessingQueueStatesEncoding
 }
 
 struct DomainInfo {
