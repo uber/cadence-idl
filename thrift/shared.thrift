@@ -1525,7 +1525,7 @@ struct DescribeTaskListResponse {
 }
 
 struct GetTaskListsByDomainRequest {
-  10: optional string domain
+  10: optional string domainName
 }
 
 struct GetTaskListsByDomainResponse {

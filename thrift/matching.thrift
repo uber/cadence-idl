@@ -109,10 +109,6 @@ struct DescribeTaskListRequest {
   20: optional shared.DescribeTaskListRequest descRequest
 }
 
-struct GetTaskListsByDomainRequest {
-  10: optional string domain
-}
-
 struct ListTaskListPartitionsRequest {
   10: optional string domain
   20: optional shared.TaskList taskList
@@ -234,7 +230,7 @@ service MatchingService {
   /**
   * GetTaskListsByDomain returns the list of all the task lists for a domainName.
   **/
-  shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: GetTaskListsByDomainRequest request)
+  shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: shared.GetTaskListsByDomainRequest request)
     throws (
         1: shared.BadRequestError badRequestError,
         2: shared.InternalServiceError internalServiceError,
