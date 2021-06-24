@@ -73,6 +73,9 @@ service WorkflowAPI {
   // pollers which polled this tasklist in last few minutes.
   rpc DescribeTaskList(DescribeTaskListRequest) returns (DescribeTaskListResponse);
 
+  // GetTaskListsByDomain returns all task lists for a given domain
+  rpc GetTaskListsByDomain(GetTaskListsByDomainRequest) returns (GetTaskListsByDomainResponse);
+
   // ListTaskListPartitions returns information about task list partitions.
   rpc ListTaskListPartitions(ListTaskListPartitionsRequest) returns(ListTaskListPartitionsResponse);
 
@@ -202,6 +205,14 @@ message DescribeTaskListRequest {
 message DescribeTaskListResponse {
   repeated PollerInfo pollers = 1;
   TaskListStatus task_list_status = 2;
+}
+
+message GetTaskListsByDomainRequest {
+  string domain = 1;
+}
+
+message GetTaskListsByDomainResponse {
+  repeated string task_list_names = 1;
 }
 
 message ListTaskListPartitionsRequest {
