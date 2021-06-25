@@ -582,10 +582,10 @@ service WorkflowService {
   shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: shared.GetTaskListsByDomainRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
-      3: shared.EntityNotExistsError entityNotExistError,
-      4: shared.LimitExceededError limitExceededError,
-      5: shared.ServiceBusyError serviceBusyError,
-      6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      2: shared.EntityNotExistsError entityNotExistError,
+      3: shared.LimitExceededError limitExceededError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
     )
 
    /**
