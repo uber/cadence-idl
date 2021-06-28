@@ -576,6 +576,18 @@ service WorkflowService {
       2: shared.ServiceBusyError serviceBusyError,
     )
 
+  /**
+  * GetTaskListsByDomain returns the list of all the task lists for a domainName.
+  **/
+  shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: shared.GetTaskListsByDomainRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.EntityNotExistsError entityNotExistError,
+      3: shared.LimitExceededError limitExceededError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
    /**
    * ReapplyEvents applies stale events to the current workflow and current run
    **/

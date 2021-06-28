@@ -1524,6 +1524,14 @@ struct DescribeTaskListResponse {
   20: optional TaskListStatus taskListStatus
 }
 
+struct GetTaskListsByDomainRequest {
+  10: optional string domainName
+}
+
+struct GetTaskListsByDomainResponse {
+  10: optional list<string> taskListNames
+}
+
 struct ListTaskListPartitionsRequest {
   10: optional string domain
   20: optional TaskList taskList

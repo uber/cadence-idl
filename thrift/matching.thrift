@@ -227,6 +227,16 @@ service MatchingService {
         4: shared.ServiceBusyError serviceBusyError,
       )
 
+  /**
+  * GetTaskListsByDomain returns the list of all the task lists for a domainName.
+  **/
+  shared.GetTaskListsByDomainResponse GetTaskListsByDomain(1: shared.GetTaskListsByDomainRequest request)
+    throws (
+        1: shared.BadRequestError badRequestError,
+        2: shared.InternalServiceError internalServiceError,
+        3: shared.EntityNotExistsError entityNotExistError,
+        4: shared.ServiceBusyError serviceBusyError,
+      )
 
   /**
   * ListTaskListPartitions returns a map of partitionKey and hostAddress for a taskList
