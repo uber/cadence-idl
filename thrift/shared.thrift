@@ -1734,6 +1734,15 @@ enum CrossClusterTaskFailedCause {
   DOMAIN_NOT_EXISTS
   WORKFLOW_ALREADY_RUNNING
   WORKFLOW_NOT_EXISTS
+  WORKFLOW_ALREADY_COMPLETED
+  UNCATEGORIZED
+}
+
+enum GetTaskFailedCause {
+  SERVICE_BUSY
+  TIMEOUT
+  SHARD_OWNERSHIP_LOST
+  UNCATEGORIZED
 }
 
 struct CrossClusterTaskInfo {
@@ -1810,12 +1819,14 @@ struct GetCrossClusterTasksRequest {
 
 struct GetCrossClusterTasksResponse {
   10: optional map<i32, list<CrossClusterTaskRequest>> tasksByShard
+  20: optional map<i32, GetTaskFailedCause> failedCauseByShard
 }
 
 struct RespondCrossClusterTasksCompletedRequest {
   10: optional i32 shardID
   20: optional string targetCluster
   30: optional list<CrossClusterTaskResponse> taskResponses
+  40: optional bool fetchNewTasks
 }
 
 struct RespondCrossClusterTasksCompletedResponse {
