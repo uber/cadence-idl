@@ -1738,7 +1738,7 @@ enum CrossClusterTaskFailedCause {
   UNCATEGORIZED
 }
 
-enum GetCrossClusterTaskFailedCause {
+enum GetTaskFailedCause {
   SERVICE_BUSY
   TIMEOUT
   SHARD_OWNERSHIP_LOST
@@ -1819,7 +1819,7 @@ struct GetCrossClusterTasksRequest {
 
 struct GetCrossClusterTasksResponse {
   10: optional map<i32, list<CrossClusterTaskRequest>> tasksByShard
-  20: optional map<i32, GetCrossClusterTaskFailedCause> failedCauseByShard
+  20: optional map<i32, GetTaskFailedCause> failedCauseByShard
 }
 
 struct RespondCrossClusterTasksCompletedRequest {
