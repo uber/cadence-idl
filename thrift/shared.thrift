@@ -1572,6 +1572,7 @@ struct RemoveTaskRequest {
   20: optional i32                      type
   30: optional i64 (js.type = "Long")   taskID
   40: optional i64 (js.type = "Long")   visibilityTimestamp
+  50: optional string                   clusterName
 }
 
 struct CloseShardRequest {
