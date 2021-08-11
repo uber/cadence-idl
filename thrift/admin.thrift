@@ -214,6 +214,32 @@ service AdminService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
     )
+
+  /**
+  * GetDynamicConfig returns values associated with a specified dynamic config parameter.
+  **/
+  GetDynamicConfigResponse GetDynamicConfig(1: GetDynamicConfigRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+    )
+
+  void UpdateDynamicConfig(1: UpdateDynamicConfigRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+    )
+
+  void RestoreDynamicConfig(1: RestoreDynamicConfigRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+    )
+
+  ListDynamicConfigResponse ListDynamicConfig(1: ListDynamicConfigRequest request)
+    throws (
+      1: shared.InternalServiceError internalServiceError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -302,3 +328,31 @@ struct ResendReplicationTasksRequest {
   70: optional i64 (js.type = "Long") endEventID
   80: optional i64 (js.type = "Long") endVersion
 }
+
+struct GetDynamicConfigRequest {
+  10: optional string configName
+  20: optional list<configStore.DynamicConfigFilter> filters
+}
+
+struct GetDynamicConfigResponse {
+  10: optional shared.DataBlob value
+}
+
+struct UpdateDynamicConfigRequest {
+  10: optional string configName
+  20: optional list<configStore.DynamicConfigValue> configValues
+}
+
+struct RestoreDynamicConfigRequest {
+  10: optional string configName
+  20: optional list<configStore.DynamicConfigFilter> filters
+}
+
+struct ListDynamicConfigRequest {
+  10: optional string configName
+}
+
+struct ListDynamicConfigResponse {
+  10: optional list<configStore.DynamicConfigEntry> entries
+}
+
