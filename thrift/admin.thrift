@@ -22,7 +22,7 @@ namespace java com.uber.cadence.admin
 
 include "shared.thrift"
 include "replicator.thrift"
-include "configStore.thrift"
+include "config.thrift"
 
 /**
 * AdminService provides advanced APIs for debugging and analysis with admin privilege
@@ -332,7 +332,7 @@ struct ResendReplicationTasksRequest {
 
 struct GetDynamicConfigRequest {
   10: optional string configName
-  20: optional list<configStore.DynamicConfigFilter> filters
+  20: optional list<config.DynamicConfigFilter> filters
 }
 
 struct GetDynamicConfigResponse {
@@ -341,19 +341,21 @@ struct GetDynamicConfigResponse {
 
 struct UpdateDynamicConfigRequest {
   10: optional string configName
-  20: optional list<configStore.DynamicConfigValue> configValues
+  20: optional list<config.DynamicConfigValue> configValues
 }
 
 struct RestoreDynamicConfigRequest {
   10: optional string configName
-  20: optional list<configStore.DynamicConfigFilter> filters
+  20: optional list<config.DynamicConfigFilter> filters
 }
 
+//Eventually remove configName and integrate this functionality into Get.
+//GetDynamicConfigResponse would need to change as well.
 struct ListDynamicConfigRequest {
   10: optional string configName
 }
 
 struct ListDynamicConfigResponse {
-  10: optional list<configStore.DynamicConfigEntry> entries
+  10: optional list<config.DynamicConfigEntry> entries
 }
 

@@ -17,7 +17,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-namespace java com.uber.cadence.configStore
+namespace java com.uber.cadence.config
 
 include "shared.thrift"
 
