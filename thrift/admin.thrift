@@ -22,6 +22,7 @@ namespace java com.uber.cadence.admin
 
 include "shared.thrift"
 include "replicator.thrift"
+include "configStore.thrift"
 
 /**
 * AdminService provides advanced APIs for debugging and analysis with admin privilege
