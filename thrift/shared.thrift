@@ -1761,9 +1761,9 @@ struct CrossClusterStartChildExecutionRequestAttributes {
   20: optional string requestID
   30: optional i64 (js.type = "Long") initiatedEventID
   40: optional StartChildWorkflowExecutionInitiatedEventAttributes initiatedEventAttributes
-  // targetRunID is for scheduling first decision task 
+  // targetRunID is for scheduling first decision task
   // targetWorkflowID is available in initiatedEventAttributes
-  50: optional string targetRunID 
+  50: optional string targetRunID
 }
 
 struct CrossClusterStartChildExecutionResponseAttributes {
@@ -1779,7 +1779,7 @@ struct CrossClusterCancelExecutionRequestAttributes {
   60: optional bool childWorkflowOnly
 }
 
-struct CrossClusterCancelExecutionResponseAttributes { 
+struct CrossClusterCancelExecutionResponseAttributes {
 }
 
 struct CrossClusterSignalExecutionRequestAttributes {
@@ -1797,11 +1797,23 @@ struct CrossClusterSignalExecutionRequestAttributes {
 struct CrossClusterSignalExecutionResponseAttributes {
 }
 
+struct CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes {
+  10: optional string targetDomainID
+  20: optional string targetWorkflowID
+  30: optional string targetRunID
+  40: optional i64 (js.type = "Long") initiatedEventID
+  50: optional HistoryEvent completionEvent
+}
+
+struct CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes {
+}
+
 struct CrossClusterTaskRequest {
   10: optional CrossClusterTaskInfo taskInfo
   20: optional CrossClusterStartChildExecutionRequestAttributes startChildExecutionAttributes
   30: optional CrossClusterCancelExecutionRequestAttributes cancelExecutionAttributes
   40: optional CrossClusterSignalExecutionRequestAttributes signalExecutionAttributes
+  50: optional CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes recordChildWorkflowExecutionCompleteAttributes
 }
 
 struct CrossClusterTaskResponse {
@@ -1811,6 +1823,7 @@ struct CrossClusterTaskResponse {
   40: optional CrossClusterStartChildExecutionResponseAttributes startChildExecutionAttributes
   50: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
   60: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
+  70: optional CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes recordChildWorkflowExecutionCompleteAttributes
 }
 
 struct GetCrossClusterTasksRequest {
