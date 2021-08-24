@@ -114,6 +114,7 @@ message DescribeDomainRequest {
 
 message DescribeDomainResponse {
   Domain domain = 1;
+  FailoverInfo failoverInfo = 2;
 }
 
 message ListDomainsRequest {

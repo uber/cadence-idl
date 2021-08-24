@@ -63,6 +63,13 @@ message BadBinaryInfo {
   google.protobuf.Timestamp created_time = 3;
 }
 
+message FailoverInfo {
+  int64 failoverVersion = 1;
+  int64 failoverExpiredTimestamp = 2;
+  int32 completedShardCount = 3;
+  repeated int32 pending_shards = 4;
+}
+
 enum DomainStatus {
   DOMAIN_STATUS_INVALID = 0;
   DOMAIN_STATUS_REGISTERED = 1;

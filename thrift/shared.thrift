@@ -1016,6 +1016,13 @@ struct DomainConfiguration {
   110: optional string visibilityArchivalURI
 }
 
+struct FailoverInfo {
+    10: optional i64 (js.type = "Long") failoverVersion
+    20: optional i64 (js.type = "Long") failoverExpiredTimestamp
+    30: optional i32 completedShardCount
+    40: optional list<i32> pendingShards
+}
+
 struct BadBinaries{
   10: optional map<string, BadBinaryInfo> binaries
 }
@@ -1081,6 +1088,7 @@ struct DescribeDomainResponse {
   30: optional DomainReplicationConfiguration replicationConfiguration
   40: optional i64 (js.type = "Long") failoverVersion
   50: optional bool isGlobalDomain
+  60: optional FailoverInfo failoverInfo
 }
 
 struct UpdateDomainRequest {
