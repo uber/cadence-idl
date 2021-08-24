@@ -64,9 +64,9 @@ message BadBinaryInfo {
 }
 
 message FailoverInfo {
-  int64 failoverVersion = 1;
-  int64 failoverExpiredTimestamp = 2;
-  int32 completedShardCount = 3;
+  int64 failover_version = 1;
+  int64 failover_expired_timestamp = 2;
+  int32 completed_shard_count = 3;
   repeated int32 pending_shards = 4;
 }
 
