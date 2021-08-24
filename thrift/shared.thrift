@@ -1018,9 +1018,10 @@ struct DomainConfiguration {
 
 struct FailoverInfo {
     10: optional i64 (js.type = "Long") failoverVersion
-    20: optional i64 (js.type = "Long") failoverExpiredTimestamp
-    30: optional i32 completedShardCount
-    40: optional list<i32> pendingShards
+    20: optional i64 (js.type = "Long") failoverStartTimestamp
+    30: optional i64 (js.type = "Long") failoverExpireTimestamp
+    40: optional i32 completedShardCount
+    50: optional list<i32> pendingShards
 }
 
 struct BadBinaries{
