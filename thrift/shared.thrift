@@ -1819,11 +1819,12 @@ struct CrossClusterTaskRequest {
 struct CrossClusterTaskResponse {
   10: optional i64 (js.type = "Long") taskID
   20: optional CrossClusterTaskType taskType
-  30: optional CrossClusterTaskFailedCause failedCause
-  40: optional CrossClusterStartChildExecutionResponseAttributes startChildExecutionAttributes
-  50: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
-  60: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
-  70: optional CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes recordChildWorkflowExecutionCompleteAttributes
+  30: optional i16 taskState
+  40: optional CrossClusterTaskFailedCause failedCause
+  50: optional CrossClusterStartChildExecutionResponseAttributes startChildExecutionAttributes
+  60: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
+  70: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
+  80: optional CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes recordChildWorkflowExecutionCompleteAttributes
 }
 
 struct GetCrossClusterTasksRequest {
