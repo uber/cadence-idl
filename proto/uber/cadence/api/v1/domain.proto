@@ -47,7 +47,7 @@ message Domain {
   repeated ClusterReplicationConfiguration clusters = 14;
   int64 failover_version = 15;
   bool is_global_domain = 16;
-  FailoverInfo failoverInfo = 17;
+  FailoverInfo failover_info = 17;
 }
 
 message ClusterReplicationConfiguration {
