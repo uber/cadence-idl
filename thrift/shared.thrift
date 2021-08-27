@@ -1808,12 +1808,15 @@ struct CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes {
 struct CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes {
 }
 
+struct CrossDomainExecution {
+  10: optional string domainID
+  20: optional string workflowID
+  30: optional string runID
+}
+
 struct CrossClusterApplyParentClosePolicyRequestAttributes {
-  10: optional string targetDomainID
-  20: optional string targetWorkflowID
-  30: optional string targetRunID
-  40: optional i64 (js.type = "Long") initiatedEventID
-  50: optional ParentClosePolicy parentClosePolicy
+  10: optional list<CrossDomainExecution> crossDomainExecutions
+  20: optional ParentClosePolicy parentClosePolicy
 }
 
 struct CrossClusterApplyParentClosePolicyResponseAttributes {
