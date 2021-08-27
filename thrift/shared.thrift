@@ -1808,15 +1808,15 @@ struct CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes {
 struct CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes {
 }
 
-struct CrossDomainExecution {
+struct AppyParentClosePolicyAttributes {
   10: optional string domainID
   20: optional string workflowID
   30: optional string runID
+  40: optional ParentClosePolicy parentClosePolicy
 }
 
 struct CrossClusterApplyParentClosePolicyRequestAttributes {
-  10: optional list<CrossDomainExecution> crossDomainExecutions
-  20: optional ParentClosePolicy parentClosePolicy
+  10: optional list<AppyParentClosePolicyAttributes> appyParentClosePolicyAttributes
 }
 
 struct CrossClusterApplyParentClosePolicyResponseAttributes {
