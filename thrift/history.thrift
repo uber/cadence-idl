@@ -351,11 +351,11 @@ struct DomainFilter {
   20: optional bool reverseMatch
 }
 
-struct GetFailoverInfoByDomainIDRequest {
+struct GetFailoverInfoRequest {
   10: optional string domainID
 }
 
-struct GetFailoverInfoByDomainIDResponse {
+struct GetFailoverInfoResponse {
   10: optional i32 completedShardCount
   20: optional list<i32> pendingShards
 }
@@ -963,9 +963,9 @@ service HistoryService {
     )
 
   /**
-  * GetFailoverInfoByDomainID responds the failover info about an on-going graceful failover
+  * GetFailoverInfo responds the failover info about an on-going graceful failover
   **/
-  GetFailoverInfoByDomainIDResponse GetFailoverInfoByDomainID(1: GetFailoverInfoByDomainIDRequest request)
+  GetFailoverInfoResponse GetFailoverInfo(1: GetFailoverInfoRequest request)
     throws (
       1: shared.InternalServiceError internalServiceError,
       2: shared.ServiceBusyError serviceBusyError,
