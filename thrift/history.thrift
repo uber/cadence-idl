@@ -351,6 +351,15 @@ struct DomainFilter {
   20: optional bool reverseMatch
 }
 
+struct GetFailoverInfoRequest {
+  10: optional string domainID
+}
+
+struct GetFailoverInfoResponse {
+  10: optional i32 completedShardCount
+  20: optional list<i32> pendingShards
+}
+
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
 * of workflow instances already created.
@@ -951,5 +960,16 @@ service HistoryService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
       4: ShardOwnershipLostError shardOwnershipLostError,
+    )
+
+  /**
+  * GetFailoverInfo responds the failover info about an on-going graceful failover
+  **/
+  GetFailoverInfoResponse GetFailoverInfo(1: GetFailoverInfoRequest request)
+    throws (
+      1: shared.InternalServiceError internalServiceError,
+      2: shared.ServiceBusyError serviceBusyError,
+      3: ShardOwnershipLostError shardOwnershipLostError,
+      4: shared.EntityNotExistsError entityNotExistError,
     )
 }

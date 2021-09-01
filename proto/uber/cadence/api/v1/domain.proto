@@ -47,6 +47,7 @@ message Domain {
   repeated ClusterReplicationConfiguration clusters = 14;
   int64 failover_version = 15;
   bool is_global_domain = 16;
+  FailoverInfo failover_info = 17;
 }
 
 message ClusterReplicationConfiguration {
@@ -61,6 +62,14 @@ message BadBinaryInfo {
   string reason = 1;
   string operator = 2;
   google.protobuf.Timestamp created_time = 3;
+}
+
+message FailoverInfo {
+  int64 failover_version = 1;
+  google.protobuf.Timestamp failover_start_timestamp = 2;
+  google.protobuf.Timestamp failover_expire_timestamp = 3;
+  int32 completed_shard_count = 4;
+  repeated int32 pending_shards = 5;
 }
 
 enum DomainStatus {

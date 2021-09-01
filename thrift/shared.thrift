@@ -1016,6 +1016,14 @@ struct DomainConfiguration {
   110: optional string visibilityArchivalURI
 }
 
+struct FailoverInfo {
+    10: optional i64 (js.type = "Long") failoverVersion
+    20: optional i64 (js.type = "Long") failoverStartTimestamp
+    30: optional i64 (js.type = "Long") failoverExpireTimestamp
+    40: optional i32 completedShardCount
+    50: optional list<i32> pendingShards
+}
+
 struct BadBinaries{
   10: optional map<string, BadBinaryInfo> binaries
 }
@@ -1081,6 +1089,7 @@ struct DescribeDomainResponse {
   30: optional DomainReplicationConfiguration replicationConfiguration
   40: optional i64 (js.type = "Long") failoverVersion
   50: optional bool isGlobalDomain
+  60: optional FailoverInfo failoverInfo
 }
 
 struct UpdateDomainRequest {
@@ -1808,12 +1817,27 @@ struct CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes {
 struct CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes {
 }
 
+struct AppyParentClosePolicyAttributes {
+  10: optional string childDomainID
+  20: optional string childWorkflowID
+  30: optional string childRunID
+  40: optional ParentClosePolicy parentClosePolicy
+}
+
+struct CrossClusterApplyParentClosePolicyRequestAttributes {
+  10: optional list<AppyParentClosePolicyAttributes> appyParentClosePolicyAttributes
+}
+
+struct CrossClusterApplyParentClosePolicyResponseAttributes {
+}
+
 struct CrossClusterTaskRequest {
   10: optional CrossClusterTaskInfo taskInfo
   20: optional CrossClusterStartChildExecutionRequestAttributes startChildExecutionAttributes
   30: optional CrossClusterCancelExecutionRequestAttributes cancelExecutionAttributes
   40: optional CrossClusterSignalExecutionRequestAttributes signalExecutionAttributes
   50: optional CrossClusterRecordChildWorkflowExecutionCompleteRequestAttributes recordChildWorkflowExecutionCompleteAttributes
+  60: optional CrossClusterApplyParentClosePolicyRequestAttributes applyParentClosePolicyAttributes
 }
 
 struct CrossClusterTaskResponse {
@@ -1825,6 +1849,7 @@ struct CrossClusterTaskResponse {
   60: optional CrossClusterCancelExecutionResponseAttributes cancelExecutionAttributes
   70: optional CrossClusterSignalExecutionResponseAttributes signalExecutionAttributes
   80: optional CrossClusterRecordChildWorkflowExecutionCompleteResponseAttributes recordChildWorkflowExecutionCompleteAttributes
+  90: optional CrossClusterApplyParentClosePolicyResponseAttributes applyParentClosePolicyAttributes
 }
 
 struct GetCrossClusterTasksRequest {
