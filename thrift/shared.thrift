@@ -1737,6 +1737,8 @@ enum CrossClusterTaskType {
   StartChildExecution
   CancelExecution
   SignalExecution
+  RecordChildWorkflowExecutionComplete
+  ApplyParentClosePolicy
 }
 
 enum CrossClusterTaskFailedCause {
