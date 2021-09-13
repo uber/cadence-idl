@@ -212,7 +212,7 @@ message GetTaskListsByDomainRequest {
 }
 
 message GetTaskListsByDomainResponse {
-  repeated string task_list_names = 1;
+  map <string, DescribeTaskListResponse> task_list_map = 1;
 }
 
 message ListTaskListPartitionsRequest {

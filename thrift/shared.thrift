@@ -1538,7 +1538,7 @@ struct GetTaskListsByDomainRequest {
 }
 
 struct GetTaskListsByDomainResponse {
-  10: optional list<string> taskListNames
+  10: optional map<string,DescribeTaskListResponse> taskListMap
 }
 
 struct ListTaskListPartitionsRequest {
