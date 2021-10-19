@@ -217,6 +217,16 @@ service AdminService {
     )
 
   /**
+  * RespondCrossClusterTasksCompleted responds the result of processing cross cluster tasks
+  **/
+  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request) 
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
   * GetDynamicConfig returns values associated with a specified dynamic config parameter.
   **/
   GetDynamicConfigResponse GetDynamicConfig(1: GetDynamicConfigRequest request)
