@@ -183,7 +183,8 @@ struct ChildExecutionInfo {
   24: optional binary startedEvent
   26: optional string startedEventEncoding
   28: optional string createRequestID
-  30: optional string domainName
+  29: optional string domainID
+  30: optional string domainName // deprecated
   32: optional string workflowTypeName
   35: optional i32 parentClosePolicy
 }
