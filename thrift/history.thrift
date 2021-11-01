@@ -238,6 +238,8 @@ struct RemoveSignalMutableStateRequest {
 struct TerminateWorkflowExecutionRequest {
   10: optional string domainUUID
   20: optional shared.TerminateWorkflowExecutionRequest terminateRequest
+  30: optional shared.WorkflowExecution externalWorkflowExecution
+  40: optional bool childWorkflowOnly
 }
 
 struct ResetWorkflowExecutionRequest {
