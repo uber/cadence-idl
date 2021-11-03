@@ -1,7 +1,13 @@
 .DEFAULT_GOAL := all
 
+# M1 macs may need to switch back to x86, until arm releases are available
+EMULATE_X86 =
+ifeq ($(shell uname -sm),Darwin arm64)
+EMULATE_X86 = arch -x86_64
+endif
+
 OS = $(shell uname -s)
-ARCH = $(shell uname -m)
+ARCH = $(shell $(EMULATE_X86) uname -m)
 
 BIN := .bin
 $(BIN):
@@ -52,7 +58,7 @@ PROTO_GO_OUT := go/proto
 proto-go: $(PROTO_FILES) $(BIN)/$(PROTOC_VERSION_BIN) $(BIN)/protoc-gen-gogofast $(BIN)/protoc-gen-yarpc-go
 	@mkdir -p $(PROTO_GO_OUT)
 	@echo "protoc..."
-	@$(BIN)/$(PROTOC_VERSION_BIN) \
+	@$(EMULATE_X86) $(BIN)/$(PROTOC_VERSION_BIN) \
 		--plugin $(BIN)/protoc-gen-gogofast \
 		--plugin $(BIN)/protoc-gen-yarpc-go \
 		-I=$(PROTO_ROOT) \
