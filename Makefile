@@ -55,6 +55,7 @@ $(BIN)/protoc-gen-yarpc-go: go.mod | $(BIN)
 	go build -o $(BIN)/protoc-gen-yarpc-go go.uber.org/yarpc/encoding/protobuf/protoc-gen-yarpc-go
 
 PROTO_GO_OUT := go/proto
+LICENSE_GO := LICENSE.go
 proto-go: $(PROTO_FILES) $(BIN)/$(PROTOC_VERSION_BIN) $(BIN)/protoc-gen-gogofast $(BIN)/protoc-gen-yarpc-go
 	@mkdir -p $(PROTO_GO_OUT)
 	@echo "protoc..."
@@ -69,5 +70,10 @@ proto-go: $(PROTO_FILES) $(BIN)/$(PROTOC_VERSION_BIN) $(BIN)/protoc-gen-gogofast
 	@rm -r $(PROTO_GO_OUT)/api
 	@mv $(PROTO_GO_OUT)/uber/cadence/api $(PROTO_GO_OUT)
 	@rm -r $(PROTO_GO_OUT)/uber
+
+	@sed 's/^/\/\/ /' LICENSE > $(LICENSE_GO)
+	@echo >> $(LICENSE_GO)
+	find $(PROTO_GO_OUT) -type f -exec sh -c 'cat $(LICENSE_GO) $$1 > $$1.tmp; mv $$1.tmp $$1' sh {} \;
+	@rm $(LICENSE_GO)
 
 all: proto-lint proto-go
