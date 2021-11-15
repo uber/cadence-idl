@@ -1832,7 +1832,13 @@ struct CrossClusterApplyParentClosePolicyRequestAttributes {
   10: optional list<ApplyParentClosePolicyAttributes> applyParentClosePolicyAttributes
 }
 
+struct ApplyParentClosePolicyResult {
+  10: optional ApplyParentClosePolicyAttributes child
+  20: optional CrossClusterTaskFailedCause failedCause
+}
+
 struct CrossClusterApplyParentClosePolicyResponseAttributes {
+  10: optional list<ApplyParentClosePolicyResult> failedChildren
 }
 
 struct CrossClusterTaskRequest {
