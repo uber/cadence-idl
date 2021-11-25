@@ -1506,6 +1506,7 @@ struct PendingDecisionInfo {
 }
 
 struct PendingChildExecutionInfo {
+  1: optional string domain
   10: optional string workflowID
   20: optional string runID
   30: optional string workflowTypName
