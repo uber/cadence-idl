@@ -22,7 +22,7 @@ syntax = "proto3";
 
 package uber.cadence.api.v1;
 
-option go_package = "github.com/uber/cadence/.gen/proto/api/v1;apiv1";
+option go_package = "github.com/uber/cadence-idl/go/proto/api/v1;apiv1";
 option java_multiple_files = true;
 option java_outer_classname = "ApiProto";
 option java_package = "com.uber.cadence.api.v1";
@@ -86,6 +86,7 @@ message PendingChildExecutionInfo {
   string workflow_type_name = 2;
   int64 initiated_id = 3;
   ParentClosePolicy parent_close_policy = 4;
+  string domain = 5;
 }
 
 message PendingDecisionInfo {
