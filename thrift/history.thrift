@@ -220,6 +220,9 @@ struct RecordDecisionTaskStartedResponse {
 struct SignalWorkflowExecutionRequest {
   10: optional string domainUUID
   20: optional shared.SignalWorkflowExecutionRequest signalRequest
+  // workflow execution that requests this signal, for making sure
+  // the workflow being signaled is actually a child of the workflow
+  // making the request
   30: optional shared.WorkflowExecution externalWorkflowExecution
   40: optional bool childWorkflowOnly
 }
@@ -253,6 +256,9 @@ struct ResetWorkflowExecutionRequest {
 struct RequestCancelWorkflowExecutionRequest {
   10: optional string domainUUID
   20: optional shared.RequestCancelWorkflowExecutionRequest cancelRequest
+  // workflow execution that requests this cancellation, for making sure
+  // the workflow being cancelled is actually a child of the workflow
+  // making the request
   30: optional i64 (js.type = "Long") externalInitiatedEventId
   40: optional shared.WorkflowExecution externalWorkflowExecution
   50: optional bool childWorkflowOnly
