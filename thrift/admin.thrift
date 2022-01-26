@@ -219,7 +219,7 @@ service AdminService {
   /**
   * RespondCrossClusterTasksCompleted responds the result of processing cross cluster tasks
   **/
-  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request) 
+  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
@@ -250,6 +250,20 @@ service AdminService {
   ListDynamicConfigResponse ListDynamicConfig(1: ListDynamicConfigRequest request)
     throws (
       1: shared.InternalServiceError internalServiceError,
+    )
+
+  void DeleteWorkflow(1: AdminDeleteWorkflowRequest request)
+    throws (
+      1: shared.BadRequestError         badRequestError,
+      2: shared.EntityNotExistsError    entityNotExistError,
+      3: shared.InternalServiceError    internalServiceError,
+    )
+
+  void MaintainCorruptWorkflow(1: AdminDeleteWorkflowRequest request)
+    throws (
+      1: shared.BadRequestError         badRequestError,
+      2: shared.EntityNotExistsError    entityNotExistError,
+      3: shared.InternalServiceError    internalServiceError,
     )
 }
 
@@ -357,6 +371,12 @@ struct UpdateDynamicConfigRequest {
 struct RestoreDynamicConfigRequest {
   10: optional string configName
   20: optional list<config.DynamicConfigFilter> filters
+}
+
+struct AdminDeleteWorkflowRequest {
+  10: optional string                       domain
+  20: optional shared.WorkflowExecution     execution
+  30: optional bool                         skipErrors
 }
 
 //Eventually remove configName and integrate this functionality into Get.
