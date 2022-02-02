@@ -252,14 +252,14 @@ service AdminService {
       1: shared.InternalServiceError internalServiceError,
     )
 
-  void DeleteWorkflow(1: AdminDeleteWorkflowRequest request)
+  AdminDeleteWorkflowResponse DeleteWorkflow(1: AdminDeleteWorkflowRequest request)
     throws (
       1: shared.BadRequestError         badRequestError,
       2: shared.EntityNotExistsError    entityNotExistError,
       3: shared.InternalServiceError    internalServiceError,
     )
 
-  void MaintainCorruptWorkflow(1: AdminDeleteWorkflowRequest request)
+  AdminMaintainWorkflowResponse MaintainCorruptWorkflow(1: AdminMaintainWorkflowRequest request)
     throws (
       1: shared.BadRequestError         badRequestError,
       2: shared.EntityNotExistsError    entityNotExistError,
@@ -377,6 +377,20 @@ struct AdminDeleteWorkflowRequest {
   10: optional string                       domain
   20: optional shared.WorkflowExecution     execution
   30: optional bool                         skipErrors
+}
+
+struct AdminDeleteWorkflowResponse {
+  10: optional bool deleted
+}
+
+struct AdminMaintainWorkflowRequest {
+  10: optional string                       domain
+  20: optional shared.WorkflowExecution     execution
+  30: optional bool                         skipErrors
+}
+
+struct AdminMaintainWorkflowResponse {
+  10: optional bool deleted
 }
 
 //Eventually remove configName and integrate this functionality into Get.
