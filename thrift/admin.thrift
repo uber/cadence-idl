@@ -376,7 +376,6 @@ struct RestoreDynamicConfigRequest {
 struct AdminDeleteWorkflowRequest {
   10: optional string                       domain
   20: optional shared.WorkflowExecution     execution
-  30: optional bool                         skipErrors
 }
 
 struct AdminDeleteWorkflowResponse {
@@ -388,7 +387,6 @@ struct AdminDeleteWorkflowResponse {
 struct AdminMaintainWorkflowRequest {
   10: optional string                       domain
   20: optional shared.WorkflowExecution     execution
-  30: optional bool                         skipErrors
 }
 
 struct AdminMaintainWorkflowResponse {
