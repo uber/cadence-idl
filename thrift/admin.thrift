@@ -380,7 +380,9 @@ struct AdminDeleteWorkflowRequest {
 }
 
 struct AdminDeleteWorkflowResponse {
-  10: optional bool deleted
+  10: optional bool historyDeleted
+  20: optional bool executionsDeleted
+  30: optional bool visibilityDeleted
 }
 
 struct AdminMaintainWorkflowRequest {
@@ -390,7 +392,9 @@ struct AdminMaintainWorkflowRequest {
 }
 
 struct AdminMaintainWorkflowResponse {
-  10: optional bool deleted
+  10: optional bool historyDeleted
+  20: optional bool executionsDeleted
+  30: optional bool visibilityDeleted
 }
 
 //Eventually remove configName and integrate this functionality into Get.
