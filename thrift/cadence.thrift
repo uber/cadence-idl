@@ -572,4 +572,15 @@ service WorkflowService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.ServiceBusyError serviceBusyError,
     )
+
+  /**
+  * RefreshWorkflowTasks refreshes all tasks of a workflow
+  **/
+  void RefreshWorkflowTasks(1: shared.RefreshWorkflowTasksRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.DomainNotActiveError domainNotActiveError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: shared.EntityNotExistsError entityNotExistError,
+    )
 }
