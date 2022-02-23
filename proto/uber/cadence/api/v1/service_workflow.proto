@@ -85,6 +85,9 @@ service WorkflowAPI {
   // Returns the history of specified workflow execution.  It fails with 'EntityNotExistError' if specified workflow
   // execution in unknown to the service.
   rpc GetWorkflowExecutionHistory(GetWorkflowExecutionHistoryRequest) returns(GetWorkflowExecutionHistoryResponse);
+
+  // RefreshWorkflowTasks refreshes all tasks of a workflow.
+  rpc RefreshWorkflowTasks(RefreshWorkflowTasksRequest) returns(RefreshWorkflowTasksResponse);
 }
 
 
@@ -253,3 +256,12 @@ message GetWorkflowExecutionHistoryResponse {
 message FeatureFlags {
 	bool workflow_execution_already_completed_error_enabled = 1;
 }
+
+message RefreshWorkflowTasksRequest {
+  string domain = 1;
+  WorkflowExecution workflow_execution = 2;
+}
+
+message RefreshWorkflowTasksResponse {
+}
+
