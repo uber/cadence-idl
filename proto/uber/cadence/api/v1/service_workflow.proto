@@ -264,3 +264,4 @@ message RefreshWorkflowTasksRequest {
 
 message RefreshWorkflowTasksResponse {
 }
+
