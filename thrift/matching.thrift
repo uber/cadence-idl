@@ -85,7 +85,7 @@ struct AddActivityTaskRequest {
 }
 
 struct ActivityTaskDispatchInfo {
-   10: optional shared.ScheduleActivityTaskDecisionAttributes scheduleActivityTaskDecisionAttributes
+   10: optional shared.HistoryEvent scheduledEvent
    20: optional i64 (js.type = "Long") startedTimestamp
    30: optional i64 (js.type = "Long") attempt
    40: optional i64 (js.type = "Long") scheduledTimestampOfThisAttempt
