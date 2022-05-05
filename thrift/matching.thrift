@@ -81,6 +81,18 @@ struct AddActivityTaskRequest {
   60: optional i32 scheduleToStartTimeoutSeconds
   69: optional TaskSource source
   70: optional string forwardedFrom
+  80: optional ActivityTaskDispatchInfo activityTaskDispatchInfo
+}
+
+struct ActivityTaskDispatchInfo {
+   10: optional shared.ScheduleActivityTaskDecisionAttributes scheduleActivityTaskDecisionAttributes
+   20: optional i64 (js.type = "Long") startedTimestamp
+   30: optional i64 (js.type = "Long") attempt
+   40: optional i64 (js.type = "Long") scheduledTimestampOfThisAttempt
+   50: optional i64 (js.type = "Long") scheduledTimestamp
+   60: optional binary heartbeatDetails
+   70: optional shared.WorkflowType workflowType
+   80: optional string workflowDomain
 }
 
 struct QueryWorkflowRequest {
