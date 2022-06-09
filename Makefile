@@ -26,6 +26,7 @@ $(BIN)/$(BUF_VERSION_BIN): | $(BIN)
 
 PROTO_ROOT := proto
 PROTO_FILES = $(shell find ./$(PROTO_ROOT) -name "*.proto")
+PROTO_DIRS = $(sort $(dir $(PROTO_FILES)))
 proto-lint: $(PROTO_FILES) $(BIN)/$(BUF_VERSION_BIN)
 	@$(BIN)/$(BUF_VERSION_BIN) lint
 
@@ -59,16 +60,18 @@ LICENSE_GO := LICENSE.go
 proto-go: $(PROTO_FILES) $(BIN)/$(PROTOC_VERSION_BIN) $(BIN)/protoc-gen-gogofast $(BIN)/protoc-gen-yarpc-go
 	@mkdir -p $(PROTO_GO_OUT)
 	@echo "protoc..."
-	@$(EMULATE_X86) $(BIN)/$(PROTOC_VERSION_BIN) \
+	@$(foreach PROTO_DIR,$(PROTO_DIRS),$(EMULATE_X86) $(BIN)/$(PROTOC_VERSION_BIN) \
 		--plugin $(BIN)/protoc-gen-gogofast \
 		--plugin $(BIN)/protoc-gen-yarpc-go \
 		-I=$(PROTO_ROOT) \
 		-I=$(PROTOC_UNZIP_DIR)/include \
 		--gogofast_out=Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types,Mgoogle/protobuf/field_mask.proto=github.com/gogo/protobuf/types,Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types,paths=source_relative:$(PROTO_GO_OUT) \
 		--yarpc-go_out=$(PROTO_GO_OUT) \
-		$(PROTO_FILES);
+		$$(find $(PROTO_DIR) -name '*.proto');\
+	)
 	@rm -r $(PROTO_GO_OUT)/api
-	@mv $(PROTO_GO_OUT)/uber/cadence/api $(PROTO_GO_OUT)
+	@rm -r $(PROTO_GO_OUT)/admin
+	@mv $(PROTO_GO_OUT)/uber/cadence/* $(PROTO_GO_OUT)
 	@rm -r $(PROTO_GO_OUT)/uber
 
 	@sed 's/^/\/\/ /' LICENSE > $(LICENSE_GO)
