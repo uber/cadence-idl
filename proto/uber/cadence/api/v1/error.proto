@@ -70,3 +70,6 @@ message QueryFailedError {
 
 message ServiceBusyError {
 }
+
+message StickyWorkerUnavailableError {
+}
