@@ -109,6 +109,10 @@ exception RemoteSyncMatchedError {
   10: required string message
 }
 
+exception StickyWorkerUnavailableError {
+  1: required string message
+}
+
 enum WorkflowIdReusePolicy {
   /*
    * allow start a workflow execution using the same workflow ID,
