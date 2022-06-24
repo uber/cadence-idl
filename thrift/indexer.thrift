@@ -28,6 +28,12 @@ enum MessageType {
   Create
 }
 
+enum VisibilityOperation {
+  RecordStarted
+  RecordClosed
+  UpsertSearchAttributes
+}
+
 enum FieldType {
   String
   Int
@@ -50,4 +56,5 @@ struct Message {
   40: optional string runID
   50: optional i64 (js.type = "Long") version
   60: optional map<string,Field> fields
+  70: optional VisibilityOperation visibilityOperation
 }
