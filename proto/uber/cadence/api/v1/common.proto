@@ -110,3 +110,9 @@ message RetryPolicy {
   // Expiration time for the whole retry process.
   google.protobuf.Duration expiration_interval = 6;
 }
+
+// refers to an operation type in which execution latency is of primary concern.
+message SyncQOSType{}
+// refers to an operation type in which overall throghput is of primary concern
+// and is not necessarily as latency-sensitive.
+message BatchQOSType{}
