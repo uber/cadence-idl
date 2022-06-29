@@ -867,6 +867,7 @@ struct StartChildWorkflowExecutionInitiatedEventAttributes {
   150: optional Memo memo
   160: optional SearchAttributes searchAttributes
   170: optional i32 delayStartSeconds
+  180: optional i32 jitterStartSeconds
 }
 
 struct StartChildWorkflowExecutionFailedEventAttributes {
@@ -1137,6 +1138,7 @@ struct StartWorkflowExecutionRequest {
   141: optional SearchAttributes searchAttributes
   150: optional Header header
   160: optional i32 delayStartSeconds
+  170: optional i32 jitterStartSeconds
 }
 
 struct StartWorkflowExecutionResponse {
@@ -1344,6 +1346,7 @@ struct SignalWithStartWorkflowExecutionRequest {
   161: optional SearchAttributes searchAttributes
   170: optional Header header
   180: optional i32 delayStartSeconds
+  190: optional i32 jitterStartSeconds
 }
 
 struct TerminateWorkflowExecutionRequest {
