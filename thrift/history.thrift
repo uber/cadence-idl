@@ -379,7 +379,7 @@ service HistoryService {
   /**
   * RestartWorkflowExecution restarts an existing workflow
   **/
-  shared.RestartWorkflowExecutionResponse RestartWorkflowExecution(1: RestartWorkflowExecutionRequest restartRequest)
+  shared.StartWorkflowExecutionResponse RestartWorkflowExecution(1: RestartWorkflowExecutionRequest restartRequest)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
