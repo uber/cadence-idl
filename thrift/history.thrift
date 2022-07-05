@@ -648,7 +648,7 @@ service HistoryService {
 
   /**
   * TerminateWorkflowExecution terminates an existing workflow execution by recording WorkflowExecutionTerminated event
-  * in the history and immediately terminating the execution instance.
+  * in the history and immediately terminating the execution instance. If requested can also restart the same workflow
   **/
   void TerminateWorkflowExecution(1: TerminateWorkflowExecutionRequest terminateRequest)
     throws (
