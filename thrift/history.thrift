@@ -381,7 +381,7 @@ service HistoryService {
   *  if it's running then restarts it using the same parameters. The start workflow works the same
   *  as the StartWorkflowExecution call
   **/
-  shared.StartWorkflowExecutionResponse RestartWorkflowExecution(1: RestartWorkflowExecutionRequest restartRequest)
+  shared.RestartWorkflowExecutionResponse RestartWorkflowExecution(1: RestartWorkflowExecutionRequest restartRequest)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,

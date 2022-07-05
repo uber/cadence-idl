@@ -1147,7 +1147,9 @@ struct StartWorkflowExecutionRequest {
 struct StartWorkflowExecutionResponse {
   10: optional string runId
 }
-
+struct RestartWorkflowExecutionResponse {
+  10: optional string runId
+}
 struct PollForDecisionTaskRequest {
   10: optional string domain
   20: optional TaskList taskList
