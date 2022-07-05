@@ -377,7 +377,9 @@ struct GetFailoverInfoResponse {
 **/
 service HistoryService {
   /**
-  * RestartWorkflowExecution restarts an existing workflow
+  * RestartWorkflowExecution starts restarts an existing workflow by terminating the current one
+  *  if it's running then restarts it using the same parameters. The start workflow works the same
+  *  as the StartWorkflowExecution call
   **/
   shared.StartWorkflowExecutionResponse RestartWorkflowExecution(1: RestartWorkflowExecutionRequest restartRequest)
     throws (
