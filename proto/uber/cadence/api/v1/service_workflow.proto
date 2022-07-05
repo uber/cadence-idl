@@ -168,9 +168,11 @@ message TerminateWorkflowExecutionRequest {
   string reason = 3;
   Payload details = 4;
   string identity = 5;
+  StartWorkflowExecutionRequest start_workflow_execution = 6;
 }
 
 message TerminateWorkflowExecutionResponse {
+  string run_id = 1;
 }
 
 message DescribeWorkflowExecutionRequest {
