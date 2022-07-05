@@ -1119,7 +1119,10 @@ struct DeprecateDomainRequest {
  10: optional string name
  20: optional string securityToken
 }
-
+struct RestartWorkflowExecutionRequest {
+ 10: optional StartWorkflowExecutionRequest startWorkflowExecutionRequest
+ 20: optional TerminateWorkflowExecutionRequest terminateWorkflowExecutionRequest
+}
 struct StartWorkflowExecutionRequest {
   10: optional string domain
   20: optional string workflowId

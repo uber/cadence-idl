@@ -35,6 +35,8 @@ import "uber/cadence/api/v1/tasklist.proto";
 import "uber/cadence/api/v1/workflow.proto";
 
 service WorkflowAPI {
+  // RestartWorkflowExecution starts restarts an existing workflow
+  rpc RestartWorkflowExecution(RestartWorkflowExecutionRequest) returns (RestartWorkflowExecutionResponse);
   // StartWorkflowExecution starts a new long running workflow instance.  It will create the instance with
   // 'WorkflowExecutionStarted' event in history and also schedule the first DecisionTask for the worker to make the
   // first decision for this instance.  It will return 'WorkflowExecutionAlreadyStartedError', if an instance already
@@ -90,6 +92,10 @@ service WorkflowAPI {
   rpc RefreshWorkflowTasks(RefreshWorkflowTasksRequest) returns(RefreshWorkflowTasksResponse);
 }
 
+message RestartWorkflowExecutionRequest {
+    StartWorkflowExecutionRequest start_workflow_execution_request = 1;
+    TerminateWorkflowExecutionRequest terminate_workflow_execution_request = 2;
+}
 
 message StartWorkflowExecutionRequest {
   string domain = 1;
@@ -114,7 +120,9 @@ message StartWorkflowExecutionRequest {
 message StartWorkflowExecutionResponse {
   string run_id = 1;
 }
-
+message RestartWorkflowExecutionResponse {
+  string run_id = 1;
+}
 message SignalWorkflowExecutionRequest {
   string domain = 1;
   WorkflowExecution workflow_execution = 2;
