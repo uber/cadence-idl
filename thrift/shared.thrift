@@ -1355,7 +1355,7 @@ struct TerminateWorkflowExecutionRequest {
   30: optional string reason
   40: optional binary details
   50: optional string identity
-  60: optional bool restart
+  60: optional StartWorkflowExecutionRequest startRequest
 }
 
 struct ResetWorkflowExecutionRequest {
