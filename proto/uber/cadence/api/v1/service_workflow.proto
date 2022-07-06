@@ -168,7 +168,7 @@ message TerminateWorkflowExecutionRequest {
   string reason = 3;
   Payload details = 4;
   string identity = 5;
-  string restart = 6;
+  bool restart = 6;
   StartWorkflowExecutionRequest start_request = 7;
 }
 
