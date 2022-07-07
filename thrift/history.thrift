@@ -247,7 +247,7 @@ struct TerminateWorkflowExecutionRequest {
   30: optional shared.WorkflowExecution externalWorkflowExecution 
   40: optional bool childWorkflowOnly
   // also contains a start request if we want to restart the execution
-  50: optional StartWorkflowExecutionRequest startRequest
+  50: optional string startRequestJson
   60: optional bool restart
 }
 
