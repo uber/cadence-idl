@@ -97,7 +97,7 @@ service WorkflowService {
   * RestartWorkflowExecution restarts a previous workflow
   * If the workflow is currently running it will terminate and restart
   **/
-  shared.RestartWorkflowExecutionResponse StartWorkflowExecution(1: shared.RestartWorkflowExecutionRequest restartRequest)
+  shared.RestartWorkflowExecutionResponse RestartWorkflowExecution(1: shared.RestartWorkflowExecutionRequest restartRequest)
     throws (
       1: shared.BadRequestError badRequestError,
       3: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
