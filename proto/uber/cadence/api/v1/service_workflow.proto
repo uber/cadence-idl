@@ -96,8 +96,7 @@ service WorkflowAPI {
 message RestartWorkflowExecutionRequest {
   string domain = 1;
   WorkflowExecution workflow_execution = 2;
-  string reason = 3;
-  string identity = 4;
+  string identity = 3;
 }
 
 message StartWorkflowExecutionRequest {
