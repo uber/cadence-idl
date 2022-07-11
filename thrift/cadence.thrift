@@ -94,6 +94,20 @@ service WorkflowService {
     )
 
   /**
+  * RestartWorkflowExecution restarts a previous workflow
+  * If the workflow is currently running it will terminate and restart
+  **/
+  shared.RestartWorkflowExecutionResponse StartWorkflowExecution(1: shared.RestartWorkflowExecutionRequest restartRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      3: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.DomainNotActiveError domainNotActiveError,
+      6: shared.LimitExceededError limitExceededError,
+      7: shared.EntityNotExistsError entityNotExistError,
+      8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+  /**
   * StartWorkflowExecution starts a new long running workflow instance.  It will create the instance with
   * 'WorkflowExecutionStarted' event in history and also schedule the first DecisionTask for the worker to make the
   * first decision for this instance.  It will return 'WorkflowExecutionAlreadyStartedError', if an instance already

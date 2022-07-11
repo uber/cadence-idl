@@ -1145,6 +1145,10 @@ struct StartWorkflowExecutionResponse {
   10: optional string runId
 }
 
+struct RestartWorkflowExecutionResponse {
+  10: optional string runId
+}
+
 struct PollForDecisionTaskRequest {
   10: optional string domain
   20: optional TaskList taskList
@@ -1348,7 +1352,12 @@ struct SignalWithStartWorkflowExecutionRequest {
   180: optional i32 delayStartSeconds
   190: optional i32 jitterStartSeconds
 }
-
+struct RestartWorkflowExecutionRequest {
+  10: optional string domain
+  20: optional WorkflowExecution workflowExecution
+  30: optional string reason
+  40: optional string identity
+}
 struct TerminateWorkflowExecutionRequest {
   10: optional string domain
   20: optional WorkflowExecution workflowExecution
