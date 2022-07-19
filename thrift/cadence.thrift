@@ -100,12 +100,11 @@ service WorkflowService {
   shared.StartWorkflowExecutionResponse RestartWorkflowExecution(1: shared.RestartWorkflowExecutionRequest restartRequest)
     throws (
       1: shared.BadRequestError badRequestError,
-      2: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
-      3: shared.ServiceBusyError serviceBusyError,
-      4: shared.DomainNotActiveError domainNotActiveError,
-      5: shared.LimitExceededError limitExceededError,
-      6: shared.EntityNotExistsError entityNotExistError,
-      7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      2: shared.ServiceBusyError serviceBusyError,
+      3: shared.DomainNotActiveError domainNotActiveError,
+      4: shared.LimitExceededError limitExceededError,
+      5: shared.EntityNotExistsError entityNotExistError,
+      6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
     )
   /**
   * StartWorkflowExecution starts a new long running workflow instance.  It will create the instance with
