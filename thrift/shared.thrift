@@ -398,6 +398,7 @@ struct WorkflowExecutionInfo {
   110: optional ResetPoints autoResetPoints
   120: optional string taskList
   130: optional bool isCron
+  140: optional i64 (js.type = "Long") updateTime
 }
 
 struct WorkflowExecutionConfiguration {

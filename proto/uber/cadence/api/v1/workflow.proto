@@ -46,6 +46,7 @@ message WorkflowExecutionInfo {
   ResetPoints auto_reset_points = 11;
   string task_list = 12;
   bool is_cron = 13;
+  google.protobuf.Timestamp update_time = 14;
 }
 
 message WorkflowExecutionConfiguration {
