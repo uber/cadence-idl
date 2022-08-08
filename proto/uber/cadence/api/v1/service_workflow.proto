@@ -169,6 +169,7 @@ message RequestCancelWorkflowExecutionRequest {
   WorkflowExecution workflow_execution = 2;
   string identity = 3;
   string request_id = 4;
+  string reason = 5;
 }
 
 message RequestCancelWorkflowExecutionResponse {

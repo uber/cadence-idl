@@ -1303,6 +1303,7 @@ struct RequestCancelWorkflowExecutionRequest {
   20: optional WorkflowExecution workflowExecution
   30: optional string identity
   40: optional string requestId
+  50: optional string reason
 }
 
 struct GetWorkflowExecutionHistoryRequest {
