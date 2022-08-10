@@ -770,6 +770,7 @@ struct WorkflowExecutionCancelRequestedEventAttributes {
   20: optional i64 (js.type = "Long") externalInitiatedEventId
   30: optional WorkflowExecution externalWorkflowExecution
   40: optional string identity
+  50: optional string reason
 }
 
 struct WorkflowExecutionCanceledEventAttributes {
