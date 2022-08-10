@@ -286,6 +286,7 @@ message WorkflowExecutionCancelRequestedEventAttributes {
   string cause = 1;
   string identity = 2;
   ExternalExecutionInfo external_execution_info = 3;
+  string reason = 4;
 }
 
 message WorkflowExecutionCanceledEventAttributes {
