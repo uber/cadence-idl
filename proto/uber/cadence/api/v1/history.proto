@@ -113,6 +113,7 @@ message WorkflowExecutionStartedEventAttributes {
   SearchAttributes search_attributes = 20;
   ResetPoints prev_auto_reset_points = 21;
   Header header = 22;
+  google.protobuf.Timestamp first_scheduled_time = 23;
 }
 
 message WorkflowExecutionCompletedEventAttributes {
