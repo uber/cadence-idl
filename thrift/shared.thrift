@@ -562,6 +562,7 @@ struct WorkflowExecutionStartedEventAttributes {
   59: optional string originalExecutionRunId // This is the runID when the WorkflowExecutionStarted event is written
   60: optional string identity
   61: optional string firstExecutionRunId // This is the very first runID along the chain of ContinueAsNew and Reset.
+  62: optional i64 (js.type = "Long") firstScheduledTimeNano
   70: optional RetryPolicy retryPolicy
   80: optional i32 attempt
   90: optional i64 (js.type = "Long") expirationTimestamp
