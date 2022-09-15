@@ -170,6 +170,7 @@ service MatchingService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.RemoteSyncMatchedError remoteSyncMatchedError,
+      7: shared.StickyWorkerUnavailableError stickyWorkerUnavailableError,
     )
 
   /**
@@ -197,6 +198,7 @@ service MatchingService {
       4: shared.QueryFailedError queryFailedError,
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
+      7: shared.StickyWorkerUnavailableError stickyWorkerUnavailableError,
     )
 
   /**
