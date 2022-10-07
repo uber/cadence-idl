@@ -32,6 +32,7 @@ import "google/protobuf/duration.proto";
 message WorkflowExecution {
   string workflow_id = 1;
   string run_id = 2;
+  string domain = 3;
 }
 
 message WorkflowType {

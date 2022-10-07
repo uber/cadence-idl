@@ -364,6 +364,7 @@ struct TaskListMetadata {
 struct WorkflowExecution {
   10: optional string workflowId
   20: optional string runId
+  30: optional string domain
 }
 
 struct Memo {
