@@ -170,6 +170,7 @@ message RequestCancelWorkflowExecutionRequest {
   string identity = 3;
   string request_id = 4;
   string cause = 5;
+  string first_execution_run_id = 6;
 }
 
 message RequestCancelWorkflowExecutionResponse {
@@ -181,6 +182,7 @@ message TerminateWorkflowExecutionRequest {
   string reason = 3;
   Payload details = 4;
   string identity = 5;
+  string first_execution_run_id = 6;
 }
 
 message TerminateWorkflowExecutionResponse {

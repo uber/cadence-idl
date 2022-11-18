@@ -1305,6 +1305,7 @@ struct RequestCancelWorkflowExecutionRequest {
   30: optional string identity
   40: optional string requestId
   50: optional string cause
+  60: optional string firstExecutionRunID
 }
 
 struct GetWorkflowExecutionHistoryRequest {
@@ -1368,6 +1369,7 @@ struct TerminateWorkflowExecutionRequest {
   30: optional string reason
   40: optional binary details
   50: optional string identity
+  60: optional string firstExecutionRunID
 }
 
 struct ResetWorkflowExecutionRequest {
