@@ -136,7 +136,7 @@ struct WorkflowExecutionInfo {
   120: optional map<string, binary> memo
   122: optional binary versionHistories
   124: optional string versionHistoriesEncoding
-  126: optional string firstExecutionRunID
+  126: optional binary firstExecutionRunID
 }
 
 struct ActivityInfo {
