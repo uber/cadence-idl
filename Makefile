@@ -9,6 +9,20 @@ endif
 OS = $(shell uname -s)
 ARCH = $(shell $(EMULATE_X86) uname -m)
 
+# current (when committed) version of Go used in CI, and ideally also our docker images.
+# this generally does not matter, but can impact goimports output.
+# for maximum stability, make sure you use the same version as CI uses.
+#
+# this can _likely_ remain a major version, as fmt output does not tend to change in minor versions,
+# which will allow findstring to match any minor version.
+EXPECTED_GO_VERSION := go1.17
+CURRENT_GO_VERSION := $(shell go version)
+ifeq (,$(findstring $(EXPECTED_GO_VERSION),$(CURRENT_GO_VERSION)))
+# if you are seeing this warning: consider using https://github.com/travis-ci/gimme to pin your version
+$(warning Caution: you are not using CI's go version. Expected: $(EXPECTED_GO_VERSION), current: $(CURRENT_GO_VERSION))
+$(warning If you have recently changed your version: make sure to clean and rebuild, as pre-built tools generally inherit Go's formatting for that version.)
+endif
+
 BIN := .bin
 $(BIN):
 	@mkdir -p $@
@@ -80,3 +94,8 @@ proto-go: $(PROTO_FILES) $(BIN)/$(PROTOC_VERSION_BIN) $(BIN)/protoc-gen-gogofast
 	@rm $(LICENSE_GO)
 
 all: proto-lint proto-go
+
+# generally not necessary unless we change library versions, but this DOES impact codegen
+# formatting because it inherits that from the version of Go used to build tools.
+clean:
+	rm -rf $(BIN)
