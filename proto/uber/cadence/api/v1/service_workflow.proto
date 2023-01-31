@@ -97,6 +97,7 @@ message RestartWorkflowExecutionRequest {
   string domain = 1;
   WorkflowExecution workflow_execution = 2;
   string identity = 3;
+  string reason = 4;
 }
 
 message StartWorkflowExecutionRequest {
