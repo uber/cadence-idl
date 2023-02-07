@@ -137,6 +137,7 @@ struct WorkflowExecutionInfo {
   122: optional binary versionHistories
   124: optional string versionHistoriesEncoding
   126: optional binary firstExecutionRunID
+  128: optional map<string, string> partitionConfig
 }
 
 struct ActivityInfo {
@@ -221,6 +222,7 @@ struct TaskInfo {
   13: optional i64 (js.type = "Long") scheduleID
   14: optional i64 (js.type = "Long") expiryTimeNanos
   15: optional i64 (js.type = "Long") createdTimeNanos
+  17: optional map<string, string> partitionConfig
 }
 
 struct TaskListInfo {

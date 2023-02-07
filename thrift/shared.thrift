@@ -399,6 +399,7 @@ struct WorkflowExecutionInfo {
   120: optional string taskList
   130: optional bool isCron
   140: optional i64 (js.type = "Long") updateTime
+  150: optional map<string, string> partitionConfig
 }
 
 struct WorkflowExecutionConfiguration {
@@ -572,6 +573,7 @@ struct WorkflowExecutionStartedEventAttributes {
   121: optional SearchAttributes searchAttributes
   130: optional ResetPoints prevAutoResetPoints
   140: optional Header header
+  150: optional map<string, string> partitionConfig
 }
 
 struct ResetPoints{
