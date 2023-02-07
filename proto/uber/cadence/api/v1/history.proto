@@ -114,6 +114,7 @@ message WorkflowExecutionStartedEventAttributes {
   ResetPoints prev_auto_reset_points = 21;
   Header header = 22;
   google.protobuf.Timestamp first_scheduled_time = 23;
+  map<string, string> partition_config = 24;
 }
 
 message WorkflowExecutionCompletedEventAttributes {
