@@ -33,6 +33,7 @@ struct PollForDecisionTaskRequest {
   15: optional string pollerID
   20: optional shared.PollForDecisionTaskRequest pollRequest
   30: optional string forwardedFrom
+  40: optional string isolationGroup
 }
 
 struct PollForDecisionTaskResponse {
@@ -60,6 +61,7 @@ struct PollForActivityTaskRequest {
   15: optional string pollerID
   20: optional shared.PollForActivityTaskRequest pollRequest
   30: optional string forwardedFrom
+  40: optional string isolationGroup
 }
 
 struct AddDecisionTaskRequest {
@@ -70,6 +72,7 @@ struct AddDecisionTaskRequest {
   50: optional i32 scheduleToStartTimeoutSeconds
   59: optional TaskSource source
   60: optional string forwardedFrom
+  70: optional map<string, string> partitionConfig
 }
 
 struct AddActivityTaskRequest {
@@ -82,6 +85,7 @@ struct AddActivityTaskRequest {
   69: optional TaskSource source
   70: optional string forwardedFrom
   80: optional ActivityTaskDispatchInfo activityTaskDispatchInfo
+  90: optional map<string, string> partitionConfig
 }
 
 struct ActivityTaskDispatchInfo {

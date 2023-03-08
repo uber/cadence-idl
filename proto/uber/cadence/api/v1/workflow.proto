@@ -47,6 +47,7 @@ message WorkflowExecutionInfo {
   string task_list = 12;
   bool is_cron = 13;
   google.protobuf.Timestamp update_time = 14;
+  map<string, string> partition_config = 15;
 }
 
 message WorkflowExecutionConfiguration {
