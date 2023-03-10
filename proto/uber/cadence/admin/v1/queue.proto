@@ -81,6 +81,7 @@ message CrossClusterStartChildExecutionRequestAttributes {
   // targetRunID is for scheduling first decision task
   // targetWorkflowID is available in initiatedEventAttributes
   string target_run_id = 5;
+  map<string, string> partition_config = 6;
 }
 
 message CrossClusterStartChildExecutionResponseAttributes {
