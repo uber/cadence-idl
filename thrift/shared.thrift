@@ -1801,6 +1801,7 @@ struct CrossClusterStartChildExecutionRequestAttributes {
   // targetRunID is for scheduling first decision task
   // targetWorkflowID is available in initiatedEventAttributes
   50: optional string targetRunID
+  60: optional map<string, string> partitionConfig
 }
 
 struct CrossClusterStartChildExecutionResponseAttributes {
