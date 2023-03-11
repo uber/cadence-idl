@@ -265,6 +265,26 @@ service AdminService {
       2: shared.EntityNotExistsError    entityNotExistError,
       3: shared.InternalServiceError    internalServiceError,
     )
+
+  GetGlobalIsolationGroupsRequest GetGlobalIsolationGroups(1: GetGlobalIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateGlobalIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  GetDomainIsolationGroupsRequest GetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateDomainIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -405,3 +425,48 @@ struct ListDynamicConfigResponse {
   10: optional list<config.DynamicConfigEntry> entries
 }
 
+enum IsolationGroupState {
+  INVALID,
+  HEALTHY,
+  DRAINED,
+}
+
+struct IsolationGroupPartition {
+  10: optional name;
+  20: optional IsolationGroupState;
+}
+
+struct IsolationGroupConfiguration {
+  10: optional list<IsolationGroupPartition> isolationGroups;
+}
+
+
+// global
+struct GetGlobalIsolationGroupsRequest{}
+
+struct GetGlobalIsolationGroupsResponse{
+    10: repeated IsolationGroupConfiguration isolationGroups;
+}
+
+struct UpdateGlobalIsolationGroupsRequest{
+    10: repeated IsolationGroupConfiguration isolationGroups;
+}
+
+struct UpdateGlobalIsolationGroupsResponse{}
+
+
+// For domains
+struct GetDomainIsolationGroupsRequest{
+    10: string domain;
+}
+
+struct GetDomainIsolationGroupsResponse{
+    10: repeated IsolationGroupConfiguration isolationGroups;
+}
+
+struct UpdateDomainIsolationGroupsRequest{
+    10: string domain;
+    20: repeated IsolationGroupConfiguration isolationGroups;
+}
+
+struct UpdateDomainIsolationGroupsResponse{}
