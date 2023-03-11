@@ -433,7 +433,7 @@ enum IsolationGroupState {
 
 struct IsolationGroupPartition {
   10: optional name;
-  20: optional IsolationGroupState;
+  20: optional IsolationGroupState state;
 }
 
 struct IsolationGroupConfiguration {
