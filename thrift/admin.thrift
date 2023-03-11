@@ -271,17 +271,17 @@ service AdminService {
       1: shared.BadRequestError badRequestError,
     )
 
-  UpdateGlobalIsolationGroupsRequest AdminUpdateDomainIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
+  UpdateGlobalIsolationGroupsRequest UpdateGlobalIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
 
-  GetDomainIsolationGroupsRequest AdminGetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
+  GetDomainIsolationGroupsRequest GetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
 
-  UpdateDomainIsolationGroupsRequest AdminUpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
+  UpdateDomainIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
@@ -432,12 +432,12 @@ enum IsolationGroupState {
 }
 
 struct IsolationGroupPartition {
-  10: optional name;
-  20: optional IsolationGroupState state;
+  10: optional string name
+  20: optional IsolationGroupState state
 }
 
 struct IsolationGroupConfiguration {
-  10: optional list<IsolationGroupPartition> isolationGroups;
+  10: optional list<IsolationGroupPartition> isolationGroups
 }
 
 
@@ -445,11 +445,11 @@ struct IsolationGroupConfiguration {
 struct GetGlobalIsolationGroupsRequest{}
 
 struct GetGlobalIsolationGroupsResponse{
-    10: repeated IsolationGroupConfiguration isolationGroups;
+    10: optional list<IsolationGroupConfiguration> isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsRequest{
-    10: repeated IsolationGroupConfiguration isolationGroups;
+    10: optional list<IsolationGroupConfiguration> isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsResponse{}
@@ -457,16 +457,16 @@ struct UpdateGlobalIsolationGroupsResponse{}
 
 // For domains
 struct GetDomainIsolationGroupsRequest{
-    10: string domain;
+    10: optional string domain
 }
 
 struct GetDomainIsolationGroupsResponse{
-    10: repeated IsolationGroupConfiguration isolationGroups;
+    10: optional list<IsolationGroupConfiguration> isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsRequest{
-    10: string domain;
-    20: repeated IsolationGroupConfiguration isolationGroups;
+    10: optional string domain
+    20: optional list<IsolationGroupConfiguration> isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsResponse{}

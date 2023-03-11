@@ -259,7 +259,7 @@ struct RequestCancelWorkflowExecutionRequest {
   // workflow execution that requests this cancellation, for making sure
   // the workflow being cancelled is actually a child of the workflow
   // making the request
-  30: optional i64 (js.type = "Long") externalInitiatedEventId
+  30: optional i64 (je.type = "Long") externalInitiatedEventId
   40: optional shared.WorkflowExecution externalWorkflowExecution
   50: optional bool childWorkflowOnly
 }
