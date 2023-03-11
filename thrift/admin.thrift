@@ -266,7 +266,7 @@ service AdminService {
       3: shared.InternalServiceError    internalServiceError,
     )
 
-  GetGlobalIsolationGroupsRequest GetGlobalIsolationGroups(1: GetGlobalIsolationGroupsResponse request)
+  GetGlobalIsolationGroupsResponse GetGlobalIsolationGroups(1: GetGlobalIsolationGroupsRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
@@ -445,11 +445,11 @@ struct IsolationGroupConfiguration {
 struct GetGlobalIsolationGroupsRequest{}
 
 struct GetGlobalIsolationGroupsResponse{
-    10: optional list<IsolationGroupConfiguration> isolationGroups
+    10: optional IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsRequest{
-    10: optional list<IsolationGroupConfiguration> isolationGroups
+    10: optional IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsResponse{}
@@ -461,12 +461,12 @@ struct GetDomainIsolationGroupsRequest{
 }
 
 struct GetDomainIsolationGroupsResponse{
-    10: optional list<IsolationGroupConfiguration> isolationGroups
+    10: optional IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsRequest{
     10: optional string domain
-    20: optional list<IsolationGroupConfiguration> isolationGroups
+    20: optional IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsResponse{}

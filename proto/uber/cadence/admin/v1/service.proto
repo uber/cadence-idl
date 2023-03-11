@@ -452,11 +452,11 @@ message DynamicConfigFilter {
 message GetGlobalIsolationGroupsRequest{}
 
 message GetGlobalIsolationGroupsResponse{
-    repeated IsolationGroupConfiguration isolation_groups = 1;
+    IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateGlobalIsolationGroupsRequest{
-    repeated IsolationGroupConfiguration isolation_groups = 1;
+    IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateGlobalIsolationGroupsResponse{ }
@@ -468,12 +468,12 @@ message GetDomainIsolationGroupsRequest{
 }
 
 message GetDomainIsolationGroupsResponse{
-    repeated IsolationGroupConfiguration isolation_groups = 1;
+    IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateDomainIsolationGroupsRequest{
     string domain = 1;
-    repeated IsolationGroupConfiguration isolation_groups = 2;
+    IsolationGroupConfiguration isolation_groups = 2;
 }
 
-message UpdateDomainIsolationGroupsResponse{ }
+message UpdateDomainIsolationGroupsResponse{}
