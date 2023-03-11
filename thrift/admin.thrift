@@ -271,17 +271,17 @@ service AdminService {
       1: shared.BadRequestError badRequestError,
     )
 
-  UpdateGlobalIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
+  UpdateGlobalIsolationGroupsRequest AdminUpdateDomainIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
 
-  GetDomainIsolationGroupsRequest GetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
+  GetDomainIsolationGroupsRequest AdminGetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )
 
-  UpdateDomainIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
+  UpdateDomainIsolationGroupsRequest AdminUpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
     throws (
       1: shared.BadRequestError badRequestError,
     )

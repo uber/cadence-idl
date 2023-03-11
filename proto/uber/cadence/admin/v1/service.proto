@@ -125,14 +125,14 @@ service AdminAPI {
   // GetIsolationGroups
   rpc GetGlobalIsolationGroups(GetGlobalIsolationGroupsRequest) returns (GetGlobalIsolationGroupsResponse);
 
-  // UpdateDynamicConfig
-  rpc UpdateGlobalDynamicConfig(UpdateGlobalIsolationGroupsRequest) returns (UpdateGlobalIsolationGroupsResponse);
+  // UpdateGlobalIsolationGroups
+  rpc UpdateGlobalIsolationGroups(UpdateGlobalIsolationGroupsRequest) returns (UpdateGlobalIsolationGroupsResponse);
 
   // GetDomainIsolationGroups
   rpc GetDomainIsolationGroups(GetDomainIsolationGroupsRequest) returns (GetDomainIsolationGroupsResponse);
 
-  // UpdateDomainDynamicConfig
-  rpc UpdateDomainDynamicConfig(UpdateDomainIsolationGroupsRequest) returns (UpdateDomainIsolationGroupsResponse);
+  // UpdateDomainIsolationGroups
+  rpc UpdateDomainIsolationGroups(UpdateDomainIsolationGroupsRequest) returns (UpdateDomainIsolationGroupsResponse);
 }
 
 message DescribeWorkflowExecutionRequest {
@@ -452,11 +452,11 @@ message DynamicConfigFilter {
 message GetGlobalIsolationGroupsRequest{}
 
 message GetGlobalIsolationGroupsResponse{
-    repeated IsolationGroupConfiguration isolationGroups = 1;
+    repeated IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateGlobalIsolationGroupsRequest{
-    repeated IsolationGroupConfiguration isolationGroups = 1;
+    repeated IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateGlobalIsolationGroupsResponse{ }
@@ -468,12 +468,12 @@ message GetDomainIsolationGroupsRequest{
 }
 
 message GetDomainIsolationGroupsResponse{
-    repeated IsolationGroupConfiguration isolationGroups = 1;
+    repeated IsolationGroupConfiguration isolation_groups = 1;
 }
 
 message UpdateDomainIsolationGroupsRequest{
     string domain = 1;
-    repeated IsolationGroupConfiguration isolationGroups = 1;
+    repeated IsolationGroupConfiguration isolation_groups = 2;
 }
 
 message UpdateDomainIsolationGroupsResponse{ }

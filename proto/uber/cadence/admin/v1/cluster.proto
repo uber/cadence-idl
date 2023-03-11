@@ -73,5 +73,5 @@ message IsolationGroupPartition {
 }
 
 message IsolationGroupConfiguration {
-    repeated IsolationGroupPartition = 1;
+    repeated IsolationGroupPartition isolation_groups = 1;
 }
