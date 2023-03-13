@@ -265,6 +265,26 @@ service AdminService {
       2: shared.EntityNotExistsError    entityNotExistError,
       3: shared.InternalServiceError    internalServiceError,
     )
+
+  GetGlobalIsolationGroupsResponse GetGlobalIsolationGroups(1: GetGlobalIsolationGroupsRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateGlobalIsolationGroupsRequest UpdateGlobalIsolationGroups(1: UpdateGlobalIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  GetDomainIsolationGroupsRequest GetDomainIsolationGroups(1: GetDomainIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateDomainIsolationGroupsRequest UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsResponse request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -405,3 +425,48 @@ struct ListDynamicConfigResponse {
   10: optional list<config.DynamicConfigEntry> entries
 }
 
+enum IsolationGroupState {
+  INVALID,
+  HEALTHY,
+  DRAINED,
+}
+
+struct IsolationGroupPartition {
+  10: optional string name
+  20: optional IsolationGroupState state
+}
+
+struct IsolationGroupConfiguration {
+  10: optional list<IsolationGroupPartition> isolationGroups
+}
+
+
+// global
+struct GetGlobalIsolationGroupsRequest{}
+
+struct GetGlobalIsolationGroupsResponse{
+    10: optional IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateGlobalIsolationGroupsRequest{
+    10: optional IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateGlobalIsolationGroupsResponse{}
+
+
+// For domains
+struct GetDomainIsolationGroupsRequest{
+    10: optional string domain
+}
+
+struct GetDomainIsolationGroupsResponse{
+    10: optional IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateDomainIsolationGroupsRequest{
+    10: optional string domain
+    20: optional IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateDomainIsolationGroupsResponse{}
