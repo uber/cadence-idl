@@ -58,3 +58,8 @@ struct Message {
   60: optional map<string,Field> fields
   70: optional VisibilityOperation visibilityOperation
 }
+
+struct PinotMessage {
+  10: optional string workflowID
+  20: optional binary payload
+}
