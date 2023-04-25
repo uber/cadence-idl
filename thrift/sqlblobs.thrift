@@ -69,6 +69,7 @@ struct DomainInfo {
   50: optional i64 (js.type = "Long") failoverEndTime
   52: optional i64 (js.type = "Long") previousFailoverVersion
   54: optional i64 (js.type = "Long") lastUpdatedTime
+  56: optional shared.IsolationGroupConfiguration isolationGroupConfiguration
 }
 
 struct HistoryTreeInfo {
