@@ -425,31 +425,15 @@ struct ListDynamicConfigResponse {
   10: optional list<config.DynamicConfigEntry> entries
 }
 
-enum IsolationGroupState {
-  INVALID,
-  HEALTHY,
-  DRAINED,
-}
-
-struct IsolationGroupPartition {
-  10: optional string name
-  20: optional IsolationGroupState state
-}
-
-struct IsolationGroupConfiguration {
-  10: optional list<IsolationGroupPartition> isolationGroups
-}
-
-
 // global
 struct GetGlobalIsolationGroupsRequest{}
 
 struct GetGlobalIsolationGroupsResponse{
-    10: optional IsolationGroupConfiguration isolationGroups
+    10: optional shared.IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsRequest{
-    10: optional IsolationGroupConfiguration isolationGroups
+    10: optional shared.IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateGlobalIsolationGroupsResponse{}
@@ -461,12 +445,12 @@ struct GetDomainIsolationGroupsRequest{
 }
 
 struct GetDomainIsolationGroupsResponse{
-    10: optional IsolationGroupConfiguration isolationGroups
+    10: optional shared.IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsRequest{
     10: optional string domain
-    20: optional IsolationGroupConfiguration isolationGroups
+    20: optional shared.IsolationGroupConfiguration isolationGroups
 }
 
 struct UpdateDomainIsolationGroupsResponse{}

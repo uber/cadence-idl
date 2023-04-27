@@ -1917,3 +1917,19 @@ struct RespondCrossClusterTasksCompletedRequest {
 struct RespondCrossClusterTasksCompletedResponse {
   10: optional list<CrossClusterTaskRequest> tasks
 }
+
+enum IsolationGroupState {
+  INVALID,
+  HEALTHY,
+  DRAINED,
+}
+
+struct IsolationGroupPartition {
+  10: optional string name
+  20: optional IsolationGroupState state
+}
+
+struct IsolationGroupConfiguration {
+  10: optional list<IsolationGroupPartition> isolationGroups
+}
+
