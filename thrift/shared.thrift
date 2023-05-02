@@ -1019,6 +1019,7 @@ struct DomainInfo {
 struct DomainConfiguration {
   10: optional i32 workflowExecutionRetentionPeriodInDays
   20: optional bool emitMetric
+  60: optional IsolationGroupConfiguration isolationgroups
   70: optional BadBinaries badBinaries
   80: optional ArchivalStatus historyArchivalStatus
   90: optional string historyArchivalURI
