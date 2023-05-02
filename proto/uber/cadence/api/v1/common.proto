@@ -110,3 +110,18 @@ message RetryPolicy {
   // Expiration time for the whole retry process.
   google.protobuf.Duration expiration_interval = 6;
 }
+
+enum IsolationGroupState {
+  ISOLATION_GROUP_STATE_INVALID = 0;
+  ISOLATION_GROUP_STATE_HEALTHY = 1;
+  ISOLATION_GROUP_STATE_DRAINED = 2;
+}
+
+message IsolationGroupPartition {
+  string name = 1;
+  IsolationGroupState state = 2;
+}
+
+message IsolationGroupConfiguration {
+    repeated IsolationGroupPartition isolation_groups = 1;
+}
