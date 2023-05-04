@@ -50,6 +50,7 @@ struct StartWorkflowExecutionRequest {
   57: optional binary continuedFailureDetails
   58: optional binary lastCompletionResult
   60: optional i32 firstDecisionTaskBackoffSeconds
+  62: optional map<string, string> partitionConfig
 }
 
 struct DescribeMutableStateRequest{
@@ -230,6 +231,7 @@ struct SignalWorkflowExecutionRequest {
 struct SignalWithStartWorkflowExecutionRequest {
   10: optional string domainUUID
   20: optional shared.SignalWithStartWorkflowExecutionRequest signalWithStartRequest
+  30: optional map<string, string> partitionConfig
 }
 
 struct RemoveSignalMutableStateRequest {
