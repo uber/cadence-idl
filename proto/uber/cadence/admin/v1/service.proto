@@ -121,6 +121,18 @@ service AdminAPI {
 
   // MaintainCorruptWorkflow deletes a workflow if its history is corrupt due to underlying DB issues (e.g. Cassandra resurrections)
   rpc MaintainCorruptWorkflow(MaintainCorruptWorkflowRequest) returns (MaintainCorruptWorkflowResponse);
+
+  // GetIsolationGroups
+  rpc GetGlobalIsolationGroups(GetGlobalIsolationGroupsRequest) returns (GetGlobalIsolationGroupsResponse);
+
+  // UpdateGlobalIsolationGroups
+  rpc UpdateGlobalIsolationGroups(UpdateGlobalIsolationGroupsRequest) returns (UpdateGlobalIsolationGroupsResponse);
+
+  // GetDomainIsolationGroups
+  rpc GetDomainIsolationGroups(GetDomainIsolationGroupsRequest) returns (GetDomainIsolationGroupsResponse);
+
+  // UpdateDomainIsolationGroups
+  rpc UpdateDomainIsolationGroups(UpdateDomainIsolationGroupsRequest) returns (UpdateDomainIsolationGroupsResponse);
 }
 
 message DescribeWorkflowExecutionRequest {
@@ -435,3 +447,33 @@ message DynamicConfigFilter {
 	string name = 1;
 	api.v1.DataBlob value = 2;
 }
+
+// Global
+message GetGlobalIsolationGroupsRequest{}
+
+message GetGlobalIsolationGroupsResponse{
+    api.v1.IsolationGroupConfiguration isolation_groups = 1;
+}
+
+message UpdateGlobalIsolationGroupsRequest{
+    api.v1.IsolationGroupConfiguration isolation_groups = 1;
+}
+
+message UpdateGlobalIsolationGroupsResponse{ }
+
+
+// For domains
+message GetDomainIsolationGroupsRequest{
+    string domain = 1;
+}
+
+message GetDomainIsolationGroupsResponse{
+    api.v1.IsolationGroupConfiguration isolation_groups = 1;
+}
+
+message UpdateDomainIsolationGroupsRequest{
+    string domain = 1;
+    api.v1.IsolationGroupConfiguration isolation_groups = 2;
+}
+
+message UpdateDomainIsolationGroupsResponse{}

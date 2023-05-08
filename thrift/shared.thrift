@@ -1019,6 +1019,7 @@ struct DomainInfo {
 struct DomainConfiguration {
   10: optional i32 workflowExecutionRetentionPeriodInDays
   20: optional bool emitMetric
+  60: optional IsolationGroupConfiguration isolationgroups
   70: optional BadBinaries badBinaries
   80: optional ArchivalStatus historyArchivalStatus
   90: optional string historyArchivalURI
@@ -1917,3 +1918,19 @@ struct RespondCrossClusterTasksCompletedRequest {
 struct RespondCrossClusterTasksCompletedResponse {
   10: optional list<CrossClusterTaskRequest> tasks
 }
+
+enum IsolationGroupState {
+  INVALID,
+  HEALTHY,
+  DRAINED,
+}
+
+struct IsolationGroupPartition {
+  10: optional string name
+  20: optional IsolationGroupState state
+}
+
+struct IsolationGroupConfiguration {
+  10: optional list<IsolationGroupPartition> isolationGroups
+}
+

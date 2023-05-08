@@ -265,6 +265,26 @@ service AdminService {
       2: shared.EntityNotExistsError    entityNotExistError,
       3: shared.InternalServiceError    internalServiceError,
     )
+
+  GetGlobalIsolationGroupsResponse GetGlobalIsolationGroups(1: GetGlobalIsolationGroupsRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateGlobalIsolationGroupsResponse UpdateGlobalIsolationGroups(1: UpdateGlobalIsolationGroupsRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  GetDomainIsolationGroupsResponse GetDomainIsolationGroups(1: GetDomainIsolationGroupsRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateDomainIsolationGroupsResponse UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -405,3 +425,32 @@ struct ListDynamicConfigResponse {
   10: optional list<config.DynamicConfigEntry> entries
 }
 
+// global
+struct GetGlobalIsolationGroupsRequest{}
+
+struct GetGlobalIsolationGroupsResponse{
+    10: optional shared.IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateGlobalIsolationGroupsRequest{
+    10: optional shared.IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateGlobalIsolationGroupsResponse{}
+
+
+// For domains
+struct GetDomainIsolationGroupsRequest{
+    10: optional string domain
+}
+
+struct GetDomainIsolationGroupsResponse{
+    10: optional shared.IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateDomainIsolationGroupsRequest{
+    10: optional string domain
+    20: optional shared.IsolationGroupConfiguration isolationGroups
+}
+
+struct UpdateDomainIsolationGroupsResponse{}

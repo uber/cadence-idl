@@ -29,6 +29,7 @@ option java_package = "com.uber.cadence.api.v1";
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
+import "uber/cadence/api/v1/common.proto";
 
 message Domain {
   string id = 1;
@@ -48,6 +49,7 @@ message Domain {
   int64 failover_version = 15;
   bool is_global_domain = 16;
   FailoverInfo failover_info = 17;
+  IsolationGroupConfiguration isolation_groups = 18;
 }
 
 message ClusterReplicationConfiguration {
