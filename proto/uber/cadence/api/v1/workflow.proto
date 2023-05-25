@@ -81,6 +81,7 @@ message PendingActivityInfo {
   google.protobuf.Timestamp expiration_time = 10;
   Failure last_failure = 11;
   string last_worker_identity = 12;
+  string started_worker_identity = 13;
 }
 
 message PendingChildExecutionInfo {
