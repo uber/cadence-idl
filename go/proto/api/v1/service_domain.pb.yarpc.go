@@ -177,10 +177,10 @@ type FxDomainAPIYARPCClientResult struct {
 // NewFxDomainAPIYARPCClient provides a DomainAPIYARPCClient
 // to an Fx application using the given name for routing.
 //
-//	fx.Provide(
-//	  apiv1.NewFxDomainAPIYARPCClient("service-name"),
-//	  ...
-//	)
+//  fx.Provide(
+//    apiv1.NewFxDomainAPIYARPCClient("service-name"),
+//    ...
+//  )
 func NewFxDomainAPIYARPCClient(name string, options ...protobuf.ClientOption) interface{} {
 	return func(params FxDomainAPIYARPCClientParams) FxDomainAPIYARPCClientResult {
 		cc := params.Provider.ClientConfig(name)
@@ -226,10 +226,10 @@ type FxDomainAPIYARPCProceduresResult struct {
 // NewFxDomainAPIYARPCProcedures provides DomainAPIYARPCServer procedures to an Fx application.
 // It expects a DomainAPIYARPCServer to be present in the container.
 //
-//	fx.Provide(
-//	  apiv1.NewFxDomainAPIYARPCProcedures(),
-//	  ...
-//	)
+//  fx.Provide(
+//    apiv1.NewFxDomainAPIYARPCProcedures(),
+//    ...
+//  )
 func NewFxDomainAPIYARPCProcedures() interface{} {
 	return func(params FxDomainAPIYARPCProceduresParams) FxDomainAPIYARPCProceduresResult {
 		return FxDomainAPIYARPCProceduresResult{
