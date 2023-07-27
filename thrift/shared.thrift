@@ -391,6 +391,8 @@ struct WorkflowExecutionInfo {
   50: optional WorkflowExecutionCloseStatus closeStatus
   60: optional i64 (js.type = "Long") historyLength
   70: optional string parentDomainId
+  71: optional string parentDomainName
+  72: optional i64 parentInitatedId
   80: optional WorkflowExecution parentExecution
   90: optional i64 (js.type = "Long") executionTime
   100: optional Memo memo
