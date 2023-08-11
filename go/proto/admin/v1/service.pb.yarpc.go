@@ -501,10 +501,10 @@ type FxAdminAPIYARPCClientResult struct {
 // NewFxAdminAPIYARPCClient provides a AdminAPIYARPCClient
 // to an Fx application using the given name for routing.
 //
-//  fx.Provide(
-//    adminv1.NewFxAdminAPIYARPCClient("service-name"),
-//    ...
-//  )
+//	fx.Provide(
+//	  adminv1.NewFxAdminAPIYARPCClient("service-name"),
+//	  ...
+//	)
 func NewFxAdminAPIYARPCClient(name string, options ...protobuf.ClientOption) interface{} {
 	return func(params FxAdminAPIYARPCClientParams) FxAdminAPIYARPCClientResult {
 		cc := params.Provider.ClientConfig(name)
@@ -550,10 +550,10 @@ type FxAdminAPIYARPCProceduresResult struct {
 // NewFxAdminAPIYARPCProcedures provides AdminAPIYARPCServer procedures to an Fx application.
 // It expects a AdminAPIYARPCServer to be present in the container.
 //
-//  fx.Provide(
-//    adminv1.NewFxAdminAPIYARPCProcedures(),
-//    ...
-//  )
+//	fx.Provide(
+//	  adminv1.NewFxAdminAPIYARPCProcedures(),
+//	  ...
+//	)
 func NewFxAdminAPIYARPCProcedures() interface{} {
 	return func(params FxAdminAPIYARPCProceduresParams) FxAdminAPIYARPCProceduresResult {
 		return FxAdminAPIYARPCProceduresResult{

@@ -201,10 +201,10 @@ type FxVisibilityAPIYARPCClientResult struct {
 // NewFxVisibilityAPIYARPCClient provides a VisibilityAPIYARPCClient
 // to an Fx application using the given name for routing.
 //
-//  fx.Provide(
-//    apiv1.NewFxVisibilityAPIYARPCClient("service-name"),
-//    ...
-//  )
+//	fx.Provide(
+//	  apiv1.NewFxVisibilityAPIYARPCClient("service-name"),
+//	  ...
+//	)
 func NewFxVisibilityAPIYARPCClient(name string, options ...protobuf.ClientOption) interface{} {
 	return func(params FxVisibilityAPIYARPCClientParams) FxVisibilityAPIYARPCClientResult {
 		cc := params.Provider.ClientConfig(name)
@@ -250,10 +250,10 @@ type FxVisibilityAPIYARPCProceduresResult struct {
 // NewFxVisibilityAPIYARPCProcedures provides VisibilityAPIYARPCServer procedures to an Fx application.
 // It expects a VisibilityAPIYARPCServer to be present in the container.
 //
-//  fx.Provide(
-//    apiv1.NewFxVisibilityAPIYARPCProcedures(),
-//    ...
-//  )
+//	fx.Provide(
+//	  apiv1.NewFxVisibilityAPIYARPCProcedures(),
+//	  ...
+//	)
 func NewFxVisibilityAPIYARPCProcedures() interface{} {
 	return func(params FxVisibilityAPIYARPCProceduresParams) FxVisibilityAPIYARPCProceduresResult {
 		return FxVisibilityAPIYARPCProceduresResult{

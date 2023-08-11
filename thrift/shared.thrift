@@ -1180,6 +1180,7 @@ struct PollForDecisionTaskResponse {
   110: optional i64 (js.type = "Long") startedTimestamp
   120: optional map<string, WorkflowQuery> queries
   130: optional i64 (js.type = 'Long') nextEventId
+  140: optional i64 currentHistorySize
 }
 
 struct StickyExecutionAttributes {

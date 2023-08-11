@@ -54,6 +54,7 @@ struct PollForDecisionTaskResponse {
   130: optional i64 (js.type = "Long") scheduledTimestamp
   140: optional i64 (js.type = "Long") startedTimestamp
   150: optional map<string, shared.WorkflowQuery> queries
+  160: optional i64 currentHistorySize
 }
 
 struct PollForActivityTaskRequest {
