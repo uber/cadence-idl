@@ -128,7 +128,7 @@ struct WorkflowExecutionInfo {
   102: optional i32 eventStoreVersion
   104: optional binary eventBranchToken
   106: optional i64 (js.type = "Long") signalCount
-  108: optional i64 (js.type = "Long") historySizeByte
+  108: optional i64 (js.type = "Long") historySize
   110: optional string clientLibraryVersion
   112: optional string clientFeatureVersion
   114: optional string clientImpl
