@@ -2592,9 +2592,9 @@ func (m *RespondCrossClusterTasksCompletedResponse) GetTasks() *CrossClusterTask
 }
 
 // If get_all is True, then all provided filters are ignored and all values associated with config_name
-//will be returned. If get_all is False and no filters are specified (or no filter match), fallback value
-//will be returned. If get_all is False and a filter(s) is specified, value that matches filter will be returned.
-//If config_name cannot be found in database, default value will be returned.
+// will be returned. If get_all is False and no filters are specified (or no filter match), fallback value
+// will be returned. If get_all is False and a filter(s) is specified, value that matches filter will be returned.
+// If config_name cannot be found in database, default value will be returned.
 type GetDynamicConfigRequest struct {
 	ConfigName           string                 `protobuf:"bytes,1,opt,name=config_name,json=configName,proto3" json:"config_name,omitempty"`
 	Filters              []*DynamicConfigFilter `protobuf:"bytes,2,rep,name=filters,proto3" json:"filters,omitempty"`
@@ -2698,7 +2698,7 @@ func (m *GetDynamicConfigResponse) GetValue() *v1.DataBlob {
 }
 
 // If filters field is not specified in DynamicConfigValue, value will update fallback value which supersedes
-//the default value defined in codebase.
+// the default value defined in codebase.
 type UpdateDynamicConfigRequest struct {
 	ConfigName           string                `protobuf:"bytes,1,opt,name=config_name,json=configName,proto3" json:"config_name,omitempty"`
 	ConfigValues         []*DynamicConfigValue `protobuf:"bytes,2,rep,name=config_values,json=configValues,proto3" json:"config_values,omitempty"`

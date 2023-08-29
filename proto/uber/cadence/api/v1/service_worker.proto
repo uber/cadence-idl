@@ -169,6 +169,7 @@ message PollForDecisionTaskResponse {
   google.protobuf.Timestamp started_time = 13;
   map<string, WorkflowQuery> queries = 14;
   int64 next_event_id = 15;
+  int64 total_history_bytes = 16;
 }
 
 message RespondDecisionTaskCompletedRequest {

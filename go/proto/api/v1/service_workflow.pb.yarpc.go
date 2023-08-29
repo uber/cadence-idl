@@ -297,10 +297,10 @@ type FxWorkflowAPIYARPCClientResult struct {
 // NewFxWorkflowAPIYARPCClient provides a WorkflowAPIYARPCClient
 // to an Fx application using the given name for routing.
 //
-//  fx.Provide(
-//    apiv1.NewFxWorkflowAPIYARPCClient("service-name"),
-//    ...
-//  )
+//	fx.Provide(
+//	  apiv1.NewFxWorkflowAPIYARPCClient("service-name"),
+//	  ...
+//	)
 func NewFxWorkflowAPIYARPCClient(name string, options ...protobuf.ClientOption) interface{} {
 	return func(params FxWorkflowAPIYARPCClientParams) FxWorkflowAPIYARPCClientResult {
 		cc := params.Provider.ClientConfig(name)
@@ -346,10 +346,10 @@ type FxWorkflowAPIYARPCProceduresResult struct {
 // NewFxWorkflowAPIYARPCProcedures provides WorkflowAPIYARPCServer procedures to an Fx application.
 // It expects a WorkflowAPIYARPCServer to be present in the container.
 //
-//  fx.Provide(
-//    apiv1.NewFxWorkflowAPIYARPCProcedures(),
-//    ...
-//  )
+//	fx.Provide(
+//	  apiv1.NewFxWorkflowAPIYARPCProcedures(),
+//	  ...
+//	)
 func NewFxWorkflowAPIYARPCProcedures() interface{} {
 	return func(params FxWorkflowAPIYARPCProceduresParams) FxWorkflowAPIYARPCProceduresResult {
 		return FxWorkflowAPIYARPCProceduresResult{
