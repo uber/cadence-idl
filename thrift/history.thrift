@@ -93,6 +93,7 @@ struct GetMutableStateResponse {
   160: optional i32 workflowCloseState
   170: optional shared.VersionHistories versionHistories
   180: optional bool isStickyTaskListEnabled
+  190: optional i64 (js.type = "Long") historySize
 }
 
 struct PollMutableStateRequest {
@@ -216,6 +217,7 @@ struct RecordDecisionTaskStartedResponse {
   120: optional i64 (js.type = "Long") scheduledTimestamp
   130: optional i64 (js.type = "Long") startedTimestamp
   140: optional map<string, shared.WorkflowQuery> queries
+  150: optional i64 (js.type = "Long") historySize
 }
 
 struct SignalWorkflowExecutionRequest {
