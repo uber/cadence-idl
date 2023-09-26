@@ -304,6 +304,7 @@ enum HistoryEventFilterType {
 enum TaskListKind {
   NORMAL,
   STICKY,
+  DYNAMIC,
 }
 
 enum ArchivalStatus {
