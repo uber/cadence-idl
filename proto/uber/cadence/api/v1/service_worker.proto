@@ -43,6 +43,10 @@ import "uber/cadence/api/v1/workflow.proto";
 // decisions.  For each ActivityTask, application is expected to execute the actual logic for that task and respond back
 // with completion or failure.  Worker is expected to regularly heartbeat while activity task is running.
 service WorkerAPI {
+  // Authenticate is called to get JWT token
+  // If credentials are not correct, corresponding error will be returned
+  rpc Authenticate(AuthenticateRequest) returns(AuthenticateResponse);
+
   // PollForDecisionTask is called by application worker to process DecisionTask from a specific taskList.
   // A DecisionTask is dispatched to callers for active workflow executions, with pending decisions.
   // Application is then expected to call 'RespondDecisionTaskCompleted' API when it is done processing the DecisionTask.
@@ -323,4 +327,13 @@ message ResetStickyTaskListRequest {
 }
 
 message ResetStickyTaskListResponse {
+}
+
+message AuthenticateRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthenticateResponse {
+  string token = 1;
 }

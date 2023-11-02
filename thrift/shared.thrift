@@ -1938,3 +1938,11 @@ struct IsolationGroupConfiguration {
   10: optional list<IsolationGroupPartition> isolationGroups
 }
 
+struct AuthenticateRequest {
+  10: optional string username
+  20: optional string password
+}
+
+struct AuthenticateResponse {
+  10: optional string token
+}

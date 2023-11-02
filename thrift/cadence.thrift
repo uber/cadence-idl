@@ -32,6 +32,18 @@ namespace java com.uber.cadence
 **/
 service WorkflowService {
   /**
+  * Authenticate returns JWT token if user/password combination is correct
+  **/
+  shared.AuthenticateResponse Authenticate(1: shared.AuthenticateRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.EntityNotExistsError entityNotExistError,
+      3: shared.LimitExceededError limitExceededError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
+  /**
   * RegisterDomain creates a new domain which can be used as a container for all resources.  Domain is a top level
   * entity within Cadence, used as a container for all resources like workflow executions, tasklists, etc.  Domain
   * acts as a sandbox and provides isolation for all resources within the domain.  All resources belongs to exactly one
