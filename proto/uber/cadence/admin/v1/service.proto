@@ -31,10 +31,29 @@ import "uber/cadence/api/v1/visibility.proto";
 import "uber/cadence/admin/v1/cluster.proto";
 import "uber/cadence/admin/v1/history.proto";
 import "uber/cadence/admin/v1/queue.proto";
+import "uber/cadence/admin/v1/user.proto";
 import "uber/cadence/admin/v1/replication.proto";
 
 // AdminAPI provides advanced APIs for debugging and analysis with admin privilege.
 service AdminAPI {
+  // AddUser adds user with given properties
+  rpc AddUser(AddUserRequest) returns (AddUserResponse);
+
+  // DeleteUser removes user by name
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+
+  // ListUsers returns all existing users
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+
+  // GetUser returns details user information
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+
+  // UpdateUser allows to change properties of user
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+
+  // ChangeUserPassword changes password associated with user
+  rpc ChangeUserPassword(ChangeUserPasswordRequest) returns (ChangeUserPasswordResponse);
+
   // DescribeWorkflowExecution returns information about the internal states of workflow execution.
   rpc DescribeWorkflowExecution(DescribeWorkflowExecutionRequest) returns (DescribeWorkflowExecutionResponse);
 

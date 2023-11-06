@@ -23,6 +23,7 @@ namespace java com.uber.cadence.admin
 include "shared.thrift"
 include "replicator.thrift"
 include "config.thrift"
+include "user.thrift"
 
 /**
 * AdminService provides advanced APIs for debugging and analysis with admin privilege
@@ -284,6 +285,47 @@ service AdminService {
   UpdateDomainIsolationGroupsResponse UpdateDomainIsolationGroups(1: UpdateDomainIsolationGroupsRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
+    )
+
+  user.AddUserResponse AddUser(1: user.AddUserRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+    )
+
+  void DeleteUser(1: user.DeleteUserRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+      3: shared.EntityNotExistsError  entityNotExistError,
+    )
+
+  user.GetUserResponse GetUser(1: user.GetUserRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+      3: shared.EntityNotExistsError  entityNotExistError,
+    )
+
+  user.ListUsersResponse ListUsers()
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+      3: shared.EntityNotExistsError  entityNotExistError,
+    )
+
+  user.UpdateUserResponse UpdateUser(1: user.UpdateUserRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+      3: shared.EntityNotExistsError  entityNotExistError,
+    )
+
+  void ChangeUserPassword(1: user.ChangeUserPasswordRequest request)
+    throws (
+      1: shared.BadRequestError       badRequestError,
+      2: shared.AccessDeniedError     accessDeniedError,
+      3: shared.EntityNotExistsError  entityNotExistError,
     )
 }
 

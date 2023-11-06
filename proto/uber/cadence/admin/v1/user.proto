@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package uber.cadence.admin.v1;
+
+option go_package = "github.com/uber/cadence-idl/go/proto/admin/v1;adminv1";
+
+message User {
+  string username  = 1;
+  bool admin = 3;
+  repeated string groups = 4;
+}
+
+message AddUserRequest {
+  User user = 1;
+  string password = 2;
+}
+
+message AddUserResponse {
+    User user = 1;
+}
+
+message DeleteUserRequest {
+  string username = 1;
+}
+
+message DeleteUserResponse {
+}
+
+message GetUserRequest {
+  string username = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message ListUsersRequest {
+}
+
+message ListUsersResponse {
+  repeated User users = 1;
+}
+
+message UpdateUserRequest {
+  string username = 1;
+  User user = 2;
+}
+
+message UpdateUserResponse {
+  User user = 1;
+}
+
+message ChangeUserPasswordRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message ChangeUserPasswordResponse {
+}
