@@ -133,6 +133,12 @@ service AdminAPI {
 
   // UpdateDomainIsolationGroups
   rpc UpdateDomainIsolationGroups(UpdateDomainIsolationGroupsRequest) returns (UpdateDomainIsolationGroupsResponse);
+
+  // GetDomainAsyncWorkflowConfiguraton
+  rpc GetDomainAsyncWorkflowConfiguraton(GetDomainAsyncWorkflowConfiguratonRequest) returns (GetDomainAsyncWorkflowConfiguratonResponse);
+
+  // UpdateDomainAsyncWorkflowConfiguraton
+  rpc UpdateDomainAsyncWorkflowConfiguraton(UpdateDomainAsyncWorkflowConfiguratonRequest) returns (UpdateDomainAsyncWorkflowConfiguratonResponse);
 }
 
 message DescribeWorkflowExecutionRequest {
@@ -477,3 +483,19 @@ message UpdateDomainIsolationGroupsRequest{
 }
 
 message UpdateDomainIsolationGroupsResponse{}
+
+// Async workflow configuration request/response payloads
+message GetDomainAsyncWorkflowConfiguratonRequest {
+    string domain = 1;
+}
+
+message GetDomainAsyncWorkflowConfiguratonResponse {
+    api.v1.AsyncWorkflowConfiguration configuration = 1;
+}
+
+message UpdateDomainAsyncWorkflowConfiguratonRequest {
+    string domain = 1;
+    api.v1.AsyncWorkflowConfiguration configuration = 2;
+}
+
+message UpdateDomainAsyncWorkflowConfiguratonResponse {}

@@ -50,6 +50,7 @@ message Domain {
   bool is_global_domain = 16;
   FailoverInfo failover_info = 17;
   IsolationGroupConfiguration isolation_groups = 18;
+  AsyncWorkflowConfiguration async_workflow_config = 19;
 }
 
 message ClusterReplicationConfiguration {
