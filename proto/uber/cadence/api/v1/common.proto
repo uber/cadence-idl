@@ -132,7 +132,10 @@ message AsyncWorkflowConfiguration {
 
   // Below fields are only used if predefined_queue_name is not set
   AsyncWorkflowQueueType queue_type = 2;
-  AsyncWorkflowKafkaQueueConfiguration kafka_config = 3;
+
+  oneof attributes {
+    AsyncWorkflowKafkaQueueConfiguration kafka_config = 3;
+  }
 }
 
 enum AsyncWorkflowQueueType {
