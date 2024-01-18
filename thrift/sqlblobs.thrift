@@ -276,3 +276,15 @@ struct ReplicationTaskInfo {
   34: optional binary newRunBranchToken
   38: optional i64 (js.type = "Long") creationTime
 }
+
+enum AsyncRequestType {
+  StartWorkflowExecutionAsyncRequest
+}
+
+struct AsyncRequestMessage {
+  10: optional string partitionKey
+  12: optional AsyncRequestType type
+  14: optional shared.Header header
+  16: optional string encoding
+  18: optional binary payload
+}
