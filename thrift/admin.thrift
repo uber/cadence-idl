@@ -285,6 +285,17 @@ service AdminService {
     throws (
       1: shared.BadRequestError badRequestError,
     )
+
+
+  GetDomainAsyncWorkflowConfiguratonResponse GetDomainAsyncWorkflowConfiguraton(1: GetDomainAsyncWorkflowConfiguratonRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
+
+  UpdateDomainAsyncWorkflowConfiguratonResponse UpdateDomainAsyncWorkflowConfiguraton(1: UpdateDomainAsyncWorkflowConfiguratonRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+    )
 }
 
 struct DescribeWorkflowExecutionRequest {
@@ -454,3 +465,19 @@ struct UpdateDomainIsolationGroupsRequest{
 }
 
 struct UpdateDomainIsolationGroupsResponse{}
+
+// Async workflow configuration request/response payloads
+struct GetDomainAsyncWorkflowConfiguratonRequest {
+    10: optional string domain
+}
+
+struct GetDomainAsyncWorkflowConfiguratonResponse {
+    10: optional shared.AsyncWorkflowConfiguration configuration
+}
+
+struct UpdateDomainAsyncWorkflowConfiguratonRequest {
+    10: optional string domain
+    20: optional shared.AsyncWorkflowConfiguration configuration
+}
+
+struct UpdateDomainAsyncWorkflowConfiguratonResponse {}
