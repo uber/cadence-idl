@@ -122,7 +122,20 @@ service WorkflowService {
       7: shared.EntityNotExistsError entityNotExistError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
     )
-
+  /**
+  * StartWorkflowExecutionAsync starts a new long running workflow instance asynchronously. It will push a StartWorkflowExecutionRequest to a queue
+  * and immediately return a response. The request will be processed by a separate consumer eventually.
+  **/
+  shared.StartWorkflowExecutionAsyncResponse StartWorkflowExecutionAsync(1: shared.StartWorkflowExecutionAsyncRequest startRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      3: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.DomainNotActiveError domainNotActiveError,
+      6: shared.LimitExceededError limitExceededError,
+      7: shared.EntityNotExistsError entityNotExistError,
+      8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
   /**
   * Returns the history of specified workflow execution.  It fails with 'EntityNotExistError' if speficied workflow
   * execution in unknown to the service.

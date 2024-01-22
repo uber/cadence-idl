@@ -1154,6 +1154,13 @@ struct StartWorkflowExecutionResponse {
   10: optional string runId
 }
 
+struct StartWorkflowExecutionAsyncRequest {
+  10: optional StartWorkflowExecutionRequest request
+}
+
+struct StartWorkflowExecutionAsyncResponse {
+}
+
 struct RestartWorkflowExecutionResponse {
   10: optional string runId
 }
