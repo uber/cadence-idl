@@ -71,6 +71,8 @@ struct DomainInfo {
   54: optional i64 (js.type = "Long") lastUpdatedTime
   56: optional binary isolationGroupsConfiguration
   58: optional string isolationGroupsConfigurationEncoding
+  60: optional binary asyncWorkflowConfiguration
+  62: optional string asyncWorkflowConfigurationEncoding
 }
 
 struct HistoryTreeInfo {
