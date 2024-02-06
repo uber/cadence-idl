@@ -127,27 +127,11 @@ message IsolationGroupConfiguration {
 }
 
 message AsyncWorkflowConfiguration {
+  bool enabled = 1;
   // predefined_queue_name is the name of the predefined queue in cadence server config's asyncWorkflowQueues
-  string predefined_queue_name = 1;
-
-  // Below fields are only used if predefined_queue_name is not set
-  AsyncWorkflowQueueType queue_type = 2;
-
-  oneof attributes {
-    AsyncWorkflowKafkaQueueConfiguration kafka_config = 3;
-  }
-}
-
-enum AsyncWorkflowQueueType {
-  ASYNC_WORKFLOW_QUEUE_TYPE_INVALID = 0;
-  ASYNC_WORKFLOW_QUEUE_TYPE_KAFKA = 1;
-}
-
-message AsyncWorkflowKafkaQueueConfiguration {
-  string topic = 1;
-  string dlq_topic = 2;
-  string consumer_group = 3;
-  repeated string brokers = 4;
-  map<string, string> properties = 5;
-  // TODO: define auth mechanisms such as tls, sasl
+  string predefined_queue_name = 2;
+  // queue_type is the type of the queue if predefined_queue_name is not used
+  string queue_type = 3;
+  // queue_config is the configuration for the queue if predefined_queue_name is not used
+  DataBlob queue_config = 4;
 }

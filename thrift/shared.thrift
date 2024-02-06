@@ -1947,24 +1947,11 @@ struct IsolationGroupConfiguration {
 }
 
 struct AsyncWorkflowConfiguration {
+  10: optional bool enabled
   // PredefinedQueueName is the name of the predefined queue in cadence server config's asyncWorkflowQueues
-  10: optional string predefinedQueueName
-
-  // Below fields are only used if predefinedQueueName is not set
-  20: optional AsyncWorkflowQueueType queueType
-  30: optional AsyncWorkflowKafkaQueueConfiguration kafkaConfig
-}
-
-enum AsyncWorkflowQueueType {
-  Invalid,
-  Kafka,
-}
-
-struct AsyncWorkflowKafkaQueueConfiguration {
-  10: optional string topic
-  20: optional string dlqTopic
-  30: optional string consumerGroup
-  40: optional list<string> brokers
-  50: optional map<string, string> properties
-  // TODO: define auth mechanisms such as tls, sasl
+  20: optional string predefinedQueueName
+  // queueType is the type of the queue if predefined_queue_name is not used
+  30: optional string queueType
+  // queueConfig is the configuration for the queue if predefined_queue_name is not used
+  40: optional DataBlob queueConfig
 }
