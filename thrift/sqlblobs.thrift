@@ -142,6 +142,8 @@ struct WorkflowExecutionInfo {
   124: optional string versionHistoriesEncoding
   126: optional binary firstExecutionRunID
   128: optional map<string, string> partitionConfig
+  130: optional binary checksum
+  132: optional string checksumEncoding
 }
 
 struct ActivityInfo {
