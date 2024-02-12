@@ -419,7 +419,7 @@ service WorkflowService {
   * SignalWithStartWorkflowExecutionAsync is used to ensure sending signal to a workflow asynchronously.  It will push a SignalWithStartWorkflowExecutionRequest to a queue
   * and immediately return a response. The request will be processed by a separate consumer eventually.
   **/
-  shared.SignalWithStartWorkflowExecutionAsyncResponse SignalWithStartWorkflowExecutionAsync(1: shared.SignalWithStartWorkflowExecutionRequest signalWithStartRequest)
+  shared.SignalWithStartWorkflowExecutionAsyncResponse SignalWithStartWorkflowExecutionAsync(1: shared.SignalWithStartWorkflowExecutionAsyncRequest signalWithStartRequest)
     throws (
       1: shared.BadRequestError badRequestError,
       3: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
