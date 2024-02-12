@@ -416,6 +416,20 @@ service WorkflowService {
     )
 
   /**
+  * SignalWithStartWorkflowExecutionAsync is used to ensure sending signal to a workflow asynchronously.  It will push a SignalWithStartWorkflowExecutionRequest to a queue
+  * and immediately return a response. The request will be processed by a separate consumer eventually.
+  **/
+  shared.SignalWithStartWorkflowExecutionAsyncResponse SignalWithStartWorkflowExecutionAsync(1: shared.SignalWithStartWorkflowExecutionRequest signalWithStartRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      3: shared.WorkflowExecutionAlreadyStartedError sessionAlreadyExistError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.DomainNotActiveError domainNotActiveError,
+      6: shared.LimitExceededError limitExceededError,
+      7: shared.EntityNotExistsError entityNotExistError,
+      8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+  /**
     * ResetWorkflowExecution reset an existing workflow execution to DecisionTaskCompleted event(exclusive).
     * And it will immediately terminating the current execution instance.
     **/

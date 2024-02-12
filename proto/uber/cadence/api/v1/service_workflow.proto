@@ -57,6 +57,10 @@ service WorkflowAPI {
   // WorkflowExecutionSignaled events being recorded in history, and a decision task being created for the execution.
   rpc SignalWithStartWorkflowExecution(SignalWithStartWorkflowExecutionRequest) returns (SignalWithStartWorkflowExecutionResponse);
 
+  // SignalWithStartWorkflowExecutionAsync is used to ensure sending signal to a workflow asynchronously.  It will push a SignalWithStartWorkflowExecutionRequest to a queue
+  // and immediately return a response. The request will be processed by a separate consumer eventually.
+  rpc SignalWithStartWorkflowExecutionAsync(SignalWithStartWorkflowExecutionAsyncRequest) returns (SignalWithStartWorkflowExecutionAsyncResponse);
+
   // ResetWorkflowExecution reset an existing workflow execution to DecisionTaskCompleted event(exclusive).
   // And it will immediately terminating the current execution instance.
   rpc ResetWorkflowExecution(ResetWorkflowExecutionRequest) returns (ResetWorkflowExecutionResponse);
@@ -160,6 +164,13 @@ message SignalWithStartWorkflowExecutionRequest {
 
 message SignalWithStartWorkflowExecutionResponse {
   string run_id = 1;
+}
+
+message SignalWithStartWorkflowExecutionAsyncRequest {
+  SignalWithStartWorkflowExecutionRequest request = 1;
+}
+
+message SignalWithStartWorkflowExecutionAsyncResponse {
 }
 
 message ResetWorkflowExecutionRequest {
