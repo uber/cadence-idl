@@ -283,6 +283,7 @@ struct ReplicationTaskInfo {
 
 enum AsyncRequestType {
   StartWorkflowExecutionAsyncRequest
+  SignalWithStartWorkflowExecutionAsyncRequest
 }
 
 struct AsyncRequestMessage {
