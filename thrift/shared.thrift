@@ -1371,6 +1371,10 @@ struct SignalWithStartWorkflowExecutionRequest {
   180: optional i32 delayStartSeconds
   190: optional i32 jitterStartSeconds
 }
+
+struct SignalWithStartWorkflowExecutionAsyncResponse {
+}
+
 struct RestartWorkflowExecutionRequest {
   10: optional string domain
   20: optional WorkflowExecution workflowExecution
