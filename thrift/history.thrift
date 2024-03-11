@@ -395,6 +395,7 @@ service HistoryService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ServiceBusyError serviceBusyError,
+      8: shared.UserServiceBusyError userServiceBusyError,
     )
 
   /**
@@ -611,6 +612,7 @@ service HistoryService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.LimitExceededError limitExceededError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.UserServiceBusyError userServiceBusyError,
     )
 
   /**
@@ -630,6 +632,7 @@ service HistoryService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.WorkflowExecutionAlreadyStartedError workflowAlreadyStartedError,
+      8: shared.UserServiceBusyError userServiceBusyError,
     )
 
   /**
@@ -745,6 +748,7 @@ service HistoryService {
       4: ShardOwnershipLostError shardOwnershipLostError,
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
+      7: shared.UserServiceBusyError userServiceBusyError
     )
 
   void ReplicateEventsV2(1: ReplicateEventsV2Request replicateV2Request)

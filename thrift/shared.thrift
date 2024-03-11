@@ -56,6 +56,10 @@ exception ServiceBusyError {
   1: required string message
 }
 
+exception UserServiceBusyError {
+  1: required string message
+}
+
 exception CancellationAlreadyRequestedError {
   1: required string message
 }
