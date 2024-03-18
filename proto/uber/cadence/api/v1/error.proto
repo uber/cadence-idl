@@ -69,6 +69,7 @@ message QueryFailedError {
 }
 
 message ServiceBusyError {
+  string reason = 1;
 }
 
 message StickyWorkerUnavailableError {

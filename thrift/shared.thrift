@@ -54,6 +54,7 @@ exception EntityNotExistsError {
 
 exception ServiceBusyError {
   1: required string message
+  2: optional string reason
 }
 
 exception CancellationAlreadyRequestedError {
