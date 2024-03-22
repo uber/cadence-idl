@@ -115,6 +115,7 @@ message WorkflowExecutionStartedEventAttributes {
   Header header = 22;
   google.protobuf.Timestamp first_scheduled_time = 23;
   map<string, string> partition_config = 24;
+  string request_id = 25;
 }
 
 message WorkflowExecutionCompletedEventAttributes {
@@ -174,6 +175,7 @@ message DecisionTaskFailedEventAttributes {
   string new_run_id = 7;
   int64 fork_event_version = 8;
   string binary_checksum = 9;
+  string request_id = 10;
 }
 
 message ActivityTaskScheduledEventAttributes {
@@ -288,6 +290,7 @@ message WorkflowExecutionCancelRequestedEventAttributes {
   string cause = 1;
   string identity = 2;
   ExternalExecutionInfo external_execution_info = 3;
+  string request_id = 4;
 }
 
 message WorkflowExecutionCanceledEventAttributes {
@@ -306,6 +309,7 @@ message WorkflowExecutionSignaledEventAttributes {
   string signal_name = 1;
   Payload input = 2;
   string identity = 3;
+  string request_id = 4;
 }
 
 message WorkflowExecutionTerminatedEventAttributes {

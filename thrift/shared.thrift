@@ -577,6 +577,7 @@ struct WorkflowExecutionStartedEventAttributes {
   130: optional ResetPoints prevAutoResetPoints
   140: optional Header header
   150: optional map<string, string> partitionConfig
+  160: optional string requestId
 }
 
 struct ResetPoints{
@@ -675,6 +676,7 @@ struct DecisionTaskFailedEventAttributes {
   70: optional string newRunId
   80: optional i64 (js.type = "Long") forkEventVersion
   90: optional string binaryChecksum
+  100: optional string requestId
 }
 
 struct ActivityTaskScheduledEventAttributes {
@@ -776,6 +778,7 @@ struct WorkflowExecutionCancelRequestedEventAttributes {
   20: optional i64 (js.type = "Long") externalInitiatedEventId
   30: optional WorkflowExecution externalWorkflowExecution
   40: optional string identity
+  50: optional string requestId
 }
 
 struct WorkflowExecutionCanceledEventAttributes {
@@ -794,6 +797,7 @@ struct WorkflowExecutionSignaledEventAttributes {
   10: optional string signalName
   20: optional binary input
   30: optional string identity
+  40: optional string requestId
 }
 
 struct WorkflowExecutionTerminatedEventAttributes {
