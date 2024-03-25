@@ -662,6 +662,7 @@ struct DecisionTaskTimedOutEventAttributes {
   60: optional i64 (js.type = "Long") forkEventVersion
   70: optional string reason
   80: optional DecisionTaskTimedOutCause cause
+  90: optional string requestId
 }
 
 struct DecisionTaskFailedEventAttributes {
