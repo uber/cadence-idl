@@ -162,6 +162,7 @@ message DecisionTaskTimedOutEventAttributes {
   int64 fork_event_version = 6;
   string reason = 7;
   DecisionTaskTimedOutCause cause = 8;
+  string request_id = 9;
 }
 
 message DecisionTaskFailedEventAttributes {
