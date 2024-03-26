@@ -375,6 +375,30 @@ struct GetFailoverInfoResponse {
   20: optional list<i32> pendingShards
 }
 
+struct RatelimitUpdateRequest {
+  // impl-specific data.
+  // likely some simple top-level keys and then either:
+  // - map<ratelimit-key-string, something>
+  // - list<something>
+  //
+  // this is a single blob rather than a collection to save on
+  // repeated serialization of the type name, and to allow impls
+  // to choose whatever structures are most-convenient for them.
+  10: optional shared.Any data
+}
+
+struct RatelimitUpdateResponse {
+  // impl-specific data.
+  // likely some simple top-level keys and then either:
+  // - map<ratelimit-key-string, something>
+  // - list<something>
+  //
+  // this is a single blob rather than a collection to save on
+  // repeated serialization of the type name, and to allow impls
+  // to choose whatever structures are most-convenient for them.
+  10: optional shared.Any data
+}
+
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
 * of workflow instances already created.
@@ -986,5 +1010,22 @@ service HistoryService {
       2: shared.ServiceBusyError serviceBusyError,
       3: ShardOwnershipLostError shardOwnershipLostError,
       4: shared.EntityNotExistsError entityNotExistError,
+    )
+
+  /**
+  * RatelimitUpdate pushes global-ratelimiting data to aggregating hosts,
+  * and returns data describing how to update the caller's ratelimits.
+  *
+  * For more details, see github.com/uber/cadence/common/quotas/global documentation.
+  *
+  * Request and response structures are intentionally loosely defined, to allow plugging
+  * in externally-defined algorithms without changing protocol-level details.
+  **/
+  RatelimitUpdateResponse RatelimitUpdate(1: RatelimitUpdateRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.InternalServiceError internalServiceError,
+      3: shared.ServiceBusyError serviceBusyError,
+      4: ShardOwnershipLostError shardOwnershipLostError,
     )
 }

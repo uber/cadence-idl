@@ -1969,3 +1969,28 @@ struct AsyncWorkflowConfiguration {
   // queueConfig is the configuration for the queue if predefined_queue_name is not used
   40: optional DataBlob queueConfig
 }
+
+/**
+* Any is a logical duplicate of google.protobuf.Any.
+*
+* The intent of the type is the same, but it is not intended to be directly
+* compatible with google.protobuf.Any or any Thrift equivalent - this blob is
+* RPC-type agnostic by design (as the underlying data may be transported over
+* proto or thrift), and the data-bytes may be in any encoding.
+*
+* This is intentionally different from DataBlob, which supports only a handful
+* of known encodings so it can be interpreted everywhere.  Any supports literally
+* any contents, and needs to be considered opaque until it is given to something
+* that is expecting it.
+*
+* See ValueType to interpret the contents.
+**/
+struct Any {
+  // Type-string describing value's contents, and intentionally avoiding the
+  // name "type" as it is often a special term.
+  // This should usually be a hard-coded string of some kind.
+  10: optional string ValueType
+  // Arbitrarily-encoded bytes, to be deserialized by a runtime implementation.
+  // The contents are described by ValueType.
+  20: optional binary Value
+}
