@@ -1,11 +1,16 @@
 steps:
   - label: "fossa analyze"
     agents:
-      queue: "init"
-      docker: "*"
+      queue: "buildkite-gcp"
     command: "./scripts/buildkite/fossa.sh"
   - label: "proto lint"
     agents:
-      queue: "workers"
-      docker: "*"
-    command: "make proto-lint"
+      queue: "buildkite-gcp"
+    plugins:
+      - kubernetes:
+          podSpec:
+            containers:
+              - image: us-west1-docker.pkg.dev/ci-compute/buildkite-images/buildkite-command-container:v2
+                command:
+                - |-
+                  make proto-lint
