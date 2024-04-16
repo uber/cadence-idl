@@ -1,11 +1,42 @@
+container:
+  kubernetes: &kubernetes
+    gitEnvFrom:
+      - secretRef:
+          name: oss-github-ssh-credentials
+    podSpec: &podSpec
+      containers:
+        - &commandContainer
+          image: us-west1-docker.pkg.dev/ci-compute/buildkite-images/buildkite-command-container:v2
+          command:
+          - |-
+            echo "Command step was not overridden."
+            exit 1
+
 steps:
   - label: "fossa analyze"
     agents:
-      queue: "init"
-      docker: "*"
-    command: "./scripts/buildkite/fossa.sh"
+      queue: "buildkite-gcp"
+    plugins:
+      - kubernetes:
+          <<: *kubernetes
+          podSpec:
+            <<: *podSpec
+            containers:
+              - <<: *commandContainer
+                command:
+                - |-
+                  ./scripts/buildkite/fossa.sh
+
   - label: "proto lint"
     agents:
-      queue: "workers"
-      docker: "*"
-    command: "make proto-lint"
+      queue: "buildkite-gcp"
+    plugins:
+      - kubernetes:
+          <<: *kubernetes
+          podSpec:
+            <<: *podSpec
+            containers:
+              - <<: *commandContainer
+                command:
+                - |-
+                  make proto-lint
