@@ -254,10 +254,12 @@ enum DecisionTaskTimedOutCause {
 
 enum CancelExternalWorkflowExecutionFailedCause {
   UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION,
+  WORKFLOW_ALREADY_COMPLETED,
 }
 
 enum SignalExternalWorkflowExecutionFailedCause {
   UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION,
+  WORKFLOW_ALREADY_COMPLETED,
 }
 
 enum ChildWorkflowExecutionFailedCause {
