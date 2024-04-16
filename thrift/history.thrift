@@ -248,7 +248,7 @@ struct TerminateWorkflowExecutionRequest {
   // workflow execution that requests this termination, for making sure
   // the workflow being terminated is actually a child of the workflow
   // making the request
-  30: optional shared.WorkflowExecution externalWorkflowExecution 
+  30: optional shared.WorkflowExecution externalWorkflowExecution
   40: optional bool childWorkflowOnly
 }
 
@@ -292,6 +292,7 @@ struct RecordChildExecutionCompletedRequest {
   30: optional i64 (js.type = "Long") initiatedId
   40: optional shared.WorkflowExecution completedExecution
   50: optional shared.HistoryEvent completionEvent
+  60: optional i64 (js.type = "Long") startedId
 }
 
 struct ReplicateEventsV2Request {
@@ -993,7 +994,7 @@ service HistoryService {
   /**
   * RespondCrossClusterTasksCompleted responds the result of processing cross cluster tasks
   **/
-  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request) 
+  shared.RespondCrossClusterTasksCompletedResponse RespondCrossClusterTasksCompleted(1: shared.RespondCrossClusterTasksCompletedRequest request)
     throws (
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
