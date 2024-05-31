@@ -1,20 +1,33 @@
-<!-- Describe what has changed in this PR -->
-**What changed?**
+### Summary
+[Brief summary of the change, including the rationale and intended effect]
 
+### Type of Change
+- [x] Add new API(s)
+- [ ] Add new data type(s)
+- [ ] Add new field(s) to existing data type
+- [ ] Remove field(s) from data type
+- [ ] Remove data type(s)
+- [ ] Remove API(s)
+- [ ] Other (please provide detailed description)
 
-<!-- Tell your future self why have you made these changes -->
-**Why?**
+### Data Effect
+- [ ] Does it change the data stored in database?
 
+### Detailed Description
+[In-depth description of the changes made to the IDL, specifying new fields, removed fields, or modified data structures]
 
-<!-- How have you verified this change? Tested locally? Added a unit test? Checked in staging env? -->
-**How did you test it?**
+### Impact Analysis
+- **Backward Compatibility**: [Analysis of backward compatibility]
+- **Forward Compatibility**: [Analysis of forward compatibility]
 
+### Testing Plan
+- **Unit Tests**: [Do we have unit test covering the change?]
+- **Persistence Tests**: [If the change is related to a data type which is persisted, do we have persistence tests covering the change?]
+- **Integration Tests**: [Do we have integration test covering the change?]
+- **Compatibility Tests**: [Have we done tests to test the backward and forward compatibility?]
 
-<!-- Assuming the worst case, what can be broken when deploying this change to production? -->
-**Potential risks**
-
-<!-- Is it notable for release? e.g. schema updates, configuration or data migration required? If so, please mention it, and also update CHANGELOG.md -->
-**Release notes**
-
-<!-- Is there any documentation updates should be made for config, https://cadenceworkflow.io/docs/operation-guide/setup/ ? If so, please open an PR in https://github.com/uber/cadence-docs -->
-**Documentation Changes**
+### Rollout Plan
+- What is the rollout plan?
+- Does the order of deployment matter?
+- Is it safe to rollback? Does the order of rollback matter?
+- Is there a kill switch to mitigate the impact immediately?
