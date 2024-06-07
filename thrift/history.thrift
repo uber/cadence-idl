@@ -401,7 +401,6 @@ struct RatelimitUpdateResponse {
 }
 
 // first impl of ratelimiting data, collected by limiters and sent to aggregators.
-// identified by Any type: "cadence:loadbalanced:update_request"
 struct WeightedRatelimitUsage {
   // unique, stable identifier of the calling host, to identify future data from the same host
   10: required string caller
@@ -410,6 +409,9 @@ struct WeightedRatelimitUsage {
   // per key, number of allowed vs rejected calls since last update.
   30: required map<string, WeightedRatelimitCalls> calls
 }
+
+// Any{ValueType} identifier for WeightedRatelimitUsage data
+const string WeightedRatelimitUsageAnyType = "cadence:loadbalanced:update_request"
 
 // fields are required to encourage compact serialization, zeros are expected
 struct WeightedRatelimitCalls {
@@ -422,11 +424,13 @@ struct WeightedRatelimitCalls {
 }
 
 // first impl of ratelimiting data, result from aggregator to limiter.
-// identified by Any type: "cadence:loadbalanced:update_response"
 struct WeightedRatelimitQuotas {
   // RPS to allow per key
   10: required map<string,double> quotas
 }
+
+// Any{ValueType} identifier for WeightedRatelimitQuotas data
+const string WeightedRatelimitQuotasAnyType = "cadence:loadbalanced:update_response"
 
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
