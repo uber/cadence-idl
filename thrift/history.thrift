@@ -377,59 +377,77 @@ struct GetFailoverInfoResponse {
 }
 
 struct RatelimitUpdateRequest {
-  // impl-specific data.
-  // likely some simple top-level keys and then either:
-  // - map<ratelimit-key-string, something>
-  // - list<something>
-  //
-  // this is a single blob rather than a collection to save on
-  // repeated serialization of the type name, and to allow impls
-  // to choose whatever structures are most-convenient for them.
+  /**
+  * impl-specific data.
+  *
+  * likely some simple top-level keys and then either:
+  *   - map<ratelimit-key-string, something>
+  *   - list<something>
+  *
+  * this is a single blob rather than a collection to save on
+  * repeated serialization of the type name, and to allow impls
+  * to choose whatever structures are most-convenient for them.
+  */
   10: optional shared.Any data
 }
 
 struct RatelimitUpdateResponse {
-  // impl-specific data.
-  // likely some simple top-level keys and then either:
-  // - map<ratelimit-key-string, something>
-  // - list<something>
-  //
-  // this is a single blob rather than a collection to save on
-  // repeated serialization of the type name, and to allow impls
-  // to choose whatever structures are most-convenient for them.
+  /**
+  * impl-specific data.
+  *
+  * likely some simple top-level keys and then either:
+  *   - map<ratelimit-key-string, something>
+  *   - list<something>
+  *
+  * this is a single blob rather than a collection to save on
+  * repeated serialization of the type name, and to allow impls
+  * to choose whatever structures are most-convenient for them.
+  */
   10: optional shared.Any data
 }
 
-// first impl of ratelimiting data, collected by limiters and sent to aggregators.
+/**
+* first impl of ratelimiting data, collected by limiters and sent to aggregators.
+*
+* used in an Any with ValueType: WeightedRatelimitUsageAnyType
+*/
 struct WeightedRatelimitUsage {
-  // unique, stable identifier of the calling host, to identify future data from the same host
+  /** unique, stable identifier of the calling host, to identify future data from the same host */
   10: required string caller
-  // milliseconds since last update call.  expected to be on the order of a few seconds or less.
+  /** milliseconds since last update call.  expected to be on the order of a few seconds or less. */
   20: required i32 elapsedMS
-  // per key, number of allowed vs rejected calls since last update.
+  /** per key, number of allowed vs rejected calls since last update. */
   30: required map<string, WeightedRatelimitCalls> calls
 }
 
-// Any{ValueType} identifier for WeightedRatelimitUsage data
+/** Any{ValueType} identifier for WeightedRatelimitUsage data */
 const string WeightedRatelimitUsageAnyType = "cadence:loadbalanced:update_request"
 
-// fields are required to encourage compact serialization, zeros are expected
+/** fields are required to encourage compact serialization, zeros are expected */
 struct WeightedRatelimitCalls {
-  // number of allowed requests since last call.
-  // assumed to be <1m or so, saturates at MAX_INT32.
+  /**
+  * number of allowed requests since last call.
+  * assumed to be <1m or so, saturates at MAX_INT32.
+  */
   10: required i32 allowed
-  // number of rejected requests since last call.
-  // assumed to be <1m or so, saturates at MAX_INT32.
+  /**
+  * number of rejected requests since last call.
+  * assumed to be <1m or so, saturates at MAX_INT32.
+  */
   20: required i32 rejected
 }
 
-// first impl of ratelimiting data, result from aggregator to limiter.
+/**
+* first impl of ratelimiting data, result from aggregator to limiter.
+*
+* used in an Any with ValueType: WeightedRatelimitQuotasAnyType
+*/
 struct WeightedRatelimitQuotas {
-  // RPS to allow per key
+  /** RPS to allow per key */
   10: required map<string,double> quotas
 }
 
-// Any{ValueType} identifier for WeightedRatelimitQuotas data
+/** Any{ValueType} identifier for WeightedRatelimitQuotas data */
 const string WeightedRatelimitQuotasAnyType = "cadence:loadbalanced:update_response"
 
 /**
