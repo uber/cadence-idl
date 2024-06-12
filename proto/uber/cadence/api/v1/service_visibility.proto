@@ -34,6 +34,9 @@ service VisibilityAPI {
   // ListWorkflowExecutions is a visibility API to list workflow executions in a specific domain.
   rpc ListWorkflowExecutions(ListWorkflowExecutionsRequest) returns (ListWorkflowExecutionsResponse);
 
+  // ListAllWorkflowExecutions is a visibility API to list all open and close workflow executions in a specific domain with options for partial search.
+  rpc ListAllWorkflowExecutions(ListAllWorkflowExecutionsRequest) returns (ListAllWorkflowExecutionsResponse);
+
   // ListOpenWorkflowExecutions is a visibility API to list the open executions in a specific domain.
   rpc ListOpenWorkflowExecutions(ListOpenWorkflowExecutionsRequest) returns (ListOpenWorkflowExecutionsResponse);
 
@@ -62,6 +65,20 @@ message ListWorkflowExecutionsRequest {
 }
 
 message ListWorkflowExecutionsResponse {
+  repeated WorkflowExecutionInfo executions = 1;
+  bytes next_page_token = 2;
+}
+
+message ListAllWorkflowExecutionsRequest {
+  string domain = 1;
+  int32 maximum_page_size = 2;
+  bytes next_page_token = 3;
+  StartTimeFilter start_time_filter = 4;
+  bool partial_match = 5;
+  string workflow_search_value =6;
+}
+
+message ListAllWorkflowExecutionsResponse {
   repeated WorkflowExecutionInfo executions = 1;
   bytes next_page_token = 2;
 }

@@ -493,6 +493,18 @@ service WorkflowService {
     )
 
   /**
+  * ListAllWorkflowExecutions is a visibility API to list all open and closed workflow executions in a specific domain.
+  **/
+  shared.ListAllWorkflowExecutionsResponse ListAllWorkflowExecutions(1: shared.ListAllWorkflowExecutionsRequest listRequest)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      3: shared.EntityNotExistsError entityNotExistError,
+      4: shared.ServiceBusyError serviceBusyError,
+      5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.InternalServiceError internalServiceError,
+    )
+
+  /**
   * ListArchivedWorkflowExecutions is a visibility API to list archived workflow executions in a specific domain.
   **/
   shared.ListArchivedWorkflowExecutionsResponse ListArchivedWorkflowExecutions(1: shared.ListArchivedWorkflowExecutionsRequest listRequest)

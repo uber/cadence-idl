@@ -1456,6 +1456,20 @@ struct ListWorkflowExecutionsResponse {
   20: optional binary nextPageToken
 }
 
+struct ListAllWorkflowExecutionsRequest {
+  10: optional string domain
+  20: optional i32 maximumPageSize
+  30: optional binary nextPageToken
+  40: optional StartTimeFilter StartTimeFilter
+  50: optional bool partialMatch
+  60: optional string workflowSearchValue
+}
+
+struct ListAllWorkflowExecutionsResponse {
+  10: optional list<WorkflowExecutionInfo> executions
+  20: optional binary nextPageToken
+}
+
 struct ListArchivedWorkflowExecutionsRequest {
   10: optional string domain
   20: optional i32 pageSize
