@@ -1462,7 +1462,10 @@ struct ListAllWorkflowExecutionsRequest {
   30: optional binary nextPageToken
   40: optional StartTimeFilter StartTimeFilter
   50: optional bool partialMatch
-  60: optional string workflowSearchValue
+  60: optional list<WorkflowExecutionCloseStatus> closeStatus
+  70: optional string workflowSearchValue
+  80: optional string sortColumn
+  90: optional string sortOrder
 }
 
 struct ListAllWorkflowExecutionsResponse {

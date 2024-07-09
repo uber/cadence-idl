@@ -75,7 +75,10 @@ message ListAllWorkflowExecutionsRequest {
   bytes next_page_token = 3;
   StartTimeFilter start_time_filter = 4;
   bool partial_match = 5;
-  string workflow_search_value =6;
+  repeated StatusFilter close_status = 6;
+  string workflow_search_value = 7;
+  string sort_column = 8;
+  string sort_order = 9;
 }
 
 message ListAllWorkflowExecutionsResponse {
