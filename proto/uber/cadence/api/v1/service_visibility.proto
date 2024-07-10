@@ -71,14 +71,14 @@ message ListWorkflowExecutionsResponse {
 
 message ListAllWorkflowExecutionsRequest {
   string domain = 1;
-  int32 maximum_page_size = 2;
+  int32 page_size = 2;
   bytes next_page_token = 3;
   StartTimeFilter start_time_filter = 4;
-  bool partial_match = 5;
-  repeated StatusFilter close_status = 6;
-  string workflow_search_value = 7;
-  string sort_column = 8;
-  string sort_order = 9;
+  bool partial_match = 5; // flag when enabled matches the workflow search value with regexp
+  repeated StatusFilter close_status = 6; // workflow execution statuses to filter the results on
+  string workflow_search_value = 7; // the text value that will be matched with workflow type, workflow id and run id
+  string sort_column = 8; // custom column to sort by
+  string sort_order = 9; // custom sort order to sort by
 }
 
 message ListAllWorkflowExecutionsResponse {
