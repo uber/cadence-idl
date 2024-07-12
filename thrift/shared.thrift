@@ -1456,6 +1456,23 @@ struct ListWorkflowExecutionsResponse {
   20: optional binary nextPageToken
 }
 
+struct ListAllWorkflowExecutionsRequest {
+  10: optional string domain
+  20: optional i32 pageSize
+  30: optional binary nextPageToken
+  40: optional StartTimeFilter StartTimeFilter
+  50: optional bool partialMatch // flag when enabled matches the workflow search value with regexp
+  60: optional list<WorkflowExecutionCloseStatus> closeStatus // workflow execution statuses to filter the results on
+  70: optional string workflowSearchValue // the text value that will be matched with workflow type, workflow id and run id
+  80: optional string sortColumn // custom column to sort by
+  90: optional string sortOrder // custom sort order to sort by
+}
+
+struct ListAllWorkflowExecutionsResponse {
+  10: optional list<WorkflowExecutionInfo> executions
+  20: optional binary nextPageToken
+}
+
 struct ListArchivedWorkflowExecutionsRequest {
   10: optional string domain
   20: optional i32 pageSize
