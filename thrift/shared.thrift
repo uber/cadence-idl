@@ -883,6 +883,7 @@ struct StartChildWorkflowExecutionInitiatedEventAttributes {
   160: optional SearchAttributes searchAttributes
   170: optional i32 delayStartSeconds
   180: optional i32 jitterStartSeconds
+  190: optional i64 (js.type = "Long") firstRunAtTimestamp
 }
 
 struct StartChildWorkflowExecutionFailedEventAttributes {
@@ -1156,6 +1157,7 @@ struct StartWorkflowExecutionRequest {
   150: optional Header header
   160: optional i32 delayStartSeconds
   170: optional i32 jitterStartSeconds
+  180: optional i64 (js.type = "Long") firstRunAtTimestamp
 }
 
 struct StartWorkflowExecutionResponse {
@@ -1378,6 +1380,7 @@ struct SignalWithStartWorkflowExecutionRequest {
   170: optional Header header
   180: optional i32 delayStartSeconds
   190: optional i32 jitterStartSeconds
+  200: optional i64 (js.type = "Long") firstRunAtTimestamp
 }
 
 struct SignalWithStartWorkflowExecutionAsyncRequest {

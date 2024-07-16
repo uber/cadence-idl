@@ -28,6 +28,7 @@ option java_outer_classname = "WorkflowServiceProto";
 option java_package = "com.uber.cadence.api.v1";
 
 import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
 import "uber/cadence/api/v1/common.proto";
 import "uber/cadence/api/v1/history.proto";
 import "uber/cadence/api/v1/query.proto";
@@ -125,6 +126,7 @@ message StartWorkflowExecutionRequest {
   Header header = 15;
   google.protobuf.Duration delay_start = 16;
   google.protobuf.Duration jitter_start = 17;
+  google.protobuf.Timestamp first_run_at = 18;
 }
 
 message StartWorkflowExecutionResponse {
