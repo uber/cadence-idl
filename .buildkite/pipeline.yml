@@ -17,16 +17,7 @@ agents:
 
 steps:
   - label: "fossa analyze"
-    plugins:
-      - kubernetes:
-          <<: *kubernetes
-          podSpec:
-            <<: *podSpec
-            containers:
-              - <<: *commandContainer
-                command:
-                - |-
-                  ./scripts/buildkite/fossa.sh
+    command: ".buildkite/scripts/fossa.sh"
 
   - label: "proto lint"
     agents:
