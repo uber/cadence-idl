@@ -15,17 +15,9 @@ container:
 steps:
   - label: "fossa analyze"
     agents:
-      queue: "buildkite-gcp"
-    plugins:
-      - kubernetes:
-          <<: *kubernetes
-          podSpec:
-            <<: *podSpec
-            containers:
-              - <<: *commandContainer
-                command:
-                - |-
-                  ./scripts/buildkite/fossa.sh
+      queue: "init"
+      docker: "*"
+    command: "./scripts/buildkite/fossa.sh"
 
   - label: "proto lint"
     agents:
