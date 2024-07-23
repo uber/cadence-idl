@@ -12,12 +12,20 @@ container:
             echo "Command step was not overridden."
             exit 1
 
-agents:
-  queue: buildkite-gcp
-
 steps:
   - label: "fossa analyze"
-    command: ".buildkite/scripts/fossa.sh"
+    agents:
+      queue: "buildkite-gcp"
+    plugins:
+      - kubernetes:
+          <<: *kubernetes
+          podSpec:
+            <<: *podSpec
+            containers:
+              - <<: *commandContainer
+                command:
+                - |-
+                  ./scripts/buildkite/fossa.sh
 
   - label: "proto lint"
     agents:
