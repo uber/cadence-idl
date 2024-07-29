@@ -443,12 +443,32 @@ struct WeightedRatelimitCalls {
 * used in an Any with ValueType: WeightedRatelimitQuotasAnyType
 */
 struct WeightedRatelimitQuotas {
-  /** RPS to allow per key */
+  /** RPS-weights to allow per key */
   10: required map<string,double> quotas
 }
 
 /** Any{ValueType} identifier for WeightedRatelimitQuotas data */
 const string WeightedRatelimitQuotasAnyType = "cadence:loadbalanced:update_response"
+
+/**
+* second impl, includes unused-RPS data so limiters can decide if they
+* want to allow exceeding limits when there is free space.
+*
+* used in an Any with ValueType: WeightedRatelimitUsageQuotasAnyType
+*/
+struct WeightedRatelimitUsageQuotas {
+  /** RPS weights and total usage per key */
+  10: required map<string,WeightedRatelimitUsageQuotaEntry> quotas
+}
+
+struct WeightedRatelimitUsageQuotaEntry {
+  /** Amount of the quota that the receiving host can use, between 0 and 1 */
+  10: required double weight
+  /** RPS estimated across the whole cluster */
+  20: required double used
+}
+
+const string WeightedRatelimitUsageQuotasAnyType = "cadence:loadbalanced:update_response_used"
 
 /**
 * HistoryService provides API to start a new long running workflow instance, as well as query and update the history
