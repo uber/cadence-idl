@@ -149,7 +149,6 @@ service MatchingService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.LimitExceededError limitExceededError,
       4: shared.ServiceBusyError serviceBusyError,
-      5: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
@@ -162,7 +161,6 @@ service MatchingService {
       2: shared.InternalServiceError internalServiceError,
       3: shared.LimitExceededError limitExceededError,
       4: shared.ServiceBusyError serviceBusyError,
-      5: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
