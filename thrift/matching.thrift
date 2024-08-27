@@ -131,6 +131,15 @@ struct ListTaskListPartitionsRequest {
   20: optional shared.TaskList taskList
 }
 
+struct CompleteStartedTaskRequest {
+  10: optional string domainUUID
+  20: optional shared.WorkflowExecution execution
+  30: optional i64 (js.type = "Long") scheduleId
+}
+
+struct CompleteStartedTaskResponse {
+}
+
 /**
 * MatchingService API is exposed to provide support for polling from long running applications.
 * Such applications are expected to have a worker which regularly polls for DecisionTask and ActivityTask.  For each
@@ -270,5 +279,15 @@ service MatchingService {
         1: shared.BadRequestError badRequestError,
         2: shared.InternalServiceError internalServiceError,
         4: shared.ServiceBusyError serviceBusyError,
+    )
+
+  /**
+  * CompleteStartedTask is called by the history service when it receives a task started event has been replicated
+  **/
+  CompleteStartedTaskResponse CompleteStartedTask(1: CompleteStartedTaskRequest request)
+    throws (
+      1: shared.BadRequestError badRequestError,
+      2: shared.ServiceBusyError serviceBusyError,
+      3: shared.LimitExceededError limitExceededError,
     )
 }
