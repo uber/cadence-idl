@@ -114,6 +114,12 @@ exception StickyWorkerUnavailableError {
   1: required string message
 }
 
+exception TaskListNotOwnedByHostError {
+    1: required string ownedByIdentity
+    2: required string myIdentity
+    3: required string tasklistName
+}
+
 enum WorkflowIdReusePolicy {
   /*
    * allow start a workflow execution using the same workflow ID,

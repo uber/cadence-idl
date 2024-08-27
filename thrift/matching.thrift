@@ -176,6 +176,7 @@ service MatchingService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.RemoteSyncMatchedError remoteSyncMatchedError,
       7: shared.StickyWorkerUnavailableError stickyWorkerUnavailableError,
+      8: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
@@ -190,6 +191,7 @@ service MatchingService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.RemoteSyncMatchedError remoteSyncMatchedError,
+      7: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
@@ -204,6 +206,7 @@ service MatchingService {
       5: shared.LimitExceededError limitExceededError,
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.StickyWorkerUnavailableError stickyWorkerUnavailableError,
+      8: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
@@ -232,6 +235,7 @@ service MatchingService {
       1: shared.BadRequestError badRequestError,
       2: shared.InternalServiceError internalServiceError,
       3: shared.ServiceBusyError serviceBusyError,
+      4: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
     )
 
   /**
@@ -244,6 +248,7 @@ service MatchingService {
         2: shared.InternalServiceError internalServiceError,
         3: shared.EntityNotExistsError entityNotExistError,
         4: shared.ServiceBusyError serviceBusyError,
+        5: shared.TaskListNotOwnedByHostError taskListNotOwnedByHostError,
       )
 
   /**
