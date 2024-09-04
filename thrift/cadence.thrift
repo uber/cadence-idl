@@ -106,6 +106,18 @@ service WorkflowService {
       5: shared.EntityNotExistsError entityNotExistError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
     )
+
+  /**
+  * DiagnoseWorkflowExecution diagnoses a previous workflow execution
+  **/
+  shared.DiagnoseWorkflowExecutionResponse DiagnoseWorkflowExecution(1: shared.DiagnoseWorkflowExecutionRequest diagnoseRequest)
+    throws (
+      1: shared.DomainNotActiveError domainNotActiveError,
+      2: shared.ServiceBusyError serviceBusyError,
+      3: shared.EntityNotExistsError entityNotExistError,
+      4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    )
+
   /**
   * StartWorkflowExecution starts a new long running workflow instance.  It will create the instance with
   * 'WorkflowExecutionStarted' event in history and also schedule the first DecisionTask for the worker to make the
