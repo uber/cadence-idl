@@ -119,7 +119,7 @@ message DiagnoseWorkflowExecutionRequest {
 
 message DiagnoseWorkflowExecutionResponse {
   string domain = 1;
-  WorkflowExecution workflow_execution = 2;
+  WorkflowExecution diagnostic_workflow_execution = 2;
 }
 
 message StartWorkflowExecutionRequest {

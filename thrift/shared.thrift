@@ -1189,7 +1189,7 @@ struct DiagnoseWorkflowExecutionRequest {
 
 struct DiagnoseWorkflowExecutionResponse {
   10: optional string domain
-  20: optional WorkflowExecution workflowExecution
+  20: optional WorkflowExecution diagnosticWorkflowExecution
 }
 
 struct PollForDecisionTaskRequest {
