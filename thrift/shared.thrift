@@ -1181,6 +1181,16 @@ struct RestartWorkflowExecutionResponse {
   10: optional string runId
 }
 
+struct DiagnoseWorkflowExecutionRequest {
+  10: optional string domain
+  20: optional WorkflowExecution workflowExecution
+  30: optional string identity
+}
+
+struct DiagnoseWorkflowExecutionResponse {
+  10: optional binary response
+}
+
 struct PollForDecisionTaskRequest {
   10: optional string domain
   20: optional TaskList taskList

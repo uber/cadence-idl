@@ -99,6 +99,9 @@ service WorkflowAPI {
 
   // RefreshWorkflowTasks refreshes all tasks of a workflow.
   rpc RefreshWorkflowTasks(RefreshWorkflowTasksRequest) returns(RefreshWorkflowTasksResponse);
+
+  // Diagnoses a workflow execution and provides a report as response
+  rpc DiagnoseWorkflowExecution(DiagnoseWorkflowExecutionRequest) returns (DiagnoseWorkflowExecutionResponse);
 }
 
 message RestartWorkflowExecutionRequest {
@@ -106,6 +109,16 @@ message RestartWorkflowExecutionRequest {
   WorkflowExecution workflow_execution = 2;
   string identity = 3;
   string reason = 4;
+}
+
+message DiagnoseWorkflowExecutionRequest {
+  string domain = 1;
+  WorkflowExecution workflow_execution = 2;
+  string identity = 3;
+}
+
+message DiagnoseWorkflowExecutionResponse {
+  Payload response = 1;
 }
 
 message StartWorkflowExecutionRequest {
