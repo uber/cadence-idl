@@ -118,8 +118,8 @@ message DiagnoseWorkflowExecutionRequest {
 }
 
 message DiagnoseWorkflowExecutionResponse {
-  DiagnoseWorkflowExecutionRequest request = 1;
-  Payload response = 2;
+  string domain = 1;
+  WorkflowExecution workflow_execution = 2;
 }
 
 message StartWorkflowExecutionRequest {
