@@ -1188,7 +1188,8 @@ struct DiagnoseWorkflowExecutionRequest {
 }
 
 struct DiagnoseWorkflowExecutionResponse {
-  10: optional binary response
+  10: optional DiagnoseWorkflowExecutionRequest request
+  20: optional binary response
 }
 
 struct PollForDecisionTaskRequest {

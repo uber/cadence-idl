@@ -118,7 +118,8 @@ message DiagnoseWorkflowExecutionRequest {
 }
 
 message DiagnoseWorkflowExecutionResponse {
-  Payload response = 1;
+  DiagnoseWorkflowExecutionRequest request = 1;
+  Payload response = 2;
 }
 
 message StartWorkflowExecutionRequest {
