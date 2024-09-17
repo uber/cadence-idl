@@ -1568,6 +1568,7 @@ struct PendingActivityInfo {
   120: optional string lastWorkerIdentity
   130: optional binary lastFailureDetails
   140: optional string startedWorkerIdentity
+  150: optional i64 (js.type = "Long") scheduleID
 }
 
 struct PendingDecisionInfo {
@@ -1576,6 +1577,7 @@ struct PendingDecisionInfo {
   30: optional i64 (js.type = "Long") startedTimestamp
   40: optional i64 attempt
   50: optional i64 (js.type = "Long") originalScheduledTimestamp
+  60: optional i64 (js.type = "Long") scheduleID
 }
 
 struct PendingChildExecutionInfo {

@@ -82,6 +82,7 @@ message PendingActivityInfo {
   Failure last_failure = 11;
   string last_worker_identity = 12;
   string started_worker_identity = 13;
+  int64 schedule_id = 14;
 }
 
 message PendingChildExecutionInfo {
@@ -98,6 +99,7 @@ message PendingDecisionInfo {
   google.protobuf.Timestamp started_time = 3;
   int32 attempt = 4;
   google.protobuf.Timestamp original_scheduled_time = 5;
+  int64 schedule_id = 6;
 }
 
 message ActivityLocalDispatchInfo {
