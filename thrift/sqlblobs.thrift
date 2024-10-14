@@ -231,11 +231,18 @@ struct TaskInfo {
   17: optional map<string, string> partitionConfig
 }
 
+struct TaskListPartitionConfig {
+  10: optional i64 (js.type = "Long") version
+  12: optional i32 numReadPartitions
+  14: optional i32 numWritePartitions
+}
+
 struct TaskListInfo {
   10: optional i16 kind // {Normal, Sticky}
   12: optional i64 (js.type = "Long") ackLevel
   14: optional i64 (js.type = "Long") expiryTimeNanos
   16: optional i64 (js.type = "Long") lastUpdatedNanos
+  18: optional TaskListPartitionConfig adaptivePartitionConfig
 }
 
 struct TransferTaskInfo {
