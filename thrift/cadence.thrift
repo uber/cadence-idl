@@ -43,6 +43,7 @@ service WorkflowService {
       3: shared.DomainAlreadyExistsError domainExistsError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -54,6 +55,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -65,6 +67,7 @@ service WorkflowService {
         3: shared.EntityNotExistsError entityNotExistError,
         4: shared.ServiceBusyError serviceBusyError,
         5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+        6: shared.AccessDeniedError accessDeniedError,
       )
 
   /**
@@ -77,6 +80,7 @@ service WorkflowService {
         4: shared.ServiceBusyError serviceBusyError,
         5: shared.DomainNotActiveError domainNotActiveError,
         6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+        7: shared.AccessDeniedError accessDeniedError,
       )
 
   /**
@@ -91,6 +95,7 @@ service WorkflowService {
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      7: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -105,6 +110,7 @@ service WorkflowService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.EntityNotExistsError entityNotExistError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      7: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -116,6 +122,7 @@ service WorkflowService {
       2: shared.ServiceBusyError serviceBusyError,
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      5: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -133,6 +140,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.EntityNotExistsError entityNotExistError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
   /**
   * StartWorkflowExecutionAsync starts a new long running workflow instance asynchronously. It will push a StartWorkflowExecutionRequest to a queue
@@ -147,6 +155,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.EntityNotExistsError entityNotExistError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
   /**
   * Returns the history of specified workflow execution.  It fails with 'EntityNotExistError' if speficied workflow
@@ -158,6 +167,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -175,6 +185,7 @@ service WorkflowService {
       5: shared.EntityNotExistsError entityNotExistError,
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -194,6 +205,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -211,6 +223,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -230,6 +243,7 @@ service WorkflowService {
       5: shared.EntityNotExistsError entityNotExistError,
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -248,6 +262,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -266,6 +281,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -284,6 +300,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -302,6 +319,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -320,6 +338,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -338,6 +357,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -356,6 +376,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -374,6 +395,7 @@ service WorkflowService {
       6: shared.ServiceBusyError serviceBusyError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -392,6 +414,7 @@ service WorkflowService {
       7: shared.LimitExceededError limitExceededError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       9: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      10: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -407,6 +430,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -425,6 +449,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.WorkflowExecutionAlreadyStartedError workflowAlreadyStartedError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -440,6 +465,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.EntityNotExistsError entityNotExistError,
       8: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
   /**
     * ResetWorkflowExecution reset an existing workflow execution to DecisionTaskCompleted event(exclusive).
@@ -453,6 +479,7 @@ service WorkflowService {
       5: shared.DomainNotActiveError domainNotActiveError,
       6: shared.LimitExceededError limitExceededError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -468,6 +495,7 @@ service WorkflowService {
       6: shared.LimitExceededError limitExceededError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -480,6 +508,7 @@ service WorkflowService {
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.LimitExceededError limitExceededError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      7: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -491,6 +520,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -502,6 +532,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -513,6 +544,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -524,6 +556,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -535,6 +568,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -544,6 +578,7 @@ service WorkflowService {
     throws (
       2: shared.ServiceBusyError serviceBusyError,
       3: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      4: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -559,6 +594,7 @@ service WorkflowService {
       5: shared.ServiceBusyError serviceBusyError,
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      8: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -579,6 +615,7 @@ service WorkflowService {
       6: shared.DomainNotActiveError domainNotActiveError,
       7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
       8: shared.WorkflowExecutionAlreadyCompletedError workflowExecutionAlreadyCompletedError,
+      9: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -592,6 +629,7 @@ service WorkflowService {
 	  5: shared.LimitExceededError limitExceededError,
 	  6: shared.ServiceBusyError serviceBusyError,
 	  7: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+    8: shared.AccessDeniedError accessDeniedError,
 	)
 
   /**
@@ -604,6 +642,7 @@ service WorkflowService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.ServiceBusyError serviceBusyError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      7: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -617,6 +656,7 @@ service WorkflowService {
       4: shared.LimitExceededError limitExceededError,
       5: shared.ServiceBusyError serviceBusyError,
       6: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      7: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -626,6 +666,7 @@ service WorkflowService {
     throws (
       1: shared.InternalServiceError internalServiceError,
       2: shared.ServiceBusyError serviceBusyError,
+      3: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -638,6 +679,7 @@ service WorkflowService {
       3: shared.LimitExceededError limitExceededError,
       4: shared.ServiceBusyError serviceBusyError,
       5: shared.ClientVersionNotSupportedError clientVersionNotSupportedError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
    /**
@@ -649,6 +691,7 @@ service WorkflowService {
       3: shared.EntityNotExistsError entityNotExistError,
       4: shared.LimitExceededError limitExceededError,
       5: shared.ServiceBusyError serviceBusyError,
+      6: shared.AccessDeniedError accessDeniedError,
     )
 
   /**
@@ -660,5 +703,6 @@ service WorkflowService {
       2: shared.DomainNotActiveError domainNotActiveError,
       3: shared.ServiceBusyError serviceBusyError,
       4: shared.EntityNotExistsError entityNotExistError,
+      5: shared.AccessDeniedError accessDeniedError,
     )
 }
