@@ -80,3 +80,9 @@ message StickyExecutionAttributes {
   TaskList worker_task_list = 1;
   google.protobuf.Duration schedule_to_start_timeout = 2;
 }
+
+message TaskListPartitionConfig {
+  int64 version = 1;
+  int32 num_read_partitions = 2;
+  int32 num_write_partitions = 3;
+}
