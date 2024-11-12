@@ -27,6 +27,7 @@ option go_package = "github.com/uber/cadence-idl/go/proto/admin/v1;adminv1";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 import "uber/cadence/api/v1/common.proto";
+import "uber/cadence/api/v1/tasklist.proto";
 import "uber/cadence/api/v1/visibility.proto";
 import "uber/cadence/admin/v1/cluster.proto";
 import "uber/cadence/admin/v1/history.proto";
@@ -139,7 +140,19 @@ service AdminAPI {
 
   // UpdateDomainAsyncWorkflowConfiguraton
   rpc UpdateDomainAsyncWorkflowConfiguraton(UpdateDomainAsyncWorkflowConfiguratonRequest) returns (UpdateDomainAsyncWorkflowConfiguratonResponse);
+
+  // UpdateTaskListPartitionConfig is called to update the partition config of a task list in the database
+  rpc UpdateTaskListPartitionConfig(UpdateTaskListPartitionConfigRequest) returns (UpdateTaskListPartitionConfigResponse);
 }
+
+message UpdateTaskListPartitionConfigRequest {
+  string domain = 1;
+  api.v1.TaskList task_list = 2;
+  api.v1.TaskListType task_list_type = 3;
+  api.v1.TaskListPartitionConfig partition_config = 4;
+}
+
+message UpdateTaskListPartitionConfigResponse {}
 
 message DescribeWorkflowExecutionRequest {
   string domain = 1;
