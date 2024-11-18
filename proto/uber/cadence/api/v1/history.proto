@@ -462,8 +462,3 @@ enum EventFilterType {
   EVENT_FILTER_TYPE_ALL_EVENT = 1;
   EVENT_FILTER_TYPE_CLOSE_EVENT = 2;
 }
-
-message VersionHistoryItem {
-    int64 event_id = 1;
-    int64 version = 2;
-}
