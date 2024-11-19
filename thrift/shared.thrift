@@ -1216,6 +1216,7 @@ struct PollForDecisionTaskResponse {
   120: optional map<string, WorkflowQuery> queries
   130: optional i64 (js.type = 'Long') nextEventId
   140: optional i64 (js.type = 'Long') totalHistoryBytes
+  150: optional AutoConfigHint autoConfigHint
 }
 
 struct StickyExecutionAttributes {
@@ -1272,6 +1273,7 @@ struct PollForActivityTaskResponse {
   150: optional WorkflowType workflowType
   160: optional string workflowDomain
   170: optional Header header
+  180: optional AutoConfigHint autoConfigHint
 }
 
 struct RecordActivityTaskHeartbeatRequest {
@@ -2017,4 +2019,8 @@ struct Any {
   // Arbitrarily-encoded bytes, to be deserialized by a runtime implementation.
   // The contents are described by ValueType.
   20: optional binary Value
+}
+
+struct AutoConfigHint {
+  10: optional i64 pollerWaitTimeInMs
 }
