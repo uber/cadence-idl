@@ -170,6 +170,7 @@ message PollForDecisionTaskResponse {
   map<string, WorkflowQuery> queries = 14;
   int64 next_event_id = 15;
   int64 total_history_bytes = 16;
+  AutoConfigHint auto_config_hint = 17;
 }
 
 message RespondDecisionTaskCompletedRequest {
@@ -224,6 +225,7 @@ message PollForActivityTaskResponse {
   WorkflowType workflow_type = 14;
   string workflow_domain = 15;
   Header header = 16;
+  AutoConfigHint auto_config_hint = 17;
 }
 
 message RespondActivityTaskCompletedRequest {
@@ -323,4 +325,8 @@ message ResetStickyTaskListRequest {
 }
 
 message ResetStickyTaskListResponse {
+}
+
+message AutoConfigHint {
+  int64 poller_wait_time_in_ms = 1;
 }
