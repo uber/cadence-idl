@@ -54,6 +54,9 @@ service DomainAPI {
 }
 
 message RegisterDomainRequest {
+  // domain_id is optional. A random UUID is generated if not set. 
+  // It can be set to a custom UUID as long as it doesn't collide with existing domain ids
+  // If unsure leave this empty.
   string security_token = 1;
   string name = 2;
   string description = 3;
