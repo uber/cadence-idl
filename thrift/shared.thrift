@@ -2022,5 +2022,6 @@ struct Any {
 }
 
 struct AutoConfigHint {
-  10: optional i64 pollerWaitTimeInMs
+  10: optional bool enableAutoConfig
+  20: optional i64 pollerWaitTimeInMs
 }

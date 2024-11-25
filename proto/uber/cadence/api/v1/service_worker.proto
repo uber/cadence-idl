@@ -328,5 +328,6 @@ message ResetStickyTaskListResponse {
 }
 
 message AutoConfigHint {
-  int64 poller_wait_time_in_ms = 1;
+  bool enable_auto_config = 1;
+  int64 poller_wait_time_in_ms = 2;
 }
