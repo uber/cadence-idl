@@ -68,6 +68,7 @@ struct GetMutableStateRequest {
   20: optional shared.WorkflowExecution execution
   30: optional i64 (js.type = "Long") expectedNextEventId
   40: optional binary currentBranchToken
+  50: optional shared.VersionHistoryItem versionHistoryItem
 }
 
 struct GetMutableStateResponse {
