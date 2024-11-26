@@ -95,7 +95,6 @@ struct GetMutableStateResponse {
   170: optional shared.VersionHistories versionHistories
   180: optional bool isStickyTaskListEnabled
   190: optional i64 (js.type = "Long") historySize
-  200: optional shared.VersionHistoryItem versionHistoryItem
 }
 
 struct PollMutableStateRequest {
